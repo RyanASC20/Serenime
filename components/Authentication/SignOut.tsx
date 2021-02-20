@@ -10,7 +10,7 @@ const SignOutButton: React.FC = () => {
   };
 
   return (
-    <button onClick={handleSignOut} className="mt-3 p-2 bg-gray-300">
+    <button onClick={handleSignOut} className="p-2 bg-gray-300">
       Sign Out
     </button>
   );

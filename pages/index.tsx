@@ -1,46 +1,53 @@
 import { useState } from "react";
-import Link from "next/link";
-import { Router, useRouter } from "next/router";
+import DatePicker from "react-datepicker";
 import Navbar from "../components/Navbar";
 import { useUser } from "../hooks/useUser";
 import { useDate } from "../hooks/useDate";
-import { auth } from "../config/firebase";
-import Graph from "../components/Graph";
-import DatePicker from "react-datepicker";
 import DataEntries from "../components/DataEntries";
-import DataEntryForm from '../components/Input/DataEntryForm';
-import { useEffect } from "react";
+import Calendar from "../components/Calendar";
 
 import "react-datepicker/dist/react-datepicker.css";
 
 export default function Index() {
-    const { user, userData } = useUser();
-    const [ date, setDate ] = useDate();
-
+    const { userData } = useUser();
+    const [date, setDate] = useDate();
+    const monthNames = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+    ];
 
     return (
         <div className="ml-10 mt-10 mr-10 flex-auto">
-            {user && userData && (
-                <h1 className="text-3xl">Welcome Back, {user.name}</h1>
-            )}
             <Navbar />
-            {user && userData && (
-                // <Link href="/create-entry">
-                //     <a className="block text-blue-600">Create Entry</a>
-                // </Link>
-              <DataEntryForm date={ `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}` }/>
+            <div className="mt-3 p-2 h-72 shadow-double-md rounded-lg text-center">
+                <DatePicker
+                    className="mt-3 bg-base w-1/2"
+                    selected={date}
+                    onChange={(date) => {
+                        setDate(date);
+                    }}
+                />
+
+                <Calendar date={ date }/>
+            </div>
+            <h2 className="mt-4 mb-4 text-center text-green-600 font-heading text-xl font-light">{ `${ monthNames[date.getMonth()] } ${ date.getDate() }, ${ date.getFullYear() }` }</h2>
+            {userData && (
+                <DataEntries
+                    date={`${date.getFullYear()}-${
+                        date.getMonth() + 1
+                    }-${date.getDate()}`}
+                />
             )}
-
-            <DatePicker
-                className="block border border-gray-800"
-                selected={ date }
-                onChange={(date) => {
-                    setDate(date);
-                }}
-            />
-
-            {user && userData && <DataEntries date={ `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}` } />}
-            {/* { user && userData && <Graph /> } */}
         </div>
     );
 }

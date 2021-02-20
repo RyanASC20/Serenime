@@ -3,19 +3,21 @@ import SignOutButton from "./Authentication/SignOut";
 import { useUser } from "../hooks/useUser";
 
 const Navbar: React.FC = () => {
-  const { user } = useUser();
+  const { userData } = useUser();
   return (
-    <div>
-      <div className="ml-10 mt-10 flex-auto">
+      <div className="flex justify-between items-center">
+        {userData && (
+            <h1 className="text-2xl font-light">Hi <span className="text-green-600">{ userData.name }</span></h1>
+        )}
         <ul className="ml-8 list-disc">
-          {!user && (
+          {!userData && (
             <li>
               <Link href="/login">
                 <a>Login</a>
               </Link>
             </li>
           )}
-          {!user && (
+          {!userData && (
             <li>
               <Link href="/signup">
                 <a>SignUp</a>
@@ -23,9 +25,9 @@ const Navbar: React.FC = () => {
             </li>
           )}
         </ul>
+      {userData && <SignOutButton />}
+
       </div>
-      {user && <SignOutButton />}
-    </div>
   );
 };
 

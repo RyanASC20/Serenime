@@ -1,152 +1,61 @@
-import { useState, useRef, ReactElement } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
-// import { firestore } from '../../config/firebase';
-import { useUser } from '../../hooks/useUser';
-import Entry from "./Entry";
-
+import { useUser } from "../../hooks/useUser";
+import MoodRadioGroup from "./MoodRadioGroup";
 
 interface P {
-    date: string;
+    setCreationMode: any;
+    descriptions: string[];
+    moods: number[];
 }
 
 interface inputData {
-    entryInput: string;
-    stressLevelInput: number;
+    description: string;
+    mood: number;
 }
 
-export interface entryData {
-    timestamp: Array<Date>;
-    stressLevel: number;
-    content: string;
-}
-
-const DataEntryForm: React.FC<P> = ({ date }) => {
-    const { handleSubmit, register, reset, errors } = useForm<inputData>();
-    const [entries, setEntries] = useState<Array<entryData>>([]);
-    const inputRef = useRef<HTMLTextAreaElement | null>(null);
-    const { userDataRef } = useUser();
-
-    console.log(date);
-
-    // const t = new Date();
-    // const datevalues: number[] = [
-    //     t.getFullYear(),
-    //     t.getMonth() + 1,
-    //     t.getDate(),
-    //     t.getHours(),
-    //     t.getMinutes(),
-    //     t.getSeconds(),
-    // ];
+const DataEntryForm: React.FC<P> = ({
+    setCreationMode,
+    descriptions,
+    moods,
+}) => {
+    const { entriesRef } = useUser();
+    const { register, handleSubmit, reset, errors } = useForm<inputData>();
 
 
-    // const [y, m, d]: number[] = datevalues;
-
-
-    const update = (e, idx, type) => {
-        if (type === 'entry') {
-            setEntries([
-                ...entries.slice(0, idx),
-                {timestamp: entries[idx].timestamp, stressLevel: 5, content: e.target.value},
-                ...entries.slice(idx + 1),
-            ]);
-        } else if (type === 'stressLevel') {
-            setEntries([
-                ...entries.slice(0, idx),
-                {timestamp: entries[idx].timestamp, stressLevel: e.target.value, content: entries[idx].content},
-                ...entries.slice(idx + 1),
-            ]);
-        }
-
-    };
-
-    const remove = (idx) => {
-        setEntries([...entries.slice(0, idx), ...entries.slice(idx+1)]);
-    }
 
     const onSubmit = (data: inputData) => {
-        inputRef.current.focus();
-        reset({ stressLevelInput: data.stressLevelInput })
-
-        setEntries([
-            { timestamp: [ new Date() ], stressLevel: data.stressLevelInput, content: data.entryInput },
-            ...entries,
-        ]);
+        entriesRef.set({
+            descriptions: [data.description, ...descriptions, ],
+            moods: [data.mood, ...moods, ],
+        });
+        reset();
+        setCreationMode(false);
     };
 
-    const onSave = () => {
-        if (entries.length > 0) {
-            console.log(date);
-            userDataRef.doc(date).set({
-                contents: entries.map(entry => entry.content),
-                stressLevel: entries.map(entry => entry.stressLevel)
-            });
-        }
-    }
-
-    const entriesItems: Array<ReactElement> = entries.map((entry, key) => {
-        return (
-            <Entry
-                key={key}
-                nameKey={key}
-                update={update}
-                register={ register }
-                timestamp={entry.timestamp[0]}
-                entry={entry.content}
-                stressLevel={entry.stressLevel}
-                remove={remove}
-            />
-        );
-    });
-
     return (
-        <div className="inline-block w-2/5">
-            <form onSubmit={handleSubmit(onSubmit)} >
-                <div>
-                    <label htmlFor="entryInput">Input: </label>
-                    <button
-                        type="submit"
-                        className="text-white bg-blue-400 p-2.5 mt-3 ml-4"
-                    >
-                        Add Entry
-                    </button>
-                </div>
-                <textarea
-                    name="entryInput"
-                    ref={(e) => {
-                        register(e, {
-                            required: true,
-                        });
-                        inputRef.current = e;
-                    }}
-                    className="w-full resize-none px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-gray-200 bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline"
-                ></textarea>
-                <div>
-                <label htmlFor="stressLevelInput">
-                        Rank how you feel:{" "}
-                    </label>
-                    <input
-                        type="number"
-                        min="0"
-                        max="10"
-                        name="stressLevelInput"
-                        className="ml-3 resize-none px-3 py-3 placeholder-gray-400 text-gray-700 relative bg-gray-200 bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline"
-                        ref={(e) => {
-                            register(e, {
-                                required: true,
-                            });
-                        }}
-                    ></input>
-
-                </div>
-            </form>
-            <div>{entriesItems}</div>
-            <button type="button" className="text-white bg-blue-400 p-3 mt-3" onClick={onSave}>
+        <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="p-3 mt-4 shadow-double-sm rounded-lg"
+        >
+            <h2>How are you?</h2>
+            <MoodRadioGroup register={ register }/>
+            <h2>What have you been up to?</h2>
+            <textarea
+                name="description"
+                className="pd-2 resize-none w-full bg-base border-2 border-gray-300 rounded-md focus:outline-none"
+                ref={register({
+                    required: true,
+                })}
+            ></textarea>
+            <button
+                type="submit"
+                className="p-2 text-green-500 shadow-double-xs rounded-lg hover:shadow-inner"
+            >
                 Save
             </button>
-        </div>
+        </form>
     );
 };
 
 export default DataEntryForm;
-
-
