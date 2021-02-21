@@ -21,7 +21,6 @@ export const useUser = () => {
 
 // Provider used in _app.js surrounding <Component> so all components have access to user value
 export const UserProvider: React.FC = ({ children }) => {
-    console.log("RERENDER");
     const [user, setUser] = useState<userInterface>({
         userData: null,
         entryData: null,
@@ -53,7 +52,7 @@ export const UserProvider: React.FC = ({ children }) => {
                 uid
             );
             const monthlyData = await firestoreHooks.useMonthlyData(uid, date);
-            console.log("setting user");
+            // console.log("setting user");
             setUser({
                 userData,
                 entryData,
@@ -87,7 +86,7 @@ export const UserProvider: React.FC = ({ children }) => {
         (async function () {
             if (user.userData && user.userData.uid) {
                 const unsubscribe = await fetchData(user.userData.uid);
-                console.log("FETCHED");
+                // console.log("FETCHED");
                 return function cleanup() {
                     unsubscribe();
                 };

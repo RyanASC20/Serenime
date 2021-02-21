@@ -11,17 +11,18 @@ module.exports = {
             },
             boxShadow: {
                 "double-xs":
-                    "-4px -4px 7px 0 rgba(255, 255, 255, 1), 4px 4px 7px 0 rgba(0, 0, 0, 0.2);",
+                    "-4px -4px 16px 0 #ffffff73, 4px 4px 16px 0 rgba(94, 104, 121, 0.288);",
                 "double-sm":
-                    "-8px -8px 8px 0 rgba(255, 255, 255, 1), 8px 8px 8px 0 rgba(0, 0, 0, 0.2);",
+                    "-8px -8px 16px 0 #ffffff73, 8px 8px 16px 0 rgba(94, 104, 121, 0.288);",
                 "double-md":
-                    "-12px -12px 12px 0 rgba(255, 255, 255, 1), 12px 12px 12px 0 rgba(0, 0, 0, 0.2);",
+                    "-12px -12px 16px 0 #ffffff73, 12px 12px 16px 0 rgba(94, 104, 121, 0.288);",
                 "double-lg":
-                    "-18px -18px 18px 0 rgba(255, 255, 255, 1), 18px 18px 18px 0 rgba(0, 0, 0, 0.2);",
+                    "-22px -22px 16px 0 #ffffff73, 22px 22px 16px 0 rgba(94, 104, 121, 0.288);",
             },
             colors: {
                 base: {
-                    DEFAULT: "#EEEEEE",
+                    DEFAULT: "#dde1e7",
+                    dark: "#dde1e7"
                 },
                 'emote-0': {
                     DEFAULT: "#3692e3"

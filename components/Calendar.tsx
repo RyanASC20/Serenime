@@ -1,29 +1,25 @@
 import { useUser } from '../hooks/useUser';
 import { useDate } from '../hooks/useDate';
-import { colors } from '../public/static/icons';
+import { emoteColors } from '../public/static/icons';
 
 interface P {
     date: Date;
 }
 
-
-
 const Calendar: React.FC<P> = ({  }) => {
     const { monthlyData } = useUser();
     const [ date, setDate, dim ] = useDate();
     const startMonth = new Date(date.getFullYear(), date.getMonth(), 1);
-    // const daysPerMonth = [31, date.getFullYear() % 4 === 0 ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
+    console.log(monthlyData);
     const t = [];
-    let i = 0;
     if (monthlyData != null) {
         for (let i = 0; i <= dim + startMonth.getDay() - 1; i++) {
             if (i < startMonth.getDay()) { t.push(<div key={ i }></div>) }
             else {
                 const calendarPos = i - startMonth.getDay() + 1 ;
-                const c = monthlyData[calendarPos] == null ? 'base' : colors[Math.floor(monthlyData[calendarPos])];
-                console.log(monthlyData[calendarPos])
-                t.push(<div key={ i } className={ `p-1 rounded-lg text-sm bg-${c}` }>{ calendarPos }</div> )
+                const c = monthlyData[calendarPos] == null ? 'base-dark' : emoteColors[Math.floor(monthlyData[calendarPos])];
+                t.push(<div key={ i } className={ `transition duration-300 p-1 rounded-lg text-sm bg-${c} cursor-pointer border-2 border-${c} hover:border-green-900 hover:opacity-50` } onClick={() => { setDate(new Date(date.getFullYear(), date.getMonth(), calendarPos)) } }>{ calendarPos }</div> )
             }
         }
     }

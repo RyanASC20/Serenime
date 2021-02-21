@@ -46,9 +46,13 @@ export const useMonthlyData = async(uid: string, date: Date | null) => {
     snapshot.forEach(doc => {
         const data = doc.data();
         const moods = data.moods;
-        const sum = moods.reduce((acc, cur) => parseInt(acc) + parseInt(cur));
-        const mean = sum / moods.length;
-        values[parseInt(doc.id)] = mean;
+        if (moods.length > 0) {
+            const sum = moods.reduce((acc, cur) => {
+                return acc + parseInt(cur.mood)
+            }, 0);
+            const mean = sum / moods.length;
+            values[parseInt(doc.id)] = mean;
+        }
     });
     return values;
 }

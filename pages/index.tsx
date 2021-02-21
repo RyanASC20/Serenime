@@ -1,10 +1,10 @@
-import { useState } from "react";
 import DatePicker from "react-datepicker";
 import Navbar from "../components/Navbar";
 import { useUser } from "../hooks/useUser";
 import { useDate } from "../hooks/useDate";
 import DataEntries from "../components/DataEntries";
 import Calendar from "../components/Calendar";
+import Quote from "../components/Quote";
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -29,9 +29,10 @@ export default function Index() {
     return (
         <div className="ml-10 mt-10 mr-10 flex-auto">
             <Navbar />
-            <div className="mt-3 p-2 h-72 shadow-double-md rounded-lg text-center">
+            <Quote />
+            <div className="mt-3 p-2 h-72 bg-base-dark shadow-double-md rounded-lg text-center">
                 <DatePicker
-                    className="mt-3 bg-base w-1/2"
+                    className="mt-3 bg-base-dark w-1/2"
                     selected={date}
                     onChange={(date) => {
                         setDate(date);
@@ -41,7 +42,7 @@ export default function Index() {
                 <Calendar date={ date }/>
             </div>
             <h2 className="mt-4 mb-4 text-center text-green-600 font-heading text-xl font-light">{ `${ monthNames[date.getMonth()] } ${ date.getDate() }, ${ date.getFullYear() }` }</h2>
-            {userData && (
+            {userData && (  
                 <DataEntries
                     date={`${date.getFullYear()}-${
                         date.getMonth() + 1
