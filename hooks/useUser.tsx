@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { auth, firestore } from "../config/firebase";
 import { useDate } from "./useDate";
-import * as firestoreHooks from "../config/firestore";
+import * as firestoreHooks from "./firestoreHooks";
 
 interface userInterface {
     userData: any;

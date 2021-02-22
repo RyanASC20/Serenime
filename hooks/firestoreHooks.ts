@@ -1,5 +1,5 @@
-import { firestore } from './firebase';
-import { daysInMonth } from '../hooks/useDate';
+import { firestore } from '../config/firebase';
+import { daysInMonth } from './useDate';
 
 
 export const useUserRef = (uid: string | null) => {
