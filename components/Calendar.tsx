@@ -6,19 +6,19 @@ interface P {
     date: Date;
 }
 
-const Calendar: React.FC<P> = ({  }) => {
+const Calendar: React.FC<P> = ({ }) => {
     const { monthlyData } = useUser();
-    const [ date, setDate, dim ] = useDate();
+    const [date, setDate, dim] = useDate();
     const startMonth = new Date(date.getFullYear(), date.getMonth(), 1);
 
     const t = [];
     if (monthlyData != null) {
         for (let i = 0; i <= dim + startMonth.getDay() - 1; i++) {
-            if (i < startMonth.getDay()) { t.push(<div key={ i }></div>) }
+            if (i < startMonth.getDay()) { t.push(<div key={i}></div>) }
             else {
-                const calendarPos = i - startMonth.getDay() + 1 ;
-                const c = monthlyData[calendarPos] == null ? 'base-dark' : emoteColors[Math.floor(monthlyData[calendarPos])];
-                t.push(<div key={ i } className={ `transition duration-300 p-1 rounded-lg text-sm bg-${c} cursor-pointer border-2 border-${c} hover:border-green-900 hover:opacity-50` } onClick={() => { setDate(new Date(date.getFullYear(), date.getMonth(), calendarPos)) } }>{ calendarPos }</div> )
+                const calendarPos = i - startMonth.getDay() + 1;
+                const c = monthlyData[calendarPos] == null ? 'base' : emoteColors[Math.floor(monthlyData[calendarPos])];
+                t.push(<div key={i} className={`transition duration-300 p-1 rounded-lg border-2 border-2 ${calendarPos == date.getDate() ? 'border-blue-600' : `border-${c}` } text-sm bg-${c} cursor-pointer hover:border-blue-600 hover:opacity-50`} onClick={() => { setDate(new Date(date.getFullYear(), date.getMonth(), calendarPos)) }}>{calendarPos}</div>)
             }
         }
     }
@@ -37,7 +37,7 @@ const Calendar: React.FC<P> = ({  }) => {
         //         <th>Sat</th>
         //     </tr>
         // </table>
-        <div className="grid grid-cols-7 gap-2">
+        <div className="grid grid-cols-7">
             <div>
                 Sun
             </div>
@@ -59,7 +59,7 @@ const Calendar: React.FC<P> = ({  }) => {
             <div>
                 Sat
             </div>
-            { t }
+            { t}
         </div>
     )
 }
