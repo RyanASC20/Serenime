@@ -11,7 +11,6 @@ const Calendar: React.FC<P> = ({  }) => {
     const [ date, setDate, dim ] = useDate();
     const startMonth = new Date(date.getFullYear(), date.getMonth(), 1);
 
-    console.log(monthlyData);
     const t = [];
     if (monthlyData != null) {
         for (let i = 0; i <= dim + startMonth.getDay() - 1; i++) {

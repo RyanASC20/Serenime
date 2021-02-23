@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { auth, firestore } from "../config/firebase";
+import { auth } from "../config/firebase";
 import { useDate } from "./useDate";
 import * as firestoreHooks from "./firestoreHooks";
 
@@ -28,16 +28,7 @@ export const UserProvider: React.FC = ({ children }) => {
         entriesRef: null,
         monthlyData: null
     });
-
     const [date] = useDate();
-    const datevalues: number[] = [
-        date.getFullYear(),
-        date.getMonth() + 1,
-        date.getDate(),
-    ];
-
-    const [y, m, d]: number[] = datevalues;
-    const cleanedDate = `${y}-${m}-${d}`;
 
     const fetchData = async (uid) => {
         const [userRef, entriesRef] = firestoreHooks.useDataRefs(
@@ -96,20 +87,3 @@ export const UserProvider: React.FC = ({ children }) => {
 
     return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
 };
-
-// let userRef;
-// let userData;
-// const fetchUser = async () => {
-//   console.log("FETCHING DATA")
-//   userRef = await firestore.collection("users").doc(user.uid).get();
-//   const userDataRef = firestore.collection("users").doc(user.uid).collection('data');
-//   userData = await userDataRef.doc(`${y}-${m}-${d}`).get()
-//   console.log(userData)
-//   setUser({user: userRef.data(), userData: userData, userRef, userDataRef })
-
-//   userDataRef.onSnapshot(async (snapshot) => {
-//     userData = await userDataRef.doc(`${y}-${m}-${d}`).get()
-//     setUser({user: userRef.data(), userData, userRef, userDataRef });
-//   });
-// };
-// fetchUser();

@@ -24,6 +24,7 @@ const DataEntries: React.FC<P> = ({ date }) => {
     const [descriptions, setDescriptions] = useState<Data[]>([]);
     const [moods, setMoods] = useState<Data[]>([]);
     const [creationMode, setCreationMode] = useState<boolean>(false);
+    
     useEffect(() => {
         const fetchData = async () => {
             try {
