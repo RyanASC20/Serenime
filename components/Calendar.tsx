@@ -1,3 +1,4 @@
+import DatePicker from "react-datepicker";
 import { useUser } from '../hooks/useUser';
 import { useDate } from '../hooks/useDate';
 import { emoteColors } from '../public/static/icons';
@@ -18,7 +19,7 @@ const Calendar: React.FC<P> = ({ }) => {
             else {
                 const calendarPos = i - startMonth.getDay() + 1;
                 const c = monthlyData[calendarPos] == null ? 'base' : emoteColors[Math.floor(monthlyData[calendarPos])];
-                t.push(<div key={i} className={`transition duration-300 p-1 rounded-lg border-2 border-2 ${calendarPos == date.getDate() ? 'border-blue-600' : `border-${c}` } text-sm bg-${c} cursor-pointer hover:border-blue-600 hover:opacity-50`} onClick={() => { setDate(new Date(date.getFullYear(), date.getMonth(), calendarPos)) }}>{calendarPos}</div>)
+                t.push(<div key={i} className={`transition duration-300 p-1 rounded-lg border-2 border-2 ${calendarPos == date.getDate() ? 'border-blue-600' : `border-${c}`} text-sm bg-${c} cursor-pointer hover:border-blue-600 hover:opacity-50`} onClick={() => { setDate(new Date(date.getFullYear(), date.getMonth(), calendarPos)) }}>{calendarPos}</div>)
             }
         }
     }
@@ -37,30 +38,39 @@ const Calendar: React.FC<P> = ({ }) => {
         //         <th>Sat</th>
         //     </tr>
         // </table>
-        <div className="grid grid-cols-7">
-            <div>
-                Sun
+        <>
+            <DatePicker
+                className="mt-3 bg-base-dark w-1/2"
+                selected={date}
+                onChange={(date) => {
+                    setDate(date);
+                }}
+            />
+            <div className="grid grid-cols-7">
+                <div>
+                    Sun
             </div>
-            <div>
-                M
+                <div>
+                    M
             </div>
-            <div>
-                T
+                <div>
+                    T
             </div>
-            <div>
-                W
+                <div>
+                    W
             </div>
-            <div>
-                Th
+                <div>
+                    Th
             </div>
-            <div>
-                F
+                <div>
+                    F
             </div>
-            <div>
-                Sat
+                <div>
+                    Sat
             </div>
-            { t}
-        </div>
+                {t}
+            </div>
+        </>
     )
 }
 

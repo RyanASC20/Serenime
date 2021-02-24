@@ -1,4 +1,3 @@
-import DatePicker from "react-datepicker";
 import Navbar from "../components/Navbar";
 import { useUser } from "../hooks/useUser";
 import { useDate } from "../hooks/useDate";
@@ -10,7 +9,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 export default function Index() {
     const { userData } = useUser();
-    const [date, setDate] = useDate();
+    const [date] = useDate();
     const monthNames = [
         "January",
         "February",
@@ -31,14 +30,6 @@ export default function Index() {
             <Navbar />
             <Quote />
             <div className="mt-3 p-2 h-72 bg-base-dark shadow-double-md rounded-lg text-center">
-                <DatePicker
-                    className="mt-3 bg-base-dark w-1/2"
-                    selected={date}
-                    onChange={(date) => {
-                        setDate(date);
-                    }}
-                />
-
                 <Calendar date={ date }/>
             </div>
             <h2 className="mt-4 mb-4 text-center text-green-600 font-heading text-xl font-light">{ `${ monthNames[date.getMonth()] } ${ date.getDate() }, ${ date.getFullYear() }` }</h2>
