@@ -12,7 +12,10 @@ import {
     mdiWeatherSunsetUp,
     mdiWeatherSunsetDown,
     mdiWeatherSunny,
-    mdiWeatherNight
+    mdiWeatherNight,
+    mdiHome,
+    mdiWeatherWindy,
+    mdiCalendar
 } from "@mdi/js";
 
 export const emotes = [
@@ -68,6 +71,10 @@ export const timeIconElements: JSX.Element[] = timeIcons.map((ic, idx) => {
 
 export const deleteIconElement = <Icon path={ mdiDelete } title="delete" size={ 1 }></Icon>
 export const penIconElement = <Icon path={ mdiPen } title="edit" size={ 1 }></Icon>
+export const HomeIconElement = <Icon path={ mdiHome } title="Home" size={ 0.85 } className="inline mr-2"></Icon>
+export const WindIconElement = <Icon path={ mdiWeatherWindy } title="Breathing" size={ 0.85 } className="inline mr-2"></Icon>
+export const RoutineIconElement = <Icon path={ mdiCalendar } title="Breathing" size={ 0.85 } className="inline mr-2"></Icon>
+
 
 export { emoteColors, timeIconColors, timeIconBg }
 export default Icon;

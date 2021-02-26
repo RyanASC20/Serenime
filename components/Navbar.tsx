@@ -7,7 +7,7 @@ const Navbar: React.FC = () => {
   return (
       <div className="flex justify-between items-center">
         {userData && (
-            <h1 className="text-2xl font-light">Hi <span className="text-green-600">{ userData.name }</span></h1>
+            <h1 className="text-2xl font-light">Hi <span className="text-green-600 font-bold">{ userData.name }</span></h1>
         )}
         <ul className="ml-8 list-disc">
           {!userData && (
