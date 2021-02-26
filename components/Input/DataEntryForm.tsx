@@ -56,10 +56,19 @@ const DataEntryForm: React.FC<P> = ({setCreationMode, setEditMode, entryIndex}) 
 
     };
 
+    const handleCancel = () => {
+        if (setCreationMode) {
+            setCreationMode(false);
+        }
+        if (setEditMode) {
+            setEditMode(false);
+        }
+    }
+
     return (
         <form
             onSubmit={handleSubmit(onSubmit)}
-            className="p-3 mt-4 shadow-double-sm rounded-lg"
+            className="p-3 mt-4 shadow-double-sm rounded-lg w-full"
         >
             <h2>How are you?</h2>
             <MoodRadioGroup register={ register }/>
@@ -79,10 +88,10 @@ const DataEntryForm: React.FC<P> = ({setCreationMode, setEditMode, entryIndex}) 
             >
                 Save
             </button>
-           { setEditMode && <button
+           { <button
                 type="button"
                 className="p-2 ml-3 text-red-500 shadow-double-xs rounded-lg hover:shadow-inner"
-                onClick={ () => { setEditMode(false); } }
+                onClick={ handleCancel }
             >
                 Cancel
             </button> }

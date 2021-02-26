@@ -24,6 +24,13 @@ module.exports = {
                     DEFAULT: "#dde1e7",
                     dark: "#dde1e7"
                 },
+                'sidebar-bg': {
+                    DEFAULT: "#535467"
+                },
+                'sidebar-text': {
+                    DEFAULT: "#D3D3D3",
+                    green: "#55D681"
+                },
                 'emote-0': {
                     DEFAULT: "#3692e3"
                 },

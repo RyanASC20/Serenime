@@ -5,7 +5,7 @@ import { useUser } from "../hooks/useUser";
 const Navbar: React.FC = () => {
   const { userData } = useUser();
   return (
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center border-b-2 border-gray-500">
         {userData && (
             <h1 className="text-2xl font-light">Hi <span className="text-green-600 font-bold">{ userData.name }</span></h1>
         )}

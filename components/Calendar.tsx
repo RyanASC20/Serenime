@@ -19,7 +19,7 @@ const Calendar: React.FC<P> = ({ }) => {
             else {
                 const calendarPos = i - startMonth.getDay() + 1;
                 const c = monthlyData[calendarPos] == null ? 'base' : emoteColors[Math.floor(monthlyData[calendarPos])];
-                t.push(<div key={i} className={`transition duration-300 p-1 rounded-lg border-2 border-2 ${calendarPos == date.getDate() ? 'border-blue-600' : `border-${c}`} text-sm bg-${c} cursor-pointer hover:border-blue-600 hover:opacity-50`} onClick={() => { setDate(new Date(date.getFullYear(), date.getMonth(), calendarPos)) }}>{calendarPos}</div>)
+                t.push(<div key={i} className={`transition duration-300 p-1 py-3 rounded-lg border-2 border-2 ${calendarPos == date.getDate() ? 'border-blue-600' : `border-${c}`} text-sm bg-${c} cursor-pointer hover:border-blue-600 hover:opacity-50`} onClick={() => { setDate(new Date(date.getFullYear(), date.getMonth(), calendarPos)) }}>{calendarPos}</div>)
             }
         }
     }
@@ -27,18 +27,7 @@ const Calendar: React.FC<P> = ({ }) => {
 
 
     return (
-        // <table>
-        //     <tr>
-        //         <th>Sun</th>
-        //         <th>M</th>
-        //         <th>T</th>
-        //         <th>W</th>
-        //         <th>Th</th>
-        //         <th>F</th>
-        //         <th>Sat</th>
-        //     </tr>
-        // </table>
-        <>
+        <div className="mt-3 p-2 w-full h-full md:w-5/12 bg-base-dark shadow-double-md rounded-lg text-center">
             <DatePicker
                 className="mt-3 bg-base-dark w-1/2"
                 selected={date}
@@ -46,7 +35,7 @@ const Calendar: React.FC<P> = ({ }) => {
                     setDate(date);
                 }}
             />
-            <div className="grid grid-cols-7">
+            <div className="grid grid-cols-7 gap-2">
                 <div>
                     Sun
             </div>
@@ -70,7 +59,7 @@ const Calendar: React.FC<P> = ({ }) => {
             </div>
                 {t}
             </div>
-        </>
+        </div>
     )
 }
 

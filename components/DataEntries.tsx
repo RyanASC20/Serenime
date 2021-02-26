@@ -76,14 +76,7 @@ const DataEntries: React.FC<P> = ({ date }) => {
     });
 
     return (
-        <div className="mb-10">
-            <button
-                type="button"
-                className="transition duration-500 p-2 bg-base-dark text-green-500 shadow-double-sm rounded-lg hover:shadow-inner focus:outline-none"
-                onClick={() => setCreationMode(!creationMode)}
-            >
-                {creationMode ? <>Cancel</> : <>New Entry</>}
-            </button>
+        <div className="flex flex-col items-center w-full">
             {creationMode && (
                 <DataEntryForm setCreationMode={setCreationMode} />
             )}
@@ -143,6 +136,13 @@ const DataEntries: React.FC<P> = ({ date }) => {
             ) : (
                 <></>
             )}
+            <button
+                type="button"
+                className="my-5 transition duration-500 p-2 bg-base-dark text-green-500 shadow-double-sm rounded-lg hover:shadow-inner focus:outline-none"
+                onClick={() => setCreationMode(!creationMode)}
+            >
+                {creationMode ? <>Cancel</> : <>New Entry</>}
+            </button>
         </div>
     );
 };
