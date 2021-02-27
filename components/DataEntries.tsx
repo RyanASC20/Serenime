@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Entry from "./Entry";
 import { useUser } from "../hooks/useUser";
-import DataEntryForm from "../components/Input/DataEntryForm";
+import DataEntryForm from "./Input/MoodData/DataEntryForm";
 import {
     timeIconElements,
     timeIconColors,

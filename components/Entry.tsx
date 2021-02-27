@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import DataEntryForm from './Input/DataEntryForm';
+import DataEntryForm from './Input/MoodData/DataEntryForm';
 import { emoteElements, deleteIconElement, penIconElement } from "../public/static/icons";
 
 interface P {

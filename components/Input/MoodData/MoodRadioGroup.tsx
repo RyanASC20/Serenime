@@ -19,7 +19,7 @@ const MoodRadioGroup: React.FC<P> = ({ register }) => {
                     name="mood"
                     value={idx}
                     className="w-0 h-0"
-                    onClick={() => setClicked(idx)}
+                    onClick={() => { setClicked(idx) }}
                 ></input>
                 <label className={`transition duration-400 border-2 rounded-full shadow-double-xs cursor-pointer hover:shadow-inner ${clicked === idx ? 'p-1 border-green-600' : '' }` } htmlFor={ `mood-${idx}` }>{ ic }</label>
             </div>
