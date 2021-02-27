@@ -1,18 +1,6 @@
-/* .on {
-    width: 100px;
-    height: 100px;
-    border-radius: 100%;
-    background-color: greenyellow;
-    animation-name: breathe;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
+.visualization {
+    transform: translate(-50%, -50%);
 }
-
-@keyframes breathe {
-    0% { width: 100px; height: 100px; transform: translate(-50%, -50%);}
-    50% { width: 400px; height: 400px; transform: translate(-50%, -50%);}
-    100% { width: 100px; height: 100px; transform: translate(-50%, -50%);}
-} */
 
 .in {
     /* width:100px;

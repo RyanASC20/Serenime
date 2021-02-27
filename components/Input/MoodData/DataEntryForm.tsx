@@ -97,7 +97,7 @@ const DataEntryForm: React.FC<P> = ({setCreationMode, setEditMode, entryIndex}) 
                 Cancel
             </button> */}
             <Button text="Submit" textColor="green" textSize="lg" />
-            <Button text="Cancel" type="button" textColor="red" textSize="lg" />
+            <Button text="Cancel" type="button" textColor="red" textSize="lg" onClick={handleCancel} />
         </form>
     );
 };

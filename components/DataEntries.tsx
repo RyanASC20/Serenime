@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Entry from "./Entry";
+import Button from './Button';
 import { useUser } from "../hooks/useUser";
 import DataEntryForm from "./Input/MoodData/DataEntryForm";
 import {
@@ -126,13 +127,14 @@ const DataEntries: React.FC<P> = ({ date }) => {
             ) : (
                 <></>
             )}
-            <button
+            {/* <button
                 type="button"
                 className="my-5 transition duration-500 p-2 bg-base-dark text-green-500 shadow-double-sm rounded-lg hover:shadow-inner focus:outline-none"
                 onClick={() => setCreationMode(!creationMode)}
             >
                 {creationMode ? <>Cancel</> : <>New Entry</>}
-            </button>
+            </button> */}
+            <Button text={creationMode ? 'Cancel' : 'New Entry'} textColor={creationMode ? 'red' : 'green'} textSize="lg" onClick={() => { setCreationMode(!creationMode) } } />
         </div>
     );
 };

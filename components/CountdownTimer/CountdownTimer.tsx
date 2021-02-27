@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import Button from '../Button';
 import styles from './CountdownTimer.module.css';
 
 interface P {
@@ -33,18 +34,21 @@ const CountdownTimer: React.FC<P> = ({ duration, breathIntervals }) => {
 
     return (
         <div className="flex flex-col items-center md:w-2/3">
-            <div className={`rounded-full bg-green-500 w-96 h-96 ${!paused ? styles[animationPostions[intervalPosition.current]] : "" }`}></div>
-            { Math.floor(currentCount / 60)}: { currentCount % 60}
-            <div>{ currentCount - intervalBreakpoint.current + 1}</div>
+            <div className={`flex justify-center items-center rounded-full bg-green-500 w-96 h-96 ${!paused ? styles[animationPostions[intervalPosition.current]] : "" }`}>
+                <div className={`flex justify-center items-center w-52 h-52 rounded-full bg-base`}>
+                    <p className="text-3xl font-light capitalize">{animationPostions[intervalPosition.current]}</p>
+                    <p className="text-lg font-light">...{ currentCount - intervalBreakpoint.current + 1}</p>
+                </div>
+            </div>
+            <p className="m-8 text-4xl font-thin">{ Math.floor(currentCount / 60)}:{ currentCount % 60}</p>
             <div>
-                <button className="p-3 text-light text-2xl text-green-500 rounded-lg border-2 border-gray-500" onClick={() => { setPaused(!paused) }}>{paused ? "Play" : "Pause"}</button>
-                <button className="p-3 text-light text-2xl text-green-500 rounded-lg border-2 border-gray-500" 
-                    onClick={() => { 
-                        setCurrentCount(duration); 
+                <Button text={paused ? "Play" : "Pause"} textColor="green" onClick={() => { setPaused(!paused) }} />
+                <Button text="Reset" textColor="green" onClick={() => { 
                         intervalPosition.current = 0; 
                         intervalBreakpoint.current = duration - breathIntervals[intervalPosition.current] + 1;
                         setPaused(true); 
-                }}>Reset</button>
+                        setCurrentCount(duration); 
+                } } />
             </div>
             
 
