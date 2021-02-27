@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import Sidebar from '../components/Sidebar';
-import Navbar from '../components/Navbar';
 import BreathingForm from '../components/Input/Breathing/BreathingForm';
 import CountdownTimer from '../components/CountdownTimer/CountdownTimer';
 import breathingExercises from '../public/static/breathingExercises.json';
@@ -38,7 +37,7 @@ const Breathing: React.FC = () => {
                     </ul>
                 </div>
                 {/* <CountdownTimer duration={ selection ? selection.duration : 0 } breathIntervals={ selectedMethod ? selectedMethod.breathIntervals : 0 }/> */}
-                <CountdownTimer duration={30} breathIntervals={selectedMethod ? selectedMethod.breathIntervals : 0} />
+                    {selectedMethod && <CountdownTimer duration={ selection.duration * 10} breathingMethod={ selectedMethod.breathIntervals } /> }
             </div>
 
 

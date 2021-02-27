@@ -1,10 +1,9 @@
 {
     "Energy": {
-        "breathIntervals": [
-            4,
-            7,
-            8
-        ],
+        "breathIntervals": {
+            "in": 2,
+            "out": 2
+        },
         "instructions": [
             "Inhale for 4 counts through nose",
             "Hold for 7 counts",
