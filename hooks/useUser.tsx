@@ -60,6 +60,7 @@ export const UserProvider: React.FC = ({ children }) => {
 
     // Set value of UserContext to user when user is changed
     useEffect(() => {
+        setMounted(true);
         auth.onAuthStateChanged((u) => {
             if (u) {
                 fetchData(u.uid);

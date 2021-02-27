@@ -24,7 +24,7 @@ const Calendar: React.FC = () => {
 
 
     return (
-        <div className="mt-3 p-4 h-full lg:w-5/12 md:w-full bg-base-dark shadow-double-md rounded-lg text-center">
+        <div className="mt-36 p-4 h-full lg:w-5/12 md:w-full bg-base-dark shadow-double-md rounded-lg text-center">
             <DatePicker
                 className="mt-3 bg-base-dark w-1/2"
                 selected={date}

@@ -33,7 +33,7 @@ export default function Index() {
             <Sidebar />
             <div className="w-full md:m-5">
                 <Navbar />
-                <div className="flex flex-col md:m-5 lg:flex-row lg:justify-between lg:items-center">
+                <div className="flex flex-col md:m-5 lg:flex-row lg:justify-between">
                     <Calendar />
                     <div className="lg:w-1/2">
                         <h2 className="mt-4 text-center text-green-600 font-heading text-xl font-light">{`${
