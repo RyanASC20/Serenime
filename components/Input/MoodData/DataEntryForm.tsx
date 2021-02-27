@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useUser } from "../../../hooks/useUser";
+import Button from '../../Button';
 import MoodRadioGroup from "./MoodRadioGroup";
 import TimePeriodRadioGoup from './TimePeriodRadioGroup';
 
@@ -82,19 +83,21 @@ const DataEntryForm: React.FC<P> = ({setCreationMode, setEditMode, entryIndex}) 
             ></textarea>
             <h2>When?</h2>
             <TimePeriodRadioGoup register={ register } />
-            <button
+            {/* <button
                 type="submit"
                 className="p-2 text-green-500 shadow-double-xs rounded-lg hover:shadow-inner"
             >
                 Save
-            </button>
-           { <button
+            </button> */}
+           {/* <button
                 type="button"
                 className="p-2 ml-3 text-red-500 shadow-double-xs rounded-lg hover:shadow-inner"
                 onClick={ handleCancel }
             >
                 Cancel
-            </button> }
+            </button> */}
+            <Button text="Submit" textColor="green" textSize="lg" />
+            <Button text="Cancel" type="button" textColor="red" textSize="lg" />
         </form>
     );
 };

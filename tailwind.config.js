@@ -9,6 +9,11 @@ module.exports = {
                 sans: ["Lato", "sans-serif"],
                 heading: ["Raleway", "sans-serif"],
             },
+            transitionDuration: {
+                '4000': '4000ms',
+                '7000': '7000ms',
+                '8000': '8000ms',
+            },
             boxShadow: {
                 "double-xs":
                     "-4px -4px 16px 0 #ffffff73, 4px 4px 16px 0 rgba(94, 104, 121, 0.288);",

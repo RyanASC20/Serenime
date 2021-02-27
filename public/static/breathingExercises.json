@@ -1,0 +1,30 @@
+{
+    "Energy": {
+        "breathIntervals": [
+            4,
+            7,
+            8
+        ],
+        "instructions": [
+            "Inhale for 4 counts through nose",
+            "Hold for 7 counts",
+            "Exhale for 8 counts out mouth",
+            "As you breath, try to feel the air moving in through your nose and out through your mouth",
+            "Use the timer to help guide you!"
+        ]
+    },
+    "Sleep": {
+        "breathIntervals": {
+            "in": 4,
+            "hold": 7,
+            "out": 8
+        },
+        "instructions": [
+            "Inhale for 4 counts through nose",
+            "Hold for 7 counts",
+            "Exhale for 8 counts out mouth",
+            "As you breath, try to feel the air moving in through your nose and out through your mouth",
+            "Use the timer to help guide you!"
+        ]
+    }
+}

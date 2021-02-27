@@ -1,0 +1,67 @@
+/* .on {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    background-color: greenyellow;
+    animation-name: breathe;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes breathe {
+    0% { width: 100px; height: 100px; transform: translate(-50%, -50%);}
+    50% { width: 400px; height: 400px; transform: translate(-50%, -50%);}
+    100% { width: 100px; height: 100px; transform: translate(-50%, -50%);}
+} */
+
+.in {
+    /* width:100px;
+    height: 100px; */
+    /* background-color: greenyellow; */
+    animation-name: in;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes in {
+    from {
+        width: 14rem;
+        height: 14rem;
+    }
+    to {
+        width: 24rem;
+        height: 24rem;
+    }
+}
+
+.hold {
+    /* width:100px;
+    height: 100px; */
+    /* background-color: red; */
+    /* width: 24rem;
+    height: 24rem;
+    animation-name: hold;
+    animation-duration: 8s;
+    animation-iteration-count: infinite; */
+}
+
+.out {
+    /* width:100px;
+    height: 100px; */
+    /* background-color: greenyellow; */
+    animation-name: out;
+    animation-duration: 9s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes out {
+    from {
+        width: 24rem;
+        height: 24rem;
+    }
+    to {
+        width: 14rem;
+        height: 14rem;
+    }
+}
+
