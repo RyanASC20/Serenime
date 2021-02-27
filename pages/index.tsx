@@ -4,7 +4,7 @@ import { useDate } from "../hooks/useDate";
 import DataEntries from "../components/DataEntries";
 import Calendar from "../components/Calendar";
 import Quote from "../components/Quote";
-import Sidebar from "../components/Sidebar/Sidebar";
+import Sidebar from "../components/Sidebar";
 
 // @refresh reset
 
@@ -29,14 +29,13 @@ export default function Index() {
     ];
 
     return (
-        <div className="flex flex-col md:flex-row w-full">
+        <div className="flex flex-col md:flex-row m-5 md:m-0">
             <Sidebar />
-            <div className="m-10 w-full">
+            <div className="w-full md:m-5">
                 <Navbar />
-                {/* <Quote /> */}
-                <div className="flex flex-col md:flex-row justify-between md:m-5">
-                    <Calendar date={date} />
-                    <div className="md:w-1/2">
+                <div className="flex flex-col md:m-5 lg:flex-row lg:justify-between lg:items-center">
+                    <Calendar />
+                    <div className="lg:w-1/2">
                         <h2 className="mt-4 text-center text-green-600 font-heading text-xl font-light">{`${
                             monthNames[date.getMonth()]
                         } ${date.getDate()}, ${date.getFullYear()}`}</h2>
@@ -52,5 +51,25 @@ export default function Index() {
                 </div>
             </div>
         </div>
+        // <div className="m-5 md:flex md:flex-col">
+        //     <Sidebar />
+        //     <div>
+
+        //         <Navbar />
+        //         <Calendar />
+        //         <div className="lg:w-1/2">
+        //             <h2 className="mt-4 text-center text-green-600 font-heading text-xl font-light">{`${monthNames[date.getMonth()]
+        //                 } ${date.getDate()}, ${date.getFullYear()}`}</h2>
+
+        //             {userData && (
+        //                 <DataEntries
+        //                     date={`${date.getFullYear()}-${date.getMonth() + 1
+        //                         }-${date.getDate()}`}
+        //                 />
+        //             )}
+        //         </div>
+        //     </div>
+        // </div>
+
     );
 }

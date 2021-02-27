@@ -29,8 +29,10 @@ export const UserProvider: React.FC = ({ children }) => {
         monthlyData: null
     });
     const [date] = useDate();
+    const [ mounted, setMounted ] = useState(false);
 
     const fetchData = async (uid) => {
+        console.log("FETCHING DATA");
         const [userRef, entriesRef] = firestoreHooks.useDataRefs(
             uid,
             date
@@ -75,9 +77,8 @@ export const UserProvider: React.FC = ({ children }) => {
 
     useEffect(() => {
         (async function () {
-            if (user.userData && user.userData.uid) {
+            if (user.userData && user.userData.uid && mounted) {
                 const unsubscribe = await fetchData(user.userData.uid);
-                // console.log("FETCHED");
                 return function cleanup() {
                     unsubscribe();
                 };

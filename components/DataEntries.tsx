@@ -56,12 +56,6 @@ const DataEntries: React.FC<P> = ({ date }) => {
         "3": [],
     };
 
-    // const entryItems: JSX.Element[] | null = descriptions.map(
-    //     (obj, idx) => {
-    //         console.log(obj);
-    //         return <Entry key={ idx } description={ obj.description } idx={ idx } mood={ parseInt(moods[idx].mood) } handleRemove={ handleRemove } setCreationMode={ setCreationMode }></Entry>
-    //     }
-    // );
     descriptions.forEach((obj, idx) => {
         entryItemsByTimePeriod[obj.timePeriod].push(
             <Entry
@@ -80,15 +74,11 @@ const DataEntries: React.FC<P> = ({ date }) => {
             {creationMode && (
                 <DataEntryForm setCreationMode={setCreationMode} />
             )}
-            {/* {entryItems.length > 0 ? entryItems : (
-                    <div className="mt-6 p-3 shadow-double-sm rounded-lg">
-                        <h1 className="text-center text-2xl text-green-500">Words of Encouragement</h1>
-                    </div>
-                )} */}
+
             {entryItemsByTimePeriod["0"].length > 0 ? (
                 <>
                     <div
-                        className={`mt-10 mb-3 p-2 rounded-full shadow-double-sm bg-${timeIconBg[0]}`}
+                        className={`mt-6 mb-3 p-2 rounded-full shadow-double-sm bg-${timeIconBg[0]}`}
                     >
                         {timeIconElements[0]}
                     </div>
@@ -101,7 +91,7 @@ const DataEntries: React.FC<P> = ({ date }) => {
             {entryItemsByTimePeriod["1"].length > 0  ? (
                 <>
                     <div
-                        className={`mt-10 mb-5 p-2 rounded-full shadow-double-sm bg-${timeIconBg[1]}`}
+                        className={`mt-6 mb-5 p-2 rounded-full shadow-double-sm bg-${timeIconBg[1]}`}
                     >
                         {timeIconElements[1]}
                     </div>
@@ -114,7 +104,7 @@ const DataEntries: React.FC<P> = ({ date }) => {
             {entryItemsByTimePeriod["2"].length > 0  ? (
                 <>
                     <div
-                        className={`mt-10 mb-5 p-2 rounded-full shadow-double-sm bg-${timeIconBg[2]}`}
+                        className={`mt-6 mb-5 p-2 rounded-full shadow-double-sm bg-${timeIconBg[2]}`}
                     >
                         {timeIconElements[2]}
                     </div>
@@ -127,7 +117,7 @@ const DataEntries: React.FC<P> = ({ date }) => {
             {entryItemsByTimePeriod["3"].length > 0  ? (
                 <>
                     <div
-                        className={`mt-10 mb-5 p-2 rounded-full shadow-double-sm bg-${timeIconBg[3]}`}
+                        className={`mt-6 mb-5 p-2 rounded-full shadow-double-sm bg-${timeIconBg[3]}`}
                     >
                         {timeIconElements[3]}
                     </div>

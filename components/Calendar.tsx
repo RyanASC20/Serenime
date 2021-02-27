@@ -3,11 +3,8 @@ import { useUser } from '../hooks/useUser';
 import { useDate } from '../hooks/useDate';
 import { emoteColors } from '../public/static/icons';
 
-interface P {
-    date: Date;
-}
 
-const Calendar: React.FC<P> = ({ }) => {
+const Calendar: React.FC = () => {
     const { monthlyData } = useUser();
     const [date, setDate, dim] = useDate();
     const startMonth = new Date(date.getFullYear(), date.getMonth(), 1);
@@ -19,7 +16,7 @@ const Calendar: React.FC<P> = ({ }) => {
             else {
                 const calendarPos = i - startMonth.getDay() + 1;
                 const c = monthlyData[calendarPos] == null ? 'base' : emoteColors[Math.floor(monthlyData[calendarPos])];
-                t.push(<div key={i} className={`transition duration-300 p-1 py-3 rounded-lg border-2 border-2 ${calendarPos == date.getDate() ? 'border-blue-600' : `border-${c}`} text-sm bg-${c} cursor-pointer hover:border-blue-600 hover:opacity-50`} onClick={() => { setDate(new Date(date.getFullYear(), date.getMonth(), calendarPos)) }}>{calendarPos}</div>)
+                t.push(<div key={i} className={`transition duration-300 md:py-3 lg:py-5 rounded-lg border-2 border-2 ${calendarPos == date.getDate() ? 'border-blue-600' : `border-${c}`} text-sm bg-${c} cursor-pointer hover:border-blue-600 hover:opacity-50`} onClick={() => { setDate(new Date(date.getFullYear(), date.getMonth(), calendarPos)) }}>{calendarPos}</div>)
             }
         }
     }
@@ -27,7 +24,7 @@ const Calendar: React.FC<P> = ({ }) => {
 
 
     return (
-        <div className="mt-3 p-2 w-full h-full md:w-5/12 bg-base-dark shadow-double-md rounded-lg text-center">
+        <div className="mt-3 p-4 h-full lg:w-5/12 md:w-full bg-base-dark shadow-double-md rounded-lg text-center">
             <DatePicker
                 className="mt-3 bg-base-dark w-1/2"
                 selected={date}
