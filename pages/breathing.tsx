@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import Sidebar from '../components/Sidebar';
+import Button from '../components/Button';
 import BreathingForm from '../components/Input/Breathing/BreathingForm';
 import CountdownTimer from '../components/CountdownTimer/CountdownTimer';
 import breathingExercises from '../public/static/breathingExercises.json';
 
 interface SelectionData {
-    duration: number;
+    duration: number | null;
     type: string;
 }
 
@@ -20,6 +21,7 @@ const Breathing: React.FC = () => {
 
     useEffect(() => {
         if (selection) {
+            console.log(selection.duration)
             setSelectedMethod(breathingExercises[selection.type]);
         }
     }, [selection])
@@ -39,9 +41,6 @@ const Breathing: React.FC = () => {
                 {/* <CountdownTimer duration={ selection ? selection.duration : 0 } breathIntervals={ selectedMethod ? selectedMethod.breathIntervals : 0 }/> */}
                     {selectedMethod && <CountdownTimer duration={ selection.duration * 10} breathingMethod={ selectedMethod.breathIntervals } /> }
             </div>
-
-
-
         </div>
     );
 }
