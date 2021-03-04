@@ -30,11 +30,11 @@ const Breathing: React.FC = () => {
             <div className="flex justify-between md:w-full mt-36">
                 <div className="w-1/2 md:m-5">
                     <BreathingForm setSelection={setSelection} />
-                    <ul className="mt-5 p-5 rounded-lg shadow-double-sm">
+                    {selectedMethod && <ul className="mt-5 p-5 rounded-lg shadow-double-sm">
                         {selectedMethod && selectedMethod.instructions.map((instruction, idx) => {
                             return <li key={idx}>{instruction}</li>
                         })}
-                    </ul>
+                    </ul>}
                 </div>
                 {/* <CountdownTimer duration={ selection ? selection.duration : 0 } breathIntervals={ selectedMethod ? selectedMethod.breathIntervals : 0 }/> */}
                     {selectedMethod && <CountdownTimer duration={ selection.duration * 10} breathingMethod={ selectedMethod.breathIntervals } /> }

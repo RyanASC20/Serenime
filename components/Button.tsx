@@ -10,7 +10,7 @@ interface P {
 const Button: React.FC<P> = ({ text, textColor, textSize, type, onClick }) => {
     return (
         <button 
-            className={`p-2 m-2 text-light text-${textSize ? textSize : '2xl'} text-${textColor}-500 rounded-lg border-2 border-gray-300 hover:border-gray-500`}
+            className={`transition duration-300 p-1.5 m-2 text-light text-${textSize ? textSize : '2xl'} text-${textColor}-500 rounded-lg border-2 border-gray-300 hover:border-gray-500`}
             type={type ? type : "submit"}
             onClick={onClick}
         >

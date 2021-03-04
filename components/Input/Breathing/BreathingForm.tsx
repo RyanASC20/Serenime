@@ -18,7 +18,6 @@ const BreathingForm: React.FC<P> = ({ setSelection }) => {
     const { handleSubmit, register, reset } = useForm<InputData>();
 
     const onSubmit = (data: InputData) => {
-        // console.log(data);
         setSelection(data);
     }
 
