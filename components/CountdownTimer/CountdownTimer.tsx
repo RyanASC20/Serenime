@@ -45,7 +45,7 @@ const CountdownTimer: React.FC<P> = ({ duration, breathingMethod }) => {
     }, [currentCount, paused])
 
     return (
-        <div className="flex flex-col items-center md:w-2/3">
+        <div className="flex flex-col items-center">
             <p className="m-8 text-4xl font-thin">{Math.floor(currentCount / 60)}:{currentCount % 60}</p>
             <p className="text-3xl font-light capitalize">{Object.keys(breathingMethod)[intervalPosition.current]}</p>
             { breathIntervals && <p className="text-lg font-light">...{currentCount - intervalBreakpoint}</p>}

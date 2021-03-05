@@ -11,7 +11,8 @@ import Sidebar from "../components/Sidebar";
 import "react-datepicker/dist/react-datepicker.css";
 
 export default function Index() {
-    const { userData } = useUser();
+    const { userData, monthlyData } = useUser();
+
     const [date] = useDate();
     const monthNames = [
         "January",
@@ -34,7 +35,7 @@ export default function Index() {
             <div className="w-full md:m-5">
                 <Navbar />
                 <div className="flex flex-col md:m-5 lg:flex-row lg:justify-between">
-                    <Calendar />
+                    <Calendar type="mood" data={ monthlyData }/>
                     <div className="lg:w-1/2">
                         <h2 className="mt-4 text-center text-green-600 font-heading text-xl font-light">{`${
                             monthNames[date.getMonth()]

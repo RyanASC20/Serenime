@@ -8,6 +8,7 @@ interface userInterface {
     entryData: any;
     userRef: any;
     entriesRef: any;
+    habitsRef: any;
     monthlyData: any;
 }
 
@@ -25,6 +26,7 @@ export const UserProvider: React.FC = ({ children }) => {
         userData: null,
         entryData: null,
         userRef: null,
+        habitsRef: null,
         entriesRef: null,
         monthlyData: null
     });
@@ -33,7 +35,7 @@ export const UserProvider: React.FC = ({ children }) => {
 
     const fetchData = async (uid) => {
         console.log("FETCHING DATA");
-        const [userRef, entriesRef] = firestoreHooks.useDataRefs(
+        const [userRef, entriesRef, habitsRef] = firestoreHooks.useDataRefs(
             uid,
             date
         );
@@ -49,6 +51,7 @@ export const UserProvider: React.FC = ({ children }) => {
             setUser({
                 userData,
                 entryData,
+                habitsRef,
                 userRef,
                 entriesRef,
                 monthlyData
@@ -69,6 +72,7 @@ export const UserProvider: React.FC = ({ children }) => {
                     userData: null,
                     entryData: null,
                     userRef: null,
+                    habitsRef: null,
                     entriesRef: null,
                     monthlyData: null
                 });

@@ -2,12 +2,18 @@ import Link from "next/link";
 import SignOutButton from "./Authentication/SignOut";
 import { useUser } from "../hooks/useUser";
 
-const Navbar: React.FC = () => {
+interface P {
+  text?:string;
+}
+const Navbar: React.FC<P> = ({text}) => {
   const { userData } = useUser();
   return (
-      <div className="flex justify-between items-center border-b-2 border-gray-500">
-        {userData && (
-            <h1 className="text-2xl font-light">Hi <span className="text-green-600 font-bold">{ userData.name }</span></h1>
+      <div className="flex justify-between items-center p-5 border-b-2 border-gray-500">
+        {userData && !text && (
+            <h1 className="text-2xl font-light">Hi <span className="text-green-500">{ userData.name }</span></h1>
+        )}
+        { userData && text && (
+            <h1 className="text-2xl font-light text-green-500">{ text }</h1>
         )}
         <ul className="ml-8 list-disc">
           {!userData && (

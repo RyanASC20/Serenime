@@ -23,7 +23,7 @@ const BreathingForm: React.FC<P> = ({ setSelection }) => {
     return (
         <form
             onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col p-4 bg-base shadow-double-md rounded-lg"
+            className="flex flex-col p-4 mt-10 bg-base shadow-double-md rounded-lg"
         >
             <div>
                 <BreathingDurationRadioGroup register={register} />

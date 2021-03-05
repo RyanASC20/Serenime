@@ -15,6 +15,11 @@ const Sidebar: React.FC = () => {
                             <a>{ HomeIconElement }Home</a>
                         </Link>
                     </li>
+                    {/* <li className="my-3 transition duration-250 hover:text-sidebar-text-green">
+                        <Link href="/habits">
+                            <a>{RoutineIconElement}Habits</a>
+                        </Link>
+                    </li> */}
                     <li className="my-3 transition duration-250 hover:text-sidebar-text-green">
                         <Link href="/breathing">
                             <a>{ WindIconElement }Breathing</a>

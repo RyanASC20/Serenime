@@ -11,9 +11,13 @@ export const useEntriesRef = (uid: string, date: Date | null) => {
     return firestore.collection("users").doc(uid).collection(`${date.getMonth() + 1}-${date.getFullYear()}`).doc(`${date.getDate()}`);
 }
 
+export const useHabitsRef = (uid: string) => {
+    return firestore.collection("users").doc(uid).collection('habits');
+}
+
 
 export const useDataRefs = (uid, date: Date | null) => {
-    return [ useUserRef(uid), useEntriesRef(uid, date) ]
+    return [ useUserRef(uid), useEntriesRef(uid, date), useHabitsRef(uid) ]
 }
 
 
@@ -55,5 +59,10 @@ export const useMonthlyData = async(uid: string, date: Date | null) => {
         }
     });
     return values;
+}
+
+export const useHabitsData = async(uid: string, date: Date | null, habit: string) => {
+    const snapshot = await firestore.collection("users").doc(uid).collection('habits').doc(habit).collection('data').doc(`${date.getMonth() + 1}-${date.getFullYear()}`).get();
+    return snapshot.data();
 }
 
