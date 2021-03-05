@@ -16,7 +16,7 @@ const Entry: React.FC<P> = ({ description, idx, mood, handleRemove }) => {
     if (!editMode) {
         return (
             <div
-                className="mb-6 p-3 flex justify-between shadow-double-md rounded-lg w-full"
+                className="mb-6 p-3 flex justify-between bg-card rounded-lg w-full"
                 key={idx}
             >
                 <div>

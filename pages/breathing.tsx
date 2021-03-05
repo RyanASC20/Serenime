@@ -44,7 +44,7 @@ const Breathing: React.FC = () => {
                     )}
                     <BreathingForm setSelection={setSelection} />
                     {selectedMethod && (
-                        <ul className="mt-10 p-5 rounded-lg shadow-double-sm">
+                        <ul className="mt-5 p-5 bg-secondary rounded-lg">
                             {selectedMethod &&
                                 selectedMethod.instructions.map(
                                     (instruction, idx) => {

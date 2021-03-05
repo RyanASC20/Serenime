@@ -26,8 +26,13 @@ module.exports = {
             },
             colors: {
                 base: {
-                    DEFAULT: "#dde1e7",
-                    dark: "#dde1e7"
+                    DEFAULT: "#FAFBFE",
+                },
+                card: {
+                    DEFAULT: "#D7EEFF"
+                },
+                secondary: {
+                    DEFAULT: "#86E3CE"
                 },
                 'sidebar-bg': {
                     DEFAULT: "#535467"

@@ -69,7 +69,7 @@ const DataEntryForm: React.FC<P> = ({setCreationMode, setEditMode, entryIndex}) 
     return (
         <form
             onSubmit={handleSubmit(onSubmit)}
-            className="p-3 mt-4 shadow-double-sm rounded-lg w-full"
+            className="p-3 mt-4 bg-card rounded-lg w-full"
         >
             <h2>How are you?</h2>
             <MoodRadioGroup register={ register }/>
