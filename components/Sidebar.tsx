@@ -12,7 +12,7 @@ const Sidebar: React.FC = () => {
                 <ul className="text-sidebar-text">
                     <li className="my-3 transition duration-250 hover:text-sidebar-text-green">
                         <Link href="/">
-                            <a>{ HomeIconElement }Home</a>
+                            <a className="text-lg">{ HomeIconElement }Home</a>
                         </Link>
                     </li>
                     {/* <li className="my-3 transition duration-250 hover:text-sidebar-text-green">
@@ -22,12 +22,12 @@ const Sidebar: React.FC = () => {
                     </li> */}
                     <li className="my-3 transition duration-250 hover:text-sidebar-text-green">
                         <Link href="/breathing">
-                            <a>{ WindIconElement }Breathing</a>
+                            <a className="text-lg">{ WindIconElement }Breathing</a>
                         </Link>
                     </li>
                     <li className="my-3 transition duration-250 hover:text-sidebar-text-green">
                         <Link href="/routines">
-                            <a>{RoutineIconElement}Routines</a>
+                            <a className="text-lg">{RoutineIconElement}Routines</a>
                         </Link>
                     </li>
                 </ul>

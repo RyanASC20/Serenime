@@ -29,7 +29,7 @@ module.exports = {
                     DEFAULT: "#FAFBFE",
                 },
                 card: {
-                    DEFAULT: "#D7EEFF"
+                    DEFAULT: "#ededed"
                 },
                 secondary: {
                     DEFAULT: "#86E3CE"
