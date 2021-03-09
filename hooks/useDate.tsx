@@ -22,7 +22,7 @@ export const DateProvider = ({ children }) => {
     const [date, setDate] = useState<Date>(new Date());
     const dim = daysInMonth(date);
 
-    return <DateContext.Provider value={ [ date, setDate, dim ] }>{ children }</DateContext.Provider>
+    return <DateContext.Provider value={ { date, setDate, dim } }>{ children }</DateContext.Provider>
 }
 
 

@@ -3,6 +3,7 @@ import DataEntryForm from './Input/MoodData/DataEntryForm';
 import { emoteElements, deleteIconElement, penIconElement } from "../public/static/icons";
 
 interface P {
+    currentData: any;
     description: string;
     idx: number;
     mood: number;
@@ -10,7 +11,7 @@ interface P {
     setCreationMode: (b: boolean) => void;
 }
 
-const Entry: React.FC<P> = ({ description, idx, mood, handleRemove }) => {
+const Entry: React.FC<P> = ({ currentData, description, idx, mood, handleRemove }) => {
     const [ editMode, setEditMode ] = useState<boolean>(false);
 
     if (!editMode) {
@@ -48,7 +49,7 @@ const Entry: React.FC<P> = ({ description, idx, mood, handleRemove }) => {
     }
     return (
         <>
-            <DataEntryForm setEditMode={ setEditMode } entryIndex={ idx }/>
+            <DataEntryForm setEditMode={ setEditMode } entryIndex={ idx } currentData={ currentData }/>
         </>
     )
     

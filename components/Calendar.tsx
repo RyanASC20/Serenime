@@ -1,5 +1,4 @@
 import DatePicker from "react-datepicker";
-import { useUser } from '../hooks/useUser';
 import { useDate } from '../hooks/useDate';
 import { emoteColors } from '../public/static/icons';
 import { useEffect } from "react";
@@ -9,7 +8,7 @@ interface P {
     data: any;
 }
 const Calendar: React.FC<P> = ({ type, data }) => {
-    const [date, setDate, dim] = useDate();
+    const { date, setDate, dim } = useDate();
     const startMonth = new Date(date.getFullYear(), date.getMonth(), 1);
     
     const t = [];
@@ -25,6 +24,7 @@ const Calendar: React.FC<P> = ({ type, data }) => {
             }
         }
     }
+
     else if (type === "habit") {
         // console.log(data);
         if (data != []) {

@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
+import { useDocumentData } from "react-firebase-hooks/firestore";
+import { firestore } from "../config/firebase";
 import Entry from "./Entry";
-import Button from './Button';
+import Button from "./Button";
 import { useUser } from "../hooks/useUser";
+import { useDate } from "../hooks/useDate";
+import { useCurrentDayRef } from "../hooks/firestoreHooks";
 import DataEntryForm from "./Input/MoodData/DataEntryForm";
 import {
     timeIconElements,
@@ -10,9 +14,14 @@ import {
     timeIcons,
 } from "../public/static/icons";
 
-interface P {
-    date: string;
-}
+const useData = () => {
+    const { date } = useDate();
+    const { uid } = useUser();
+    const [value, loading, error] = useDocumentData(useCurrentDayRef());
+    // console.log(value ? value : "no data");
+
+    return value;
+};
 
 interface Data {
     timePeriod: number;
@@ -20,28 +29,32 @@ interface Data {
     mood?: string;
 }
 
-const DataEntries: React.FC<P> = ({ date }) => {
-    const { userData, entryData, entriesRef } = useUser();
+const DataEntries: React.FC = () => {
+    const { date } = useDate();
+    const data = useData();
+    const dbRef = useCurrentDayRef();
+
     const [descriptions, setDescriptions] = useState<Data[]>([]);
     const [moods, setMoods] = useState<Data[]>([]);
     const [creationMode, setCreationMode] = useState<boolean>(false);
-    
+
     useEffect(() => {
+        console.log("DATE CHANGED");
         const fetchData = async () => {
             try {
-                setDescriptions(entryData.descriptions);
-                setMoods(entryData.moods);
+                setDescriptions(data.descriptions);
+                setMoods(data.moods);
             } catch (err) {
-                console.log(err);
+                // console.log(err);
                 setDescriptions([]);
                 setMoods([]);
             }
         };
         fetchData();
-    }, [date, userData]);
+    }, [date, data]);
 
     const handleRemove = (idx) => {
-        entriesRef.set({
+        dbRef.set({
             descriptions: [
                 ...descriptions.slice(0, idx),
                 ...descriptions.slice(idx + 1),
@@ -66,6 +79,7 @@ const DataEntries: React.FC<P> = ({ date }) => {
                 mood={parseInt(moods[idx].mood)}
                 handleRemove={handleRemove}
                 setCreationMode={setCreationMode}
+                currentData={data}
             />
         );
     });
@@ -73,7 +87,10 @@ const DataEntries: React.FC<P> = ({ date }) => {
     return (
         <div className="flex flex-col items-center w-full">
             {creationMode && (
-                <DataEntryForm setCreationMode={setCreationMode} />
+                <DataEntryForm
+                    setCreationMode={setCreationMode}
+                    currentData={data}
+                />
             )}
 
             {entryItemsByTimePeriod["0"].length > 0 ? (
@@ -89,7 +106,7 @@ const DataEntries: React.FC<P> = ({ date }) => {
                 <></>
             )}
 
-            {entryItemsByTimePeriod["1"].length > 0  ? (
+            {entryItemsByTimePeriod["1"].length > 0 ? (
                 <>
                     <div
                         className={`mt-6 mb-5 p-2 rounded-full shadow-double-sm bg-${timeIconBg[1]}`}
@@ -102,7 +119,7 @@ const DataEntries: React.FC<P> = ({ date }) => {
                 <></>
             )}
 
-            {entryItemsByTimePeriod["2"].length > 0  ? (
+            {entryItemsByTimePeriod["2"].length > 0 ? (
                 <>
                     <div
                         className={`mt-6 mb-5 p-2 rounded-full shadow-double-sm bg-${timeIconBg[2]}`}
@@ -115,7 +132,7 @@ const DataEntries: React.FC<P> = ({ date }) => {
                 <></>
             )}
 
-            {entryItemsByTimePeriod["3"].length > 0  ? (
+            {entryItemsByTimePeriod["3"].length > 0 ? (
                 <>
                     <div
                         className={`mt-6 mb-5 p-2 rounded-full shadow-double-sm bg-${timeIconBg[3]}`}
@@ -127,14 +144,14 @@ const DataEntries: React.FC<P> = ({ date }) => {
             ) : (
                 <></>
             )}
-            {/* <button
-                type="button"
-                className="my-5 transition duration-500 p-2 bg-base-dark text-green-500 shadow-double-sm rounded-lg hover:shadow-inner focus:outline-none"
-                onClick={() => setCreationMode(!creationMode)}
-            >
-                {creationMode ? <>Cancel</> : <>New Entry</>}
-            </button> */}
-            <Button text={creationMode ? 'Cancel' : 'New Entry'} textColor={creationMode ? 'red' : 'green'} textSize="lg" onClick={() => { setCreationMode(!creationMode) } } />
+            <Button
+                text={creationMode ? "Cancel" : "New Entry"}
+                textColor={creationMode ? "red" : "green"}
+                textSize="lg"
+                onClick={() => {
+                    setCreationMode(!creationMode);
+                }}
+            />
         </div>
     );
 };
