@@ -1,3 +1,4 @@
+import Button from '../Button';
 import { auth } from "../../config/firebase";
 
 const SignOutButton: React.FC = () => {
@@ -10,9 +11,7 @@ const SignOutButton: React.FC = () => {
   };
 
   return (
-    <button onClick={handleSignOut} className="text-green-500">
-      Sign Out
-    </button>
+    <Button onClick={handleSignOut} text="Sign Out" textSize="md" />
   );
 };
 

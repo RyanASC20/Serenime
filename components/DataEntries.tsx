@@ -24,7 +24,7 @@ const useData = () => {
 };
 
 interface Data {
-    timePeriod: number;
+    timePeriod?: number;
     description?: string;
     mood?: string;
 }
@@ -39,13 +39,18 @@ const DataEntries: React.FC = () => {
     const [creationMode, setCreationMode] = useState<boolean>(false);
 
     useEffect(() => {
-        console.log("DATE CHANGED");
+        // setDescriptions([]);
+        // setMoods([]);
         const fetchData = async () => {
-            try {
+            if (data) {
                 setDescriptions(data.descriptions);
                 setMoods(data.moods);
-            } catch (err) {
-                // console.log(err);
+            }
+            // else if (descriptions != []) {
+            //     setDescriptions([]);
+            //     setMoods([]);
+            // }
+            else {
                 setDescriptions([]);
                 setMoods([]);
             }

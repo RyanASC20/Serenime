@@ -30,6 +30,11 @@ const Sidebar: React.FC = () => {
                             <a className="text-lg">{RoutineIconElement}Routines</a>
                         </Link>
                     </li>
+                    <li className="my-3 transition duration-250 hover:text-sidebar-text-green">
+                        <Link href="/habits">
+                            <a className="text-lg">{RoutineIconElement}Habits</a>
+                        </Link>
+                    </li>
                 </ul>
             </div>
         </div>

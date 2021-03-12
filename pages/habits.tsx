@@ -1,64 +1,92 @@
-import { useState } from 'react';
-import Sidebar from '../components/Sidebar';
-import Button from '../components/Button';
-import AddHabitForm from '../components/Input/Habits/AddHabitForm';
-import { useHabitsRef, useHabitsData } from '../hooks/firestoreHooks';
-import { auth } from '../config/firebase';
-import { useDate } from '../hooks/useDate';
-import { useUser } from '../hooks/useUser';
-import { useEffect } from 'react';
-import Calendar from '../components/Calendar';
+import { useEffect, useState } from "react";
+import {
+    useDocumentData,
+    useDocument,
+    useCollection,
+} from "react-firebase-hooks/firestore";
+
+import { firestore } from "../config/firebase";
+import HabitContent from "../components/Habits/HabitContent";
+import AddHabitForm from "../components/Input/Habits/AddHabitForm";
+import { useHabitCategoriesRef } from "../hooks/firestoreHooks";
+import Sidebar from "../components/Sidebar";
+import Navbar from "../components/Navbar";
+
+const useHabitCategories = () => {
+    // console.log("READING");
+    const categoriesRef = useHabitCategoriesRef();
+    const [value, loading, error] = useDocumentData(
+        // firestore
+        //     .collection("users")
+        //     .doc(uid)
+        //     .collection('habits')
+        //     .doc('categories')
+        categoriesRef
+    );
+
+    return value;
+};
 
 const Habits: React.FC = () => {
-    const [date, setDate, dim] = useDate();
-    const [ selectedHabit, setSelectedHabit ] = useState('test');
-    const [addHabitMode, setAddHabitMode] = useState(false);
-    const [ data, setData ] = useState(null);
-    const { habitsRef } = useUser();
+    const [selectedCategory, setSelectedCategory] = useState<string | null>(
+        null
+    );
+    const categories = useHabitCategories();
 
     useEffect(() => {
-        console.log("MOUNTED");
-        (async function getHabitNames() {
-            const docIds = await habitsRef.get();
-            docIds.forEach(doc => {
-                console.log(doc.data());
-            })
-        })();
-    }, []);
+        if (categories) {
+            setSelectedCategory(Object.values(categories)[0]);
+        }
+    }, [categories]);
 
-    useEffect(() => {
-        (async function fetchData() {
-            try {
-                const uid = auth.currentUser.uid;
-                const snapshot = await useHabitsData(uid, date, 'test');
-                const dataArray = [];
-                for (let i = 0; i < dim + 1; i++) {
-                    if (Object.keys(snapshot).indexOf(i.toString()) == -1) {
-                        dataArray.push(0);
-                    }
-                    else {
-                        dataArray.push(snapshot[i.toString()]);
-                    }
-                }
-                setData(dataArray);
-            } catch(err) {
-                console.log(err);
-            }
-        })();
-    }, [date, selectedHabit, auth.currentUser]);
+    // console.log(useHabitData(categories));
 
     return (
-        <div className="flex">
+        <div className="flex flex-col md:flex-row m-5 md:m-0">
             <Sidebar />
-            { data && <Calendar type="habit" data={ data }/> }
-                <h1 className="text-xl text-green-500">Did you... { selectedHabit }?</h1>
-                <Button text={addHabitMode ? "Cancel" : "Add Habit to Track"} onClick={() => { setAddHabitMode(!addHabitMode) }}/>
-            <div>
-                
-               {addHabitMode && <AddHabitForm /> }
+            <div className="w-full md:m-5">
+                <Navbar />
+                <div className="my-4 p-3 bg-card rounded-lg md:w-1/3">
+                    <h1 className="text-green-500 font-bold">Track Your Habits</h1>
+                    <p>Each day you complete your goal, mark it in the calendar, and track your progress!</p>
+                    <p>If you don't complete it one day, don't worry!</p>
+                    <p>The bluer the calendar, the better!</p>
+                 </div>
+                <div className="flex flex-col md:flex-row">
+                    <div className="flex md:flex-col m-5">
+                        <AddHabitForm />
+                        <div>
+                            <h1 className="text-lg text-green-500 mt-4 ">Your Habits</h1>
+                            {categories &&
+                                Object.values(categories).map((category, idx) => {
+                                    return (
+                                        <p
+                                            key={idx}
+                                            onClick={() => {
+                                                setSelectedCategory(category);
+                                            }}
+                                            className="cursor-pointer"
+                                        >
+                                            {category}
+                                        </p>
+                                    );
+                                })}
+                        </div>
+                    </div>
+                    <div className="flex flex-col m-5 w-1/2">
+                        {selectedCategory && (
+                            <h1 className="text-xl text-green-500">
+                                Did you {selectedCategory} today?
+                            </h1>
+                        )}
+                        {selectedCategory && (
+                            <HabitContent selectedCategory={selectedCategory} />
+                        )}
+                    </div>
+                </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Habits
+export default Habits;

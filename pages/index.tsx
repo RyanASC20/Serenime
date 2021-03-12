@@ -12,6 +12,7 @@ import Sidebar from "../components/Sidebar";
 import "react-datepicker/dist/react-datepicker.css";
 
 const useMonthlyData = () => {
+
     const { uid } = useUser();
     const { date, dim } = useDate();
     const [value, loading, error] = useCollection(
@@ -24,7 +25,6 @@ const useMonthlyData = () => {
     for (let i = 0; i < dim; i++) tmp.push(null);
     // const monthlyValues = useRef(tmp);
     const [ monthlyValues, setMonthlyValues ] = useState(tmp);
-
 
     useEffect(() => {
         try {
@@ -76,7 +76,14 @@ export default function Index() {
             <div className="w-full md:m-5">
                 <Navbar />
                 <div className="flex flex-col md:m-5 lg:flex-row lg:justify-between">
-                    <Calendar type="mood" data={ monthlyData }/>
+                    <div className="w-full lg:w-5/12 flex flex-col">
+                        <div className="mb-4 p-3 bg-card rounded-lg ">
+                            <h1 className="text-green-500 font-bold">Track Your Mood</h1>
+                            <p>Enter events you did throughout the day and keep track of how you felt!</p>
+                            <p>Try to make the calendar as green as possible!</p>
+                        </div>
+                        <Calendar type="mood" data={ monthlyData }/>
+                    </div>
                     <div className="lg:w-1/2">
                         <h2 className="mt-4 text-center text-green-600 font-heading text-xl font-light">{`${
                             monthNames[date.getMonth()]

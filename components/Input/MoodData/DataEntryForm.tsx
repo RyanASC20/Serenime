@@ -109,7 +109,7 @@ const DataEntryForm: React.FC<P> = ({
             <h2>What have you been up to?</h2>
             <textarea
                 name="description"
-                className="transition duration-200 pd-2 resize-none w-full bg-base border-2 border-gray-300 rounded-md focus:outline-none focus:border-green-500"
+                className="transition duration-200 p-2 resize-none w-full bg-base border-b-2 border-gray-300 focus:outline-none focus:border-green-500"
                 ref={register({
                     required: true,
                 })}
