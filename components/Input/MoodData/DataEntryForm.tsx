@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
-import { firestore } from "../../../config/firebase";
-import { useUser } from "../../../hooks/useUser";
-import { useDate } from "../../../hooks/useDate";
+import Zoom from 'react-reveal/Zoom';
+
 import { useCurrentDayRef } from '../../../hooks/firestoreHooks';
 import Button from "../../Button";
 import MoodRadioGroup from "./MoodRadioGroup";
@@ -100,44 +99,48 @@ const DataEntryForm: React.FC<P> = ({
     };
 
     return (
-        <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="p-3 mt-4 bg-card rounded-lg w-full"
-        >
-            <h2>How are you?</h2>
-            <MoodRadioGroup register={register} />
-            <h2>What have you been up to?</h2>
-            <textarea
-                name="description"
-                className="transition duration-200 p-2 resize-none w-full bg-base border-b-2 border-gray-300 focus:outline-none focus:border-green-500"
-                ref={register({
-                    required: true,
-                })}
-            ></textarea>
-            <h2>When?</h2>
-            <TimePeriodRadioGoup register={register} />
-            {/* <button
+        <Zoom>
+            <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="p-3 mt-4 bg-card rounded-lg w-full"
+            >
+                <h2>How are you?</h2>
+                <MoodRadioGroup register={register} />
+                <h2>What have you been up to?</h2>
+                <textarea
+                    name="description"
+                    className="transition duration-200 p-2 resize-none w-full bg-base border-b-2 border-gray-300 focus:outline-none focus:border-green-500"
+                    ref={register({
+                        required: true,
+                    })}
+                ></textarea>
+                <h2>When?</h2>
+                <TimePeriodRadioGoup register={register} />
+                {/* <button
                 type="submit"
                 className="p-2 text-green-500 shadow-double-xs rounded-lg hover:shadow-inner"
             >
                 Save
             </button> */}
-            {/* <button
+                {/* <button
                 type="button"
                 className="p-2 ml-3 text-red-500 shadow-double-xs rounded-lg hover:shadow-inner"
                 onClick={ handleCancel }
             >
                 Cancel
             </button> */}
-            <Button text="Submit" textColor="green" textSize="lg" />
-            <Button
-                text="Cancel"
-                type="button"
-                textColor="red"
-                textSize="lg"
-                onClick={handleCancel}
-            />
-        </form>
+                <div className="flex justify-between w-2/3">
+                    <Button text="Submit" hoverColor="green-300" textSize="lg" />
+                    <Button
+                        text="Cancel"
+                        type="button"
+                        hoverColor="red-600"
+                        textSize="lg"
+                        onClick={handleCancel}
+                    />
+                </div>
+            </form>
+        </Zoom>
     );
 };
 

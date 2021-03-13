@@ -25,21 +25,21 @@ const BreathingDurationRadioGroup: React.FC<P> = ({ register }) => {
                     id={`duration-${idx}`}
                     name="duration"
                     value={option}
-                    className="w-0 h-0"
+                    // className="w-0 h-0"
                     onClick={() => { setClicked(idx) }}
                 ></input>
                 {/* <label htmlFor={`duration-${idx}`}>
                     <Button text={`${option}min`} />
                 </label> */}
-                <label className={`transition transition-duration-250 p-3 rounded-lg text-lg font-light cursor-pointer border-2 border-card hover:border-secondary ${clicked == idx ? "bg-secondary" : "" }`} htmlFor={`duration-${idx}`}>{option} min</label>
+                <label className="ml-2 font-light text-lg" htmlFor={`duration-${idx}`}>{option} min</label>
             </div>
         );
     });
 
     return (
         <>
-            <h2 className="text-xl">Duration: </h2>
-            <div className="m-5 flex justify-between w-5/6">
+            <h2 className="text-lg">Duration: </h2>
+            <div className="m-3 w-5/6">
                 {optionsElements}
             </div>
         </>

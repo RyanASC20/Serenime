@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import anime from 'animejs';
+import Zoom from 'react-reveal/Zoom';
+
 import Button from '../Button';
 import styles from './CountdownTimer.module.css';
 
@@ -45,18 +46,22 @@ const CountdownTimer: React.FC<P> = ({ duration, breathingMethod }) => {
     }, [currentCount, paused])
 
     return (
-        <div className="flex flex-col items-center">
-            <p className="m-8 text-4xl font-thin">{Math.floor(currentCount / 60)}:{currentCount % 60}</p>
-            <p className="text-3xl font-light capitalize">{Object.keys(breathingMethod)[intervalPosition.current]}</p>
-            { breathIntervals && <p className="text-lg font-light">...{currentCount - intervalBreakpoint}</p>}
+        <Zoom duration={200}>
+            <div className="flex flex-col items-center">
+                <div className={`flex flex-col items-center ${styles.timer}`}>
+                    <p className="m-8 text-7xl font-thin">{currentCount / 60 < 10 ? 0 : ''}{Math.floor(currentCount / 60)}:{currentCount % 60 < 10 ? 0 : ''}{currentCount % 60}</p>
+                    <p className="text-3xl font-light capitalize">{Object.keys(breathingMethod)[intervalPosition.current]}</p>
+                    { breathIntervals && <p className="text-2xl font-light">...{currentCount - intervalBreakpoint}</p>}
+                </div>
 
-            <div>
-                <Button text={paused ? "Play" : "Pause"} textColor="green" onClick={() => { setPaused(!paused); }} />
-                <Button text="Reset" textColor="green" onClick={() => {
-                    reset();
-                }} />
+                <div className="flex justify-between w-1/2 md:w-2/5 mt-4">
+                    <Button text={paused ? "Play" : "Pause"} onClick={() => { setPaused(!paused); }} />
+                    <Button text="Reset" onClick={() => {
+                        reset();
+                    }} />
+                </div>
             </div>
-        </div>
+        </Zoom>
     )
 }
 

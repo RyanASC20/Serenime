@@ -33,8 +33,21 @@
         "instructions": [
             "Inhale for a count of 5.",
             "Exhale for a count of 5 through your mouth",
-            "Exhale for 8 counts out mouth",
             "Resonant breathing, also known as coherent breathing, is when you breathe at a rate of 5 full breaths per minute. You can achieve this rate by inhaling and exhaling for a count of 5. Breathing at this rate maximizes your heart rate variability (HRV), reduces stress, and, according to one 2017 study, can reduce symptoms of depression when combined with Iyengar yoga."
+        ]
+    },
+    "Box Breathing": {
+        "breathIntervals": {
+            "in": 1,
+            "hold (on inhale)": 1,
+            "out": 1,
+            "hold (on exhale)": 1
+        },
+        "instructions": [
+            "Inhale for 1 count",
+            "Hold on the inhale for 1 count",
+            "Exhale for 1 count",
+            "Hold once again for 1 count"
         ]
     }
 }

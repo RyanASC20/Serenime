@@ -1,14 +1,15 @@
 import DatePicker from "react-datepicker";
+import Zoom from 'react-reveal/Zoom';
+
 import { useDate } from "../hooks/useDate";
 import { emoteColors } from "../public/static/icons";
 
 interface P {
     type: string;
     data: any;
-    handleClick?: () => void;
 }
 
-const Calendar: React.FC<P> = ({ type, data, handleClick }) => {
+const Calendar: React.FC<P> = ({ type, data }) => {
     const { date, setDate, dim } = useDate();
     const startMonth = new Date(date.getFullYear(), date.getMonth(), 1);
     console.log("RErender")
@@ -22,7 +23,7 @@ const Calendar: React.FC<P> = ({ type, data, handleClick }) => {
                     const calendarPos = i - startMonth.getDay() + 1;
                     const c =
                         data[calendarPos] == null
-                            ? "secondary"
+                            ? "card-secondary"
                             : emoteColors[Math.floor(data[calendarPos])];
                     t.push(
                         <div
@@ -55,7 +56,7 @@ const Calendar: React.FC<P> = ({ type, data, handleClick }) => {
                     t.push(<div key={i}></div>);
                 } else {
                     const calendarPos = i - startMonth.getDay() + 1;
-                    const c = data && data[calendarPos] == true ? "blue-500" : "base";
+                    const c = data && data[calendarPos] == true ? "highlight" : "base";
                     t.push(
                         <div
                             key={i}
@@ -83,25 +84,27 @@ const Calendar: React.FC<P> = ({ type, data, handleClick }) => {
     }
 
     return (
-        <div className="p-4 h-full md:w-full bg-card rounded-lg text-center">
-            <DatePicker
-                className="mt-3 bg-card w-1/2"
-                selected={date}
-                onChange={(date) => {
-                    setDate(date);
-                }}
-            />
-            <div className="grid grid-cols-7 gap-2">
-                <div>Sun</div>
-                <div>M</div>
-                <div>T</div>
-                <div>W</div>
-                <div>Th</div>
-                <div>F</div>
-                <div>Sat</div>
-                {t}
+        <Zoom duration={200}>
+            <div className="p-4 md:w-full bg-card rounded-lg text-center">
+                <DatePicker
+                    className="mt-3 bg-card w-1/2"
+                    selected={date}
+                    onChange={(date) => {
+                        setDate(date);
+                    }}
+                />
+                <div className="grid grid-cols-7 gap-2">
+                    <div>Sun</div>
+                    <div>M</div>
+                    <div>T</div>
+                    <div>W</div>
+                    <div>Th</div>
+                    <div>F</div>
+                    <div>Sat</div>
+                    {t}
+                </div>
             </div>
-        </div>
+        </Zoom>
     );
 };
 

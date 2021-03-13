@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { useDocumentData } from "react-firebase-hooks/firestore";
-import { firestore } from "../config/firebase";
+
 import Entry from "./Entry";
 import Button from "./Button";
-import { useUser } from "../hooks/useUser";
 import { useDate } from "../hooks/useDate";
 import { useCurrentDayRef } from "../hooks/firestoreHooks";
 import DataEntryForm from "./Input/MoodData/DataEntryForm";
@@ -15,8 +14,7 @@ import {
 } from "../public/static/icons";
 
 const useData = () => {
-    const { date } = useDate();
-    const { uid } = useUser();
+
     const [value, loading, error] = useDocumentData(useCurrentDayRef());
     // console.log(value ? value : "no data");
 
@@ -151,7 +149,7 @@ const DataEntries: React.FC = () => {
             )}
             <Button
                 text={creationMode ? "Cancel" : "New Entry"}
-                textColor={creationMode ? "red" : "green"}
+                hoverColor={creationMode ? "red-500" : "secondary"}
                 textSize="lg"
                 onClick={() => {
                     setCreationMode(!creationMode);
