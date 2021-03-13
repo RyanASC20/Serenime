@@ -46,14 +46,14 @@ const Habits: React.FC = () => {
             <Sidebar />
             <div className="w-full md:m-5">
                 <Navbar />
-                <div className="my-4 p-3 bg-card rounded-lg md:w-1/3">
+                <div className="my-4 p-3 bg-card rounded-lg md:w-1/2">
                     <h1 className="text-green-500 font-bold">Track Your Habits</h1>
                     <p>Each day you complete your goal, mark it in the calendar, and track your progress!</p>
                     <p>If you don't complete it one day, don't worry!</p>
                     <p>The bluer the calendar, the better!</p>
                  </div>
                 <div className="flex flex-col md:flex-row">
-                    <div className="flex md:flex-col m-5">
+                    <div className="flex md:flex-col m-1">
                         <AddHabitForm />
                         <div>
                             <h1 className="text-lg text-green-500 mt-4 ">Your Habits</h1>
@@ -73,7 +73,7 @@ const Habits: React.FC = () => {
                                 })}
                         </div>
                     </div>
-                    <div className="flex flex-col m-5 w-1/2">
+                    <div className="flex flex-col ml-5 w-1/2">
                         {selectedCategory && (
                             <h1 className="text-xl text-green-500">
                                 Did you {selectedCategory} today?

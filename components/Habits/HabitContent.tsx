@@ -35,9 +35,9 @@ const HabitContent: React.FC<P> = ({ selectedCategory }) => {
     const data = useHabitData(selectedCategory);
     const { uid } = useUser();
     const { date } = useDate();
-    const { handleSubmit, register, errors, reset } = useForm<FormData>();
+    // const { handleSubmit, register, errors, reset } = useForm<FormData>();
 
-    const onSubmit = (data: FormData) => {
+    const handleClick = (b: boolean) => {
         firestore
             .collection("users")
             .doc(uid)
@@ -47,65 +47,88 @@ const HabitContent: React.FC<P> = ({ selectedCategory }) => {
             .doc(`${date.getMonth() + 1}-${date.getFullYear()}`)
             .set(
                 {
-                    [date.getDate()]: data.answer == "true" ? true : false,
+                    [date.getDate()]: b
                 },
                 { merge: true }
             );
 
-            if (data.answer == "true") alert("Great job! Keep up the good work!");
+            if (b) alert("Great job! Keep up the good work!");
             else alert("Don't worry about it! You can try again tomorrow!");
     };
+    // const onSubmit = (data: FormData) => {
+    //     firestore
+    //         .collection("users")
+    //         .doc(uid)
+    //         .collection("habits")
+    //         .doc("categories")
+    //         .collection(selectedCategory)
+    //         .doc(`${date.getMonth() + 1}-${date.getFullYear()}`)
+    //         .set(
+    //             {
+    //                 [date.getDate()]: data.answer == "true" ? true : false,
+    //             },
+    //             { merge: true }
+    //         );
+
+    //         if (data.answer == "true") alert("Great job! Keep up the good work!");
+    //         else alert("Don't worry about it! You can try again tomorrow!");
+    // };
 
     return (
         <div className="md:h-5/6">
-            <form onSubmit={handleSubmit(onSubmit)} className="mb-4">
-                <div className="flex my-5">
-                    <div className="w-1/6">
+            {/* <form onSubmit={handleSubmit(onSubmit)} className="mb-4"> */}
+                <div className="my-3">
+                    <div>
                         <input
                             type="radio"
-                            ref={(e) =>
-                                register(e, {
-                                    required: true,
-                                })
-                            }
+                            // ref={(e) =>
+                            //     register(e, {
+                            //         required: true,
+                            //     })
+                            // }
                             id={"habit-yes"}
                             name="answer"
                             value={"true"}
-                            className="w-0 h-0" 
-                            onClick={() => { console.log("klasdjfklasjdklfjasdkl;fasjklfasdkl"); }}
+                            onClick={() => handleClick(true) }
+                            // className="w-0 h-0" 
                         ></input>
                         <label
-                            className={`transition transition-duration-250 p-3 rounded-lg text-lg font-light cursor-pointer border-2 border-card hover:border-secondary `}
+                            // className={`transition transition-duration-250 p-2 rounded-lg text-lg font-light cursor-pointer border-2 border-card hover:border-secondary `}
+                            className="ml-3 text-lg"
                             htmlFor={'habit-yes'}
                         >
+                            {/* <Button type="submit" text="Yes" onClick={() => handleClick(true) }/> */}
                             Yes
                         </label>
                     </div>
                     <div>
                         <input
                             type="radio"
-                            ref={(e) =>
-                                register(e, {
-                                    required: true,
-                                })
-                            }
+                            // ref={(e) =>
+                            //     register(e, {
+                            //         required: true,
+                            //     })
+                            // }
                             id={"habit-no"}
                             name="answer"
                             value={"false"}
-                            className="w-0 h-0"
-                            onClick={() => { console.log("no"); }}
+                            onClick={() => handleClick(false) }
+
+                            // className="w-0 h-0"
                         ></input>
                         <label
-                            className={`transition transition-duration-250 p-3 rounded-lg text-lg font-light cursor-pointer border-2 border-card hover:border-secondary`}
+                            // className={`transition transition-duration-250 p-2 rounded-lg text-lg font-light cursor-pointer border-2 border-card hover:border-secondary`}
+                            className="ml-3 text-lg"
                             htmlFor={'habit-no'}
                         >
                             No
+                            {/* <Button type="submit" text="No" onClick={() => { handleClick(false) } } /> */}
                         </label>
                     </div>
+                    {/* <Button type="submit" text="Confirm" /> */}
+
                 </div>
-                
-                <Button type="submit" text="Confirm" />
-            </form>
+            {/* </form> */}
             <Calendar type="habit" data={data} />
         </div>
     );
