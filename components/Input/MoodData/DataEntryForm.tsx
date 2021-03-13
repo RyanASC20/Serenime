@@ -99,7 +99,7 @@ const DataEntryForm: React.FC<P> = ({
     };
 
     return (
-        <Zoom>
+        <Zoom duration={500}>
             <form
                 onSubmit={handleSubmit(onSubmit)}
                 className="p-3 mt-4 bg-card rounded-lg w-full"
