@@ -24,7 +24,7 @@ const TimePeriodRadioGoup: React.FC<P> = ({ register }) => {
                     className="w-0 h-0"
                     onClick={ () => { setClicked(0) } }
                 ></input>
-                <label htmlFor="time-period-0" className={`transition duration-400 p-2 rounded-full shadow-double-sm cursor-pointer bg-${timeIconBg[0]} border-2 hover:shadow-inner ${clicked === 0 ? 'p-1 border-green-600' : '' }` }>{ timeIconElements[0] }</label>
+                <label htmlFor="time-period-0" className={`transition duration-400 p-2 rounded-full shadow-double-sm cursor-pointer  hover:shadow-inner ${clicked === 0 ? `bg-${timeIconBg[0]}` : 'bg-gray-400' }` }>{ timeIconElements[0] }</label>
             </div>
             <div>
                 <input
@@ -40,7 +40,7 @@ const TimePeriodRadioGoup: React.FC<P> = ({ register }) => {
                     className="w-0 h-0"
                     onClick={ () => { setClicked(1) } }
                 ></input>
-                <label htmlFor="time-period-1" className={`transition duration-400 p-2 rounded-full shadow-double-sm cursor-pointer bg-${timeIconBg[1]} border-2 hover:shadow-inner ${clicked === 1 ? 'p-1 border-green-600' : '' }` }>{ timeIconElements[1] }</label>
+                <label htmlFor="time-period-1" className={`transition duration-400 p-2 rounded-full shadow-double-sm cursor-pointer hover:shadow-inner ${clicked === 1 ? `bg-${timeIconBg[1]}` : 'bg-gray-400' }` }>{ timeIconElements[1] }</label>
             </div>
             <div>
                 <input
@@ -56,7 +56,7 @@ const TimePeriodRadioGoup: React.FC<P> = ({ register }) => {
                     className="w-0 h-0"
                     onClick={ () => { setClicked(2) } }
                 ></input>
-                <label htmlFor="time-period-2" className={`transition duration-400 p-2 rounded-full shadow-double-sm cursor-pointer bg-${timeIconBg[2]} border-2 hover:shadow-inner ${clicked === 2 ? 'p-1 border-green-600' : '' }` }>{ timeIconElements[2] }</label>
+                <label htmlFor="time-period-2" className={`transition duration-400 p-2 rounded-full shadow-double-sm cursor-pointer  hover:shadow-inner ${clicked === 2 ? `bg-${timeIconBg[2]}` : 'bg-gray-400' }` }>{ timeIconElements[2] }</label>
             </div>
             <div>
                 <input
@@ -72,7 +72,7 @@ const TimePeriodRadioGoup: React.FC<P> = ({ register }) => {
                     className="w-0 h-0"
                     onClick={ () => { setClicked(3) } }
                 ></input>
-                <label htmlFor="time-period-3" className={`transition duration-400 p-2 rounded-full shadow-double-sm cursor-pointer bg-${timeIconBg[3]} border-2 hover:shadow-inner ${clicked === 3 ? 'p-1 border-green-600' : '' }` }>{ timeIconElements[3] }</label>
+                <label htmlFor="time-period-3" className={`transition duration-400 p-2 rounded-full shadow-double-sm cursor-pointer  hover:shadow-inner ${clicked === 3 ? `bg-${timeIconBg[3]}` : 'bg-gray-400' }` }>{ timeIconElements[3] }</label>
             </div>
         </div>
     );

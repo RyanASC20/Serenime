@@ -13,29 +13,24 @@ const Sidebar: React.FC = () => {
             <div>
             { name && <h1 className="text-2xl my-8">How are you, <span className="text-highlight">{ name }</span>?</h1> }
                 <ul className="text-gray-600">
-                    <li className="my-3 transition duration-250 hover:text-sidebar-text-green">
+                    <li className="py-1.5 w-full transition duration-250 border-l-4 hover:border-highlight hover:bg-gray-300">
                         <Link href="/">
-                            <a className="text-lg p-3 border-l-2 hover:border-highlight hover:bg-white">{ HomeIconElement }Home</a>
+                            <a className="text-lg p-3">{ HomeIconElement }Home</a>
                         </Link>
                     </li>
-                    {/* <li className="my-3 transition duration-250 hover:text-sidebar-text-green">
-                        <Link href="/habits">
-                            <a>{RoutineIconElement}Habits</a>
-                        </Link>
-                    </li> */}
-                    <li className="my-3 transition duration-250 hover:text-sidebar-text-green">
+                    <li className="py-1.5 w-full transition duration-250 border-l-4 hover:border-highlight hover:bg-gray-300">
                         <Link href="/breathing">
-                            <a className="text-lg p-3 border-l-2 hover:border-highlight hover:bg-white">{ WindIconElement }Breathing</a>
+                            <a className="text-lg p-3">{ WindIconElement }Breathing</a>
                         </Link>
                     </li>
-                    <li className="my-3 transition duration-250 hover:text-sidebar-text-green">
-                        <Link href="/routines">
-                            <a className="text-lg p-3 border-l-2 hover:border-highlight hover:bg-white">{RoutineIconElement}Routines</a>
-                        </Link>
-                    </li>
-                    <li className="my-3 transition duration-250 hover:text-sidebar-text-green">
+                    <li className="py-1.5 w-full transition duration-250 border-l-4 hover:border-highlight hover:bg-gray-300">
                         <Link href="/habits">
-                            <a className="text-lg p-3 border-l-2 hover:border-highlight hover:bg-white">{RoutineIconElement}Habits</a>
+                            <a className="text-lg p-3">{RoutineIconElement}Habits</a>
+                        </Link>
+                    </li>
+                    <li className="py-1.5 w-full transition duration-250 border-l-4 hover:border-highlight hover:bg-gray-300">
+                        <Link href="/routines">
+                            <a className="text-lg p-3">{RoutineIconElement}Routines</a>
                         </Link>
                     </li>
                 </ul>

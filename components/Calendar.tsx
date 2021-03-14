@@ -12,7 +12,6 @@ interface P {
 const Calendar: React.FC<P> = ({ type, data }) => {
     const { date, setDate, dim } = useDate();
     const startMonth = new Date(date.getFullYear(), date.getMonth(), 1);
-    console.log("RErender")
     const t = [];
     if (type === "mood") {
         if (data != null) {

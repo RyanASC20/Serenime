@@ -116,20 +116,7 @@ const DataEntryForm: React.FC<P> = ({
                 ></textarea>
                 <h2>When?</h2>
                 <TimePeriodRadioGoup register={register} />
-                {/* <button
-                type="submit"
-                className="p-2 text-green-500 shadow-double-xs rounded-lg hover:shadow-inner"
-            >
-                Save
-            </button> */}
-                {/* <button
-                type="button"
-                className="p-2 ml-3 text-red-500 shadow-double-xs rounded-lg hover:shadow-inner"
-                onClick={ handleCancel }
-            >
-                Cancel
-            </button> */}
-                <div className="flex justify-between w-2/3">
+                <div className="flex justify-between w-1/2">
                     <Button text="Submit" hoverColor="green-300" textSize="lg" />
                     <Button
                         text="Cancel"

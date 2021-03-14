@@ -8,16 +8,11 @@ import { useCurrentDayRef } from "../hooks/firestoreHooks";
 import DataEntryForm from "./Input/MoodData/DataEntryForm";
 import {
     timeIconElements,
-    timeIconColors,
     timeIconBg,
-    timeIcons,
 } from "../public/static/icons";
 
 const useData = () => {
-
     const [value, loading, error] = useDocumentData(useCurrentDayRef());
-    // console.log(value ? value : "no data");
-
     return value;
 };
 
@@ -37,17 +32,11 @@ const DataEntries: React.FC = () => {
     const [creationMode, setCreationMode] = useState<boolean>(false);
 
     useEffect(() => {
-        // setDescriptions([]);
-        // setMoods([]);
         const fetchData = async () => {
             if (data) {
                 setDescriptions(data.descriptions);
                 setMoods(data.moods);
             }
-            // else if (descriptions != []) {
-            //     setDescriptions([]);
-            //     setMoods([]);
-            // }
             else {
                 setDescriptions([]);
                 setMoods([]);
@@ -147,14 +136,13 @@ const DataEntries: React.FC = () => {
             ) : (
                 <></>
             )}
-            <Button
-                text={creationMode ? "Cancel" : "New Entry"}
-                hoverColor={creationMode ? "red-500" : "secondary"}
+            { !creationMode && <Button
+                text="New Entry"
                 textSize="lg"
                 onClick={() => {
-                    setCreationMode(!creationMode);
+                    setCreationMode(true);
                 }}
-            />
+            /> }
         </div>
     );
 };
