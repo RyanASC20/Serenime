@@ -33,17 +33,18 @@ const LoginForm: React.FC = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       {loginError && <p className="text-red-500">{loginError.message}</p>}
       <div>
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email" className="transform translate-x-10">Email</label>
         <input
           type="email"
           name="email"
-          className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+          className="appearance-none block w-full mb-4 p-2 border-b-2 border-gray-300 placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-highlight transition duration-150 ease-in-out sm:text-sm sm:leading-5"
           ref={register({
             required: {
               value: true,
               message: "Please enter your email",
             },
           })}
+          autoComplete="off"
         />
         {errors.email && <p className="text-red-500">{errors.email.message}</p>}
       </div>
@@ -52,7 +53,7 @@ const LoginForm: React.FC = () => {
         <input
           type="password"
           name="password"
-          className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+          className="appearance-none block w-full border-b-2 mb-4 p-2 border-gray-300 placeholder-gray-400 focus:outline-none focus:border-highlight transition duration-150 ease-in-out sm:text-sm sm:leading-5"
           ref={register({
             required: true,
             minLength: {

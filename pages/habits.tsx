@@ -69,7 +69,7 @@ const Habits: React.FC = () => {
                     <Navbar />
 
                     <div className="flex justify-center mx-2">
-                        <div className="flex flex-col md:flex-row md:justify-evenly w-5/6 lg:w-3/4 md:m-0">
+                        <div className="flex flex-col md:flex-row md:justify-evenly w-full lg:w-3/4 md:m-0">
                             <Sidebar />
                             <div className="flex flex-col lg:flex-row md:justify-around w-full h-screen md:border-l-2 md:border-r-2 md:border-gray-300 md:px-5 md:py-6 bg-white">
                                 <div className="md:w-1/4">
