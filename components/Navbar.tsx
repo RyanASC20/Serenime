@@ -19,18 +19,6 @@ const Navbar: React.FC<P> = ({ text }) => {
         { name && text && (
             <h1 className="text-2xl font-light text-green-500">{ text }</h1>
         )} */}
-        {!name && <ul className="ml-8 list-disc">
-          <li>
-            <Link href="/login">
-              <a>Login</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/signup">
-              <a>SignUp</a>
-            </Link>
-          </li>
-        </ul>}
         {name && <SignOutButton />}
       </div>
     </div>

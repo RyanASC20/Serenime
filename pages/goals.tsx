@@ -29,7 +29,7 @@ const useHabitCategories = () => {
     return value;
 };
 
-const Habits: React.FC = () => {
+const Goals: React.FC = () => {
     const { uid } = useUser();
     const [selectedCategory, setSelectedCategory] = useState<string | null>(
         null
@@ -62,7 +62,7 @@ const Habits: React.FC = () => {
     return (
         <>
             <Head>
-                <title>Serenime | Habits</title>
+                <title>Serenime | Goals</title>
             </Head>
             {uid && (
                 <div className="bg-base">
@@ -75,7 +75,7 @@ const Habits: React.FC = () => {
                                 <div className="md:w-1/4">
                                     <div className="mb-4 rounded-lg">
                                         <h1 className="text-highlight font-bold">
-                                            Track Your Habits
+                                            Track Your Goals
                                         </h1>
                                         <p>
                                             Each day you complete your goal,
@@ -93,7 +93,7 @@ const Habits: React.FC = () => {
                                     </div>
                                     <div>
                                         <h1 className="text-md font-bold text-highlight mr-4 inline ">
-                                            Your Habits
+                                            Your Goals
                                         </h1>
                                         {creationMode ? (
                                             <AddHabitForm setCreationMode={ setCreationMode }/>
@@ -176,7 +176,7 @@ const Habits: React.FC = () => {
     );
 };
 
-export default Habits;
+export default Goals;
 
 {
     /* // <div className="flex flex-col md:flex-row m-5 md:m-0">

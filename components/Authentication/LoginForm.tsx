@@ -1,7 +1,9 @@
 import { useForm } from "react-hook-form";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+
 import { auth } from "../../config/firebase";
 import { useRouter } from "next/router";
+import Button from '../Button';
 
 interface LoginData {
   name: string;
@@ -66,9 +68,9 @@ const LoginForm: React.FC = () => {
           <p className="text-red-500">{errors.password.message}</p>
         )}
       </div>
-      <button type="submit" className="mt-3 p-2 bg-gray-300">
-        Submit
-      </button>
+      {/* <div className="w-full border border-black"> */}
+        <Button text="Login" textSize="lg" />
+      {/* </div> */}
     </form>
   );
 };

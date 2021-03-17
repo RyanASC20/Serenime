@@ -12,7 +12,7 @@ const Routines: React.FC = () => {
     return (
         <>
             <Head>
-                <title>Serenime | Home</title>
+                <title>Serenime | Routines</title>
             </Head>
             {uid && (
                 <div className="bg-base">

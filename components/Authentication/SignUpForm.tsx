@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { auth, firestore } from "../../config/firebase";
-import { userInfo } from "os";
+import Button from "../Button";
 
 interface SignUpData {
   name: string;
@@ -40,13 +40,13 @@ const SignUpForm: React.FC = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       {signUpError && <p className="text-red-500">{signUpError}</p>}
-      <div>
+      <div className="mb-4">
         <label htmlFor="name">Name</label>
         <input
           type="text"
           name="name"
           autoComplete="off"
-          className="appearance-none block w-full p-2 border border-gray-300 placeholder-gray-400 focus:outline-none focus:border-highlight transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+          className="appearance-none block w-full p-2 border-b-2 border-gray-300 placeholder-gray-400 focus:outline-none focus:border-highlight transition duration-150 ease-in-out sm:text-sm sm:leading-5"
           ref={register({
             required: {
               value: true,
@@ -56,12 +56,12 @@ const SignUpForm: React.FC = () => {
         />
         {errors.name && <p className="text-red-500">{errors.name.message}</p>}
       </div>
-      <div>
+      <div className="mb-4">
         <label htmlFor="email">Email</label>
         <input
           type="email"
           name="email"
-          className="appearance-none block w-full p-2 border border-gray-300 placeholder-gray-400 focus:outline-none focus:border-highlight transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+          className="appearance-none block w-full p-2 border-b-2 border-gray-300 placeholder-gray-400 focus:outline-none focus:border-highlight transition duration-150 ease-in-out sm:text-sm sm:leading-5"
           ref={register({
             required: {
               value: true,
@@ -71,12 +71,12 @@ const SignUpForm: React.FC = () => {
         />
         {errors.email && <p className="text-red-500">{errors.email.message}</p>}
       </div>
-      <div>
+      <div className="mb-4">
         <label htmlFor="password">Password</label>
         <input
           type="password"
           name="password"
-          className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+          className="appearance-none block w-full p-2 border-b-2 border-gray-300 placeholder-gray-400 focus:outline-none focus:border-highlight transition duration-150 ease-in-out sm:text-sm sm:leading-5"
           ref={register({
             required: true,
             minLength: {
@@ -89,9 +89,7 @@ const SignUpForm: React.FC = () => {
           <p className="text-red-500">{errors.password.message}</p>
         )}
       </div>
-      <button type="submit" className="mt-3 p-2 bg-gray-300">
-        Submit
-      </button>
+      <Button text="Register" textSize="lg" />
     </form>
   );
 };
