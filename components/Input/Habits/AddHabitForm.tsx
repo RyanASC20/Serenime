@@ -31,7 +31,7 @@ const AddHabitForm: React.FC<P> = ({ setCreationMode }) => {
                         required: true,
                     })}
                     autoComplete="off"
-                    placeholder="Add habit: "
+                    placeholder="Add new goal: "
                 ></input>
                 <div className="flex justify-between w-3/4 mb-3">
                     <Button text="Add" textSize="md"></Button>

@@ -15,7 +15,8 @@ import {
     mdiWeatherNight,
     mdiHome,
     mdiWeatherWindy,
-    mdiCalendar
+    mdiCalendar,
+    mdiStar
 } from "@mdi/js";
 
 export const emotes = [
@@ -74,6 +75,7 @@ export const penIconElement = <Icon path={ mdiPen } title="edit" size={ 1 }></Ic
 export const HomeIconElement = <Icon path={ mdiHome } title="Home" size={ 0.85 } className="inline mr-2"></Icon>
 export const WindIconElement = <Icon path={ mdiWeatherWindy } title="Breathing" size={ 0.85 } className="inline mr-2"></Icon>
 export const RoutineIconElement = <Icon path={ mdiCalendar } title="Breathing" size={ 0.85 } className="inline mr-2"></Icon>
+export const StarIconElement = <Icon path={ mdiStar } title="Breathing" size={ 0.85 } className="inline mr-2"></Icon>
 
 
 export { emoteColors, timeIconColors, timeIconBg }

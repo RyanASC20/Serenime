@@ -121,7 +121,6 @@ const Routine: React.FC<P> = ({ timePeriod }) => {
                         })}
                         className="transition duration-300 p-1 border-b-2 border-gray focus:border-highlight focus:outline-none"
                         autoComplete="off"
-                        placeholder="Add item: "
                     >
                     </input>
                     <Button text="Add" />

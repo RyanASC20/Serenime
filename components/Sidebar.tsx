@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useUser } from "../hooks/useUser";
 // import styles from "./Sidebar.module.css";
-import {HomeIconElement, WindIconElement, RoutineIconElement} from '../public/static/icons';
+import {HomeIconElement, WindIconElement, RoutineIconElement, StarIconElement} from '../public/static/icons';
 
 // @refresh reset
 
@@ -24,8 +24,8 @@ const Sidebar: React.FC = () => {
                         </Link>
                     </li>
                     <li className="py-1.5 w-full transition duration-250 border-l-4 hover:border-highlight hover:bg-gray-300">
-                        <Link href="/habits">
-                            <a className="text-lg p-3">{RoutineIconElement}Habits</a>
+                        <Link href="/goals">
+                            <a className="text-lg p-3">{StarIconElement}Goals</a>
                         </Link>
                     </li>
                     <li className="py-1.5 w-full transition duration-250 border-l-4 hover:border-highlight hover:bg-gray-300">
