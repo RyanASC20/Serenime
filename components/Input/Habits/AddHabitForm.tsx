@@ -1,31 +1,45 @@
 import { useForm } from 'react-hook-form';
-import { useUser } from '../../../hooks/useUser';
-import { useDate } from '../../../hooks/useDate';
+import Zoom from 'react-reveal/Zoom';
+
+import { useHabitCategoriesRef} from '../../../hooks/firestoreHooks';
+
 import Button from '../../Button';
 
+interface P {
+    setCreationMode?: any;
+}
 
-const AddHabitForm: React.FC = () => {
-    const { handleSubmit, register, errors} = useForm();
-    const [date] = useDate();
-    const { habitsRef } = useUser();
+const AddHabitForm: React.FC<P> = ({ setCreationMode }) => {
+    const { handleSubmit, register, reset, errors} = useForm();
+    const habitCategoriesRef = useHabitCategoriesRef();
 
     const onSubmit = async(data) => {
-        console.log(data);
-        console.log(habitsRef);
-        await habitsRef.doc(data.habitsInput).collection('data').doc(`${date.getMonth() + 1}-${date.getFullYear()}`).set({[date.getDate()]: 0}, {merge: true});
+        reset();
+        habitCategoriesRef.set({
+            [ data.habitsInput ]: data.habitsInput
+        }, { merge: true });
     }
     
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <input
-                name="habitsInput"
-                className="transition duration-200 pd-2 resize-none w-full bg-base border-2 border-gray-300 rounded-md focus:outline-none focus:border-green-500"
-                ref={register({
-                    required: true,
-                })}
-            ></input>
-            <Button text="Submit"></Button>
-       </form>
+        <Zoom duration={300}>
+            {/* <h1 className="text-lg text-highlight">Add a habit to track: </h1> */}
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <input
+                    name="habitsInput"
+                    className="mb-2 inline-block transition duration-200 p-1.5 resize-none bg-gray-100 border-b-2 border-gray-300 focus:outline-none focus:border-highlight"
+                    ref={register({
+                        required: true,
+                    })}
+                    autoComplete="off"
+                    placeholder="Add new goal: "
+                ></input>
+                <div className="flex justify-between w-3/4 mb-3">
+                    <Button text="Add" textSize="md"></Button>
+                    <Button text="Cancel" textSize="md" onClick={() => { setCreationMode(false) } } hoverColor="red-500"></Button>
+                    {/* <Button text="Cancel" textSize="md" hoverColor="red-500" onClick={() => { setCreationMode(false) }}></Button> */}
+                </div>
+            </form>
+       </Zoom>
     );
 }
 

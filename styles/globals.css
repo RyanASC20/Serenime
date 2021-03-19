@@ -5,6 +5,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
     html {
         @apply bg-base font-sans;
@@ -15,4 +16,14 @@
     h2 {
       @apply text-xl;
     }
+
+    /* input:focus ~ label,
+    input:not(:placeholder-shown) ~ label {
+      @apply transform;
+      @apply -translate-y-6;
+    }
+
+    input:focus ~ label {
+      @apply text-blue-500;
+    } */
 }

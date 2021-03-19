@@ -23,7 +23,7 @@ const BreathingForm: React.FC<P> = ({ setSelection }) => {
     return (
         <form
             onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col p-4 mt-10 bg-card rounded-lg"
+            className="flex flex-col p-4 bg-card rounded-lg"
         >
             <div>
                 <BreathingDurationRadioGroup register={register} />
@@ -32,7 +32,7 @@ const BreathingForm: React.FC<P> = ({ setSelection }) => {
                     setSelection={setSelection}
                 />
             </div>
-            <Button text="Set Timer" textColor="green" textSize="lg" />
+            <Button text="Set Timer" textSize="lg" />
         </form>
     );
 };

@@ -1,18 +1,20 @@
+import { useRouter } from 'next/router';
+import Button from '../Button';
 import { auth } from "../../config/firebase";
 
 const SignOutButton: React.FC = () => {
+  const router = useRouter();
   const handleSignOut = async () => {
     try {
-      return await auth.signOut();
+      await auth.signOut();
+      router.push("/login");
     } catch (err) {
-      return err;
+      console.log(err);
     }
   };
 
   return (
-    <button onClick={handleSignOut} className="text-green-500">
-      Sign Out
-    </button>
+    <Button onClick={handleSignOut} text="Sign Out" textSize="md" />
   );
 };
 
