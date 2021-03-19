@@ -1,4 +1,4 @@
-import { useState, useContext, createContext } from 'react';
+import { useState, useContext, createContext, useEffect } from 'react';
 
 
 
@@ -10,6 +10,11 @@ export const useSidebarState = () => {
 
 export const SidebarProvider = ({ children }) => {
     const [ sidebarOpen, setSidebarOpen ] = useState(true);
-    return <SidebarContext.Provider value={ { sidebarOpen, setSidebarOpen }}> { children }</SidebarContext.Provider>
+    const [ windowWidth, setWindowWidth ] = useState(null);
+    useEffect(() => {
+        setWindowWidth(window.innerWidth);
+    }, [])
+
+    return <SidebarContext.Provider value={ { sidebarOpen, setSidebarOpen, windowWidth}}> { children }</SidebarContext.Provider>
 }
 

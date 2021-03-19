@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useEffect, useState } from 'react';
 import Fade from 'react-reveal/Fade';
 
 import { useSidebarState } from "../hooks/useSidebar";
@@ -9,11 +10,11 @@ import {HomeIconElement, WindIconElement, RoutineIconElement, StarIconElement} f
 
 const Sidebar: React.FC = () => {
         const { name } = useUser();
-        const { sidebarOpen, setSidebarOpen } = useSidebarState();
+        const { sidebarOpen, setSidebarOpen, windowWidth } = useSidebarState();
         
         return (
             <>
-            { sidebarOpen && window.innerWidth < 768 ? <Fade right duration={ 300 }>
+            { sidebarOpen && windowWidth < 768 ? <Fade right duration={ 300 }>
                 <div className={`transition-width duration-300 md:flex bg-base w-56 mb-10`}>
                     <div>
                     { name && <h1 className="text-2xl my-8">How are you, <span className="text-highlight">{ name }</span>?</h1> }

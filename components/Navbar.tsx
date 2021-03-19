@@ -10,7 +10,7 @@ interface P {
 }
 const Navbar: React.FC<P> = ({ text }) => {
   const { name } = useUser();
-  const { sidebarOpen, setSidebarOpen} = useSidebarState();
+  const { sidebarOpen, setSidebarOpen, windowWidth } = useSidebarState();
   return (
 
     <div className="flex justify-center p-2 shadow-md bg-red-400 mb-2">
@@ -18,9 +18,9 @@ const Navbar: React.FC<P> = ({ text }) => {
         <Link href="/">
             <h1 className="text-white font-serif tracking-wider bg-highlight-pink text-2xl cursor-pointer">Serenime</h1>
         </Link>
-        {name && window.innerWidth >= 768 && <SignOutButton />}
+        {name && windowWidth >= 768 && <SignOutButton />}
       </div>
-      { window.innerWidth < 768 && <p className="cursor-pointer" onClick={() => { setSidebarOpen(!sidebarOpen) } }>
+      { windowWidth < 768 && <p className="cursor-pointer" onClick={() => { setSidebarOpen(!sidebarOpen) } }>
         { HamburgerIconElement }
       </p> }
     </div>
