@@ -1,8 +1,12 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import Link from 'next/link';
+
 import { useRouter } from "next/router";
 import { auth, firestore } from "../../config/firebase";
 import Button from "../Button";
+import { MailIconElement, LockIconElement } from '../../public/static/icons';
+
 
 interface SignUpData {
   name: string;
@@ -57,7 +61,7 @@ const SignUpForm: React.FC = () => {
         {errors.name && <p className="text-red-500">{errors.name.message}</p>}
       </div>
       <div className="mb-4">
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">{MailIconElement} Email</label>
         <input
           type="email"
           name="email"
@@ -72,7 +76,7 @@ const SignUpForm: React.FC = () => {
         {errors.email && <p className="text-red-500">{errors.email.message}</p>}
       </div>
       <div className="mb-4">
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password">{LockIconElement} Password</label>
         <input
           type="password"
           name="password"
@@ -90,6 +94,14 @@ const SignUpForm: React.FC = () => {
         )}
       </div>
       <Button text="Register" textSize="lg" />
+      <p className="mt-2 text-center text-md text-gray-600">
+            Already have an account?{' '}
+            <Link href="/login">
+              <a href="#" className="text-blue-500">
+                Log in here
+              </a>
+            </Link>
+          </p>
     </form>
   );
 };
