@@ -31,7 +31,7 @@ const Calendar: React.FC<P> = ({ type, data }) => {
                                 calendarPos == date.getDate()
                                     ? "border-blue-600"
                                     : `border-${c}`
-                            } text-sm bg-${c} cursor-pointer hover:border-blue-600 hover:opacity-50`}
+                            } text-sm ${`bg-${c}`} cursor-pointer hover:border-blue-600 hover:opacity-50`}
                             onClick={() => {
                                 setDate(
                                     new Date(
@@ -63,7 +63,7 @@ const Calendar: React.FC<P> = ({ type, data }) => {
                                 calendarPos == date.getDate()
                                     ? "border-blue-600"
                                     : `border-${c}`
-                            } text-sm bg-${c} cursor-pointer hover:border-blue-600 hover:opacity-50`}
+                            } text-sm ${`bg-${c}`} cursor-pointer hover:border-blue-600 hover:opacity-50`}
                             onClick={() => {
                                 setDate(
                                     new Date(
