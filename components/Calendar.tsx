@@ -83,9 +83,9 @@ const Calendar: React.FC<P> = ({ type, data }) => {
     }
 
     return (
-            <div className="p-4 md:w-full bg-card rounded-lg text-center">
+            <div className="p-4 mt-5 md:w-full bg-card rounded-lg text-center">
                 <DatePicker
-                    className="mt-3 bg-card w-1/2 border relative hidden z-0 border-black"
+                    className="mt-3 bg-card w-1/2"
                     selected={date}
                     onChange={(date) => {
                         setDate(date);
