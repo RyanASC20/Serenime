@@ -17,7 +17,7 @@ const Sidebar: React.FC = () => {
             { sidebarOpen && windowWidth < 768 ? <Fade right duration={ 300 }>
                 <div className={`transition-width duration-300 md:flex bg-base w-56 mb-10`}>
                     <div>
-                    { name && <h1 className="text-2xl my-8">How are you, <span className="text-highlight">{ name }</span>?</h1> }
+                    { name && <h1 className="text-2xl my-4">How are you, <span className="text-highlight">{ name }</span>?</h1> }
                         <ul className="text-gray-600" onClick={() => { setSidebarOpen(false) } }>
                             <li className="py-1.5 w-full transition duration-250 border-l-4 hover:border-highlight hover:bg-gray-300">
                                 <Link href="/">
