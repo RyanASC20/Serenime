@@ -15,14 +15,8 @@ import { useUser } from "../hooks/useUser";
 import { useRouter } from "next/router";
 
 const useHabitCategories = () => {
-    // console.log("READING");
     const categoriesRef = useHabitCategoriesRef();
     const [value, loading, error] = useDocumentData(
-        // firestore
-        //     .collection("users")
-        //     .doc(uid)
-        //     .collection('habits')
-        //     .doc('categories')
         categoriesRef
     );
 
@@ -96,43 +90,45 @@ const Goals: React.FC = () => {
                                             Your Goals
                                         </h1>
                                         {creationMode ? (
-                                            <AddHabitForm setCreationMode={ setCreationMode }/>
+                                            <AddHabitForm setCreationMode={setCreationMode} />
                                         ) : (
-                                            <Button
-                                                text="+"
-                                                textSize="lg"
-                                                onClick={() =>
-                                                    setCreationMode(true)
-                                                }
-                                            />
-                                        )}
+                                                <Button
+                                                    text="+"
+                                                    textSize="lg"
+                                                    onClick={() =>
+                                                        setCreationMode(true)
+                                                    }
+                                                />
+                                            )}
 
-                                        {categories && (
+                                        {categories &&
                                             <Fade bottom cascade duration={500}>
-                                                {Object.values(categories).map(
-                                                    (category, idx) => {
-                                                        return (
-                                                            <p
-                                                                key={idx}
-                                                                onClick={() => {
-                                                                    setSelectedCategory(
+                                                <div>
+
+                                                    {Object.values(categories).map(
+                                                        (category, idx) => {
+                                                            return (
+                                                                <p
+                                                                    key={idx}
+                                                                    onClick={() => {
+                                                                        setSelectedCategory(
+                                                                            category
+                                                                        );
+                                                                    }}
+                                                                    className={`cursor-pointer p-1.5 ${selectedCategory ==
                                                                         category
-                                                                    );
-                                                                }}
-                                                                className={`cursor-pointer p-1.5 ${
-                                                                    selectedCategory ==
-                                                                    category
                                                                         ? "border-l-4 border-highlight bg-base"
                                                                         : ""
-                                                                } hover:bg-base`}
-                                                            >
-                                                                {category}
-                                                            </p>
-                                                        );
-                                                    }
-                                                )}
+                                                                        } hover:bg-base`}
+                                                                >
+                                                                    {category}
+                                                                </p>
+                                                            );
+                                                        }
+                                                    )}
+                                                </div>
                                             </Fade>
-                                        )}
+                                        }
                                     </div>
                                 </div>
                                 <div className="flex flex-col md:ml-5 md:w-2/3">
@@ -146,17 +142,17 @@ const Goals: React.FC = () => {
                                                 today?
                                             </h1>
                                             {submitted !== null && (
-                                                <Zoom right duration={300}>
-                                                    <FlashMessage
-                                                        duration={5000}
-                                                    >
-                                                        <p className="p-3 my-5 rounded-lg text-white bg-highlight">
-                                                            {submitted
-                                                                ? "Great job! Keep up the good work!"
-                                                                : "Don't worry about it! Try again tomorrow."}
-                                                        </p>
-                                                    </FlashMessage>
-                                                </Zoom>
+                                                // <Zoom right duration={300}>
+                                                <FlashMessage
+                                                    duration={5000}
+                                                >
+                                                    <p className="p-3 my-5 rounded-lg text-white bg-highlight">
+                                                        {submitted
+                                                            ? "Great job! Keep up the good work!"
+                                                            : "Don't worry about it! Try again tomorrow."}
+                                                    </p>
+                                                </FlashMessage>
+                                                // </Zoom>
                                             )}
                                             <HabitContent
                                                 selectedCategory={
@@ -178,49 +174,3 @@ const Goals: React.FC = () => {
 
 export default Goals;
 
-{
-    /* // <div className="flex flex-col md:flex-row m-5 md:m-0">
-        //     <Sidebar />
-        //     <div className="w-full md:m-5">
-        //         <Navbar />
-        //         <div className="my-4 p-3 bg-card rounded-lg md:w-1/2">
-        //             <h1 className="text-highlight font-bold">Track Your Habits</h1>
-        //             <p>Each day you complete your goal, mark it in the calendar, and track your progress!</p>
-        //             <p>If you don't complete it one day, don't worry!</p>
-        //             <p>The bluer the calendar, the better!</p>
-        //          </div>
-        //         <div className="flex flex-col md:flex-row">
-        //             <div className="flex md:flex-col m-1">
-        //                 <AddHabitForm />
-        //                 <div>
-        //                     <h1 className="text-lg text-highlight mt-4 ">Your Habits</h1>
-        //                     {categories &&
-        //                         Object.values(categories).map((category, idx) => {
-        //                             return (
-        //                                 <p
-        //                                     key={idx}
-        //                                     onClick={() => {
-        //                                         setSelectedCategory(category);
-        //                                     }}
-        //                                     className="cursor-pointer"
-        //                                 >
-        //                                     {category}
-        //                                 </p>
-        //                             );
-        //                         })}
-        //                 </div>
-        //             </div>
-        //             <div className="flex flex-col ml-5 w-1/2">
-        //                 {selectedCategory && (
-        //                     <h1 className="text-xl text-highlight">
-        //                         Did you {selectedCategory} today?
-        //                     </h1>
-        //                 )}
-        //                 {selectedCategory && (
-        //                     <HabitContent selectedCategory={selectedCategory} />
-        //                 )}
-        //             </div>
-        //         </div>
-        //     </div>
-        // </div> */
-}

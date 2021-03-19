@@ -9,7 +9,6 @@ import { useUser } from "../hooks/useUser";
 import { useDate } from "../hooks/useDate";
 import DataEntries from "../components/DataEntries";
 import Calendar from "../components/Calendar";
-// import Quote from "../components/Quote";
 import Sidebar from "../components/Sidebar";
 
 import "react-datepicker/dist/react-datepicker.css";
