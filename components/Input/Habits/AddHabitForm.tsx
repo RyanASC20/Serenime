@@ -2,7 +2,6 @@ import { useForm } from 'react-hook-form';
 import Zoom from 'react-reveal/Zoom';
 
 import { useHabitCategoriesRef} from '../../../hooks/firestoreHooks';
-
 import Button from '../../Button';
 
 interface P {
@@ -22,7 +21,6 @@ const AddHabitForm: React.FC<P> = ({ setCreationMode }) => {
     
     return (
         <Zoom duration={300}>
-            {/* <h1 className="text-lg text-highlight">Add a habit to track: </h1> */}
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input
                     name="habitsInput"
@@ -36,7 +34,6 @@ const AddHabitForm: React.FC<P> = ({ setCreationMode }) => {
                 <div className="flex justify-between w-3/4 mb-3">
                     <Button text="Add" textSize="md"></Button>
                     <Button text="Cancel" textSize="md" onClick={() => { setCreationMode(false) } } hoverColor="red-500"></Button>
-                    {/* <Button text="Cancel" textSize="md" hoverColor="red-500" onClick={() => { setCreationMode(false) }}></Button> */}
                 </div>
             </form>
        </Zoom>

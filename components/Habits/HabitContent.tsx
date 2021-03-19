@@ -37,7 +37,6 @@ const HabitContent: React.FC<P> = ({ selectedCategory, setSubmitted }) => {
     const data = useHabitData(selectedCategory);
     const { uid } = useUser();
     const { date } = useDate();
-    // const { handleSubmit, register, errors, reset } = useForm<FormData>();
 
     const handleClick = (b: boolean) => {
         firestore
@@ -53,29 +52,8 @@ const HabitContent: React.FC<P> = ({ selectedCategory, setSubmitted }) => {
                 },
                 { merge: true }
             );
-
-        // if (b) alert("Great job! Keep up the good work!");
-        // else alert("Don't worry about it! You can try again tomorrow!");
         setSubmitted(b);
     };
-    // const onSubmit = (data: FormData) => {
-    //     firestore
-    //         .collection("users")
-    //         .doc(uid)
-    //         .collection("habits")
-    //         .doc("categories")
-    //         .collection(selectedCategory)
-    //         .doc(`${date.getMonth() + 1}-${date.getFullYear()}`)
-    //         .set(
-    //             {
-    //                 [date.getDate()]: data.answer == "true" ? true : false,
-    //             },
-    //             { merge: true }
-    //         );
-
-    //         if (data.answer == "true") alert("Great job! Keep up the good work!");
-    //         else alert("Don't worry about it! You can try again tomorrow!");
-    // };
 
     return (
         <Zoom duration={300}>
