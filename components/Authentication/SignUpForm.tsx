@@ -93,8 +93,8 @@ const SignUpForm: React.FC = () => {
           <p className="text-red-500">{errors.password.message}</p>
         )}
       </div>
-      <Button text="Register" textSize="lg" />
-      <p className="mt-2 text-center text-md text-gray-600">
+      <Button text="Register" textSize="lg" full={true} />
+      <p className="mt-2 text-sm text-gray-600">
             Already have an account?{' '}
             <Link href="/login">
               <a href="#" className="text-blue-500">

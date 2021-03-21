@@ -66,11 +66,14 @@ const LoginForm: React.FC = () => {
             },
           })}
         />
+        <Link href="resetPassword">
+          <a href="#" className="text-blue-500 mb-5">Forgot password?</a>
+        </Link>
         {errors.password && (
           <p className="text-red-500">{errors.password.message}</p>
         )}
       </div>
-      <Button text="Login" textSize="lg" />
+      <Button text="Login" textSize="lg" full={true} />
       <p className="mt-5 text-sm">
         Don't have an account?{' '}
         <Link href="/signup">
