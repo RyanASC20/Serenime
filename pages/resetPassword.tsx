@@ -1,27 +1,27 @@
 import Head from 'next/head';
 
 import Navbar from '../components/Navbar';
-import LoginForm from "../components/Authentication/LoginForm";
+import ResetPasswordForm from "../components/Authentication/ResetPasswordForm";
 
 const SignUpPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Serenime | Login</title>
+        <title>Serenime | Reset Password</title>
       </Head>
       <div className="min-h-screen bg-base">
         <Navbar />
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <div className="text-center mt-24">
             <h2 className="mt-6 text-center text-3xl leading-9 font-extrabold text-highlight">
-              Welcome Back
+              Reset Password
           </h2>
             <p className="mt-2 text-center text-md text-gray-500">
-              Sign in to continue
+              Please enter the email you registered with
           </p>
           </div>
           <div className="mt-8 mx-8 md:mx-0 bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-            <LoginForm />
+            <ResetPasswordForm />
           </div>
         </div>
       </div>
