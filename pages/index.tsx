@@ -11,7 +11,6 @@ import DataEntries from "../components/DataEntries";
 import Calendar from "../components/Calendar";
 import Sidebar from "../components/Sidebar";
 
-import "react-datepicker/dist/react-datepicker.css";
 import { useSidebarState } from "../hooks/useSidebar";
 
 const useMonthlyData = () => {

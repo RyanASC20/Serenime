@@ -1,8 +1,11 @@
 import DatePicker from "react-datepicker";
-import Zoom from 'react-reveal/Zoom';
+// import Zoom from 'react-reveal/Zoom';
 
 import { useDate } from "../hooks/useDate";
 import { emoteColors } from "../public/static/icons";
+
+import "react-datepicker/dist/react-datepicker.css";
+
 
 interface P {
     type: string;
