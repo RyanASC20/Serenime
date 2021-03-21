@@ -1,9 +1,11 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import Link from 'next/link';
 
 import { auth } from "../../config/firebase";
 import { useRouter } from "next/router";
 import Button from '../Button';
+import { MailIconElement, LockIconElement } from '../../public/static/icons';
 
 interface LoginData {
   name: string;
@@ -35,7 +37,7 @@ const LoginForm: React.FC = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       {loginError && <p className="text-red-500">{loginError.message}</p>}
       <div>
-        <label htmlFor="email" className="transform translate-x-10">Email</label>
+        <label htmlFor="email" className="transform translate-x-10">{MailIconElement} Email</label>
         <input
           type="email"
           name="email"
@@ -51,7 +53,7 @@ const LoginForm: React.FC = () => {
         {errors.email && <p className="text-red-500">{errors.email.message}</p>}
       </div>
       <div>
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password">{LockIconElement} Password</label>
         <input
           type="password"
           name="password"
@@ -68,9 +70,16 @@ const LoginForm: React.FC = () => {
           <p className="text-red-500">{errors.password.message}</p>
         )}
       </div>
-      {/* <div className="w-full border border-black"> */}
-        <Button text="Login" textSize="lg" />
-      {/* </div> */}
+      <Button text="Login" textSize="lg" />
+      <p className="mt-5 text-sm">
+        Don't have an account?{' '}
+        <Link href="/signup">
+          <a href="#" className="text-blue-500">
+            Sign Up here
+          </a>
+        </Link>
+      </p>
+      
     </form>
   );
 };

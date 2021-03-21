@@ -16,8 +16,12 @@ import {
     mdiHome,
     mdiWeatherWindy,
     mdiCalendar,
-    mdiStar
+    mdiStar,
+    mdiMenu,
+    mdiLock,
+    mdiEmail
 } from "@mdi/js";
+import { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } from 'constants';
 
 export const emotes = [
     mdiEmoticonCryOutline,
@@ -76,6 +80,13 @@ export const HomeIconElement = <Icon path={ mdiHome } title="Home" size={ 0.85 }
 export const WindIconElement = <Icon path={ mdiWeatherWindy } title="Breathing" size={ 0.85 } className="inline mr-2"></Icon>
 export const RoutineIconElement = <Icon path={ mdiCalendar } title="Breathing" size={ 0.85 } className="inline mr-2"></Icon>
 export const StarIconElement = <Icon path={ mdiStar } title="Breathing" size={ 0.85 } className="inline mr-2"></Icon>
+export const HamburgerIconElement = <Icon path={ mdiMenu } title="Menu" size={ 1.5 } className="inline mr-2 text-white"></Icon>
+export const MailIconElement = <Icon path={ mdiEmail } title="email" size={ 0.75 } className="inline text-gray-500 mr-1"></Icon>
+export const LockIconElement = <Icon path={ mdiLock } title="password" size={ 0.75 } className="inline text-gray-500 mr-1"></Icon>
+
+
+
+
 
 
 export { emoteColors, timeIconColors, timeIconBg }

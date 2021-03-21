@@ -2,12 +2,15 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
     purge: [
-        './pages/*.tsx',
-        './components/**/*.tsx'
+        // './pages/*.tsx',
+        // './components/**/*.tsx'
     ],
     darkMode: false, // or 'media' or 'class'
     theme: {
         extend: {
+            transitionProperty: {
+                'width': 'width'
+            },
             fontFamily: {
                 sans: ["Lato", "sans-serif"],
                 heading: ["Raleway", "sans-serif"],

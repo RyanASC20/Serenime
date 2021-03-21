@@ -12,6 +12,7 @@ import Calendar from "../components/Calendar";
 import Sidebar from "../components/Sidebar";
 
 import "react-datepicker/dist/react-datepicker.css";
+import { useSidebarState } from "../hooks/useSidebar";
 
 const useMonthlyData = () => {
     const { uid } = useUser();
@@ -51,11 +52,11 @@ const useMonthlyData = () => {
 
 export default function Index() {
     const { uid } = useUser();
+    const { sidebarOpen } = useSidebarState();
     const monthlyData = useMonthlyData();
     const router = useRouter();
 
     useEffect(() => {
-        console.log(uid);
         if (!uid) {
             router.push("/login");
         }
@@ -102,8 +103,8 @@ export default function Index() {
                                             Try to make the calendar as green as
                                             possible!
                                         </p>
+                                        <Calendar type="mood" data={monthlyData} />
                                     </div>
-                                    <Calendar type="mood" data={monthlyData} />
                                 </div>
                                 <div className="md:w-2/5">
                                     <h2 className="mt-4 text-center text-green-600 font-heading text-xl font-light">{`${
@@ -120,28 +121,3 @@ export default function Index() {
     );
 }
 
-{
-    /* // <div className="flex flex-col md:flex-row md:m-0">
-        //     <Sidebar />
-        //     <div className="w-full">
-        //         <Navbar />
-        //         <div className="flex flex-col m-2 md:m-5 lg:flex-row lg:justify-between">
-        //             <div className="w-full lg:w-5/12 flex flex-col">
-        //                 <div className="mb-4 p-3 bg-card rounded-lg ">
-        //                     <h1 className="text-highlight font-bold">Track Your Mood</h1>
-        //                     <p>Enter events you did throughout the day and keep track of how you felt!</p>
-        //                     <p>Try to make the calendar as green as possible!</p>
-        //                 </div>
-        //                 <Calendar type="mood" data={ monthlyData }/>
-        //             </div>
-        //             <div className="lg:w-1/2">
-        //                 <h2 className="mt-4 text-center text-green-600 font-heading text-xl font-light">{`${
-        //                     monthNames[date.getMonth()]
-        //                 } ${date.getDate()}, ${date.getFullYear()}`}</h2>
-
-        //                 { user && <DataEntries /> }
-        //             </div>
-        //         </div>
-        //     </div>
-        // </div> */
-}
