@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import Link from 'next/Link';
+import Link from 'next/link';
 
 import { auth } from "../../config/firebase";
 import { useRouter } from "next/router";
