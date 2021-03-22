@@ -8,6 +8,7 @@ const SignOutButton: React.FC = () => {
     try {
       await auth.signOut();
       router.push("/login");
+      return;
     } catch (err) {
       console.log(err);
     }
