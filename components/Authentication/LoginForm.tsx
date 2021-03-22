@@ -1,9 +1,10 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import Link from 'next/link';
+import { useRouter } from "next/router";
+
 
 import { auth } from "../../config/firebase";
-import { useRouter } from "next/router";
 import Button from '../Button';
 import { MailIconElement, LockIconElement } from '../../public/static/icons';
 
@@ -23,7 +24,6 @@ const LoginForm: React.FC = () => {
     try {
       await auth.signInWithEmailAndPassword(email, password);
       router.push("/")
-      return;
     } catch (err) {
       setLoginError(err);
     }

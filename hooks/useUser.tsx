@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { useRouter } from 'next/router';
+
 import { auth, firestore } from "../config/firebase";
-import { useDate } from "./useDate";
 
 
 // Use UserContext so user can be accessed from children
@@ -14,6 +15,7 @@ export const useUser = () => {
 // Provider used in _app.js surrounding <Component> so all components have access to user value
 export const UserProvider: React.FC = ({ children }) => {
     const [user, setUser] = useState({});
+    const router = useRouter();
 
     // Set value of UserContext to user when user is changed
     useEffect(() => {
@@ -22,8 +24,17 @@ export const UserProvider: React.FC = ({ children }) => {
                 const userData = await firestore.collection('users').doc(user.uid).get();
                 setUser({...userData.data(), uid: user.uid });
             } 
+            else {
+                setUser({});
+            }
         });
     }, []);
+
+    useEffect(() => {
+        if (user) {
+            router.push('/');
+        }
+    }, [user])
 
     return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
 };
