@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import { auth } from "../../config/firebase";
 import Button from '../Button';
 import { MailIconElement, LockIconElement } from '../../public/static/icons';
+import styles from './LoginForm.module.css';
 
 interface LoginData {
   name: string;
@@ -23,7 +24,7 @@ const LoginForm: React.FC = () => {
   const login = async ({ email, password }) => {
     try {
       await auth.signInWithEmailAndPassword(email, password);
-      router.push("/")
+      // router.push("/")
     } catch (err) {
       setLoginError(err);
     }
@@ -36,12 +37,11 @@ const LoginForm: React.FC = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       {loginError && <p className="text-red-500">{loginError.message}</p>}
-      <div>
-        <label htmlFor="email" className="transform translate-x-10">{MailIconElement} Email</label>
+      <div className="relative">
         <input
           type="email"
           name="email"
-          className="appearance-none block w-full mb-4 p-2 border-b-2 border-gray-300 placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-highlight transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+          className={`${styles.input} appearance-none block w-full mb-4 p-2 border border-gray-300 placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-highlight transition duration-150 ease-in-out sm:text-sm sm:leading-5`}
           ref={register({
             required: {
               value: true,
@@ -50,14 +50,14 @@ const LoginForm: React.FC = () => {
           })}
           autoComplete="off"
         />
+        <label htmlFor="email" className={`${styles.label} absolute transition-all top-2.5 left-2 px-1 pointer-events-none bg-white text-xs`}>{MailIconElement} Email</label>
         {errors.email && <p className="text-red-500">{errors.email.message}</p>}
       </div>
-      <div>
-        <label htmlFor="password">{LockIconElement} Password</label>
+      <div className="relative">
         <input
           type="password"
           name="password"
-          className="appearance-none block w-full border-b-2 mb-4 p-2 border-gray-300 placeholder-gray-400 focus:outline-none focus:border-highlight transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+          className={`${styles.input} appearance-none block w-full border mb-4 p-2 border-gray-300 placeholder-gray-400 focus:outline-none focus:border-highlight transition duration-150 ease-in-out sm:text-sm sm:leading-5`}
           ref={register({
             required: true,
             minLength: {
@@ -66,12 +66,16 @@ const LoginForm: React.FC = () => {
             },
           })}
         />
-        <Link href="resetPassword">
-          <a href="#" className="text-blue-500 mb-5">Forgot password?</a>
-        </Link>
+        <label htmlFor="password" className={`${styles.label} absolute transition-all top-2.5 left-2 px-1 pointer-events-none bg-white text-xs`}>{LockIconElement} Password</label>
+        
         {errors.password && (
           <p className="text-red-500">{errors.password.message}</p>
         )}
+      </div>
+      <div className="mb-4 text-sm">
+        <Link href="/resetPassword">
+          <a href="#" className="text-blue-500">Forgot password?</a>
+        </Link>
       </div>
       <Button text="Login" textSize="lg" full={true} />
       <p className="mt-5 text-sm">
@@ -82,7 +86,7 @@ const LoginForm: React.FC = () => {
           </a>
         </Link>
       </p>
-      
+
     </form>
   );
 };

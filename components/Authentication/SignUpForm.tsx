@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { auth, firestore } from "../../config/firebase";
 import Button from "../Button";
 import { MailIconElement, LockIconElement } from '../../public/static/icons';
+import styles from './LoginForm.module.css';
 
 
 interface SignUpData {
@@ -44,13 +45,12 @@ const SignUpForm: React.FC = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       {signUpError && <p className="text-red-500">{signUpError}</p>}
-      <div className="mb-4">
-        <label htmlFor="name">Name</label>
+      <div className="relative mb-4">
         <input
           type="text"
           name="name"
           autoComplete="off"
-          className="appearance-none block w-full p-2 border-b-2 border-gray-300 placeholder-gray-400 focus:outline-none focus:border-highlight transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+          className={`${styles.input} appearance-none block w-full p-2 border border-gray-300 placeholder-gray-400 focus:outline-none focus:border-highlight transition duration-150 ease-in-out sm:text-sm sm:leading-5`}
           ref={register({
             required: {
               value: true,
@@ -58,14 +58,14 @@ const SignUpForm: React.FC = () => {
             },
           })}
         />
+        <label htmlFor="name" className={`${styles.label} absolute transition-all top-2.5 left-2 px-1 pointer-events-none bg-white text-xs`}>Name</label>
         {errors.name && <p className="text-red-500">{errors.name.message}</p>}
       </div>
-      <div className="mb-4">
-        <label htmlFor="email">{MailIconElement} Email</label>
+      <div className="relative mb-4">
         <input
           type="email"
           name="email"
-          className="appearance-none block w-full p-2 border-b-2 border-gray-300 placeholder-gray-400 focus:outline-none focus:border-highlight transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+          className={`${styles.input} appearance-none block w-full p-2 border border-gray-300 placeholder-gray-400 focus:outline-none focus:border-highlight transition duration-150 ease-in-out sm:text-sm sm:leading-5`}
           ref={register({
             required: {
               value: true,
@@ -73,14 +73,14 @@ const SignUpForm: React.FC = () => {
             },
           })}
         />
+        <label htmlFor="email" className={`${styles.label} absolute transition-all top-2.5 left-2 px-1 pointer-events-none bg-white text-xs`}>{MailIconElement} Email</label>
         {errors.email && <p className="text-red-500">{errors.email.message}</p>}
       </div>
-      <div className="mb-4">
-        <label htmlFor="password">{LockIconElement} Password</label>
+      <div className="relative mb-4">
         <input
           type="password"
           name="password"
-          className="appearance-none block w-full p-2 border-b-2 border-gray-300 placeholder-gray-400 focus:outline-none focus:border-highlight transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+          className={`${styles.input} appearance-none block w-full p-2 border border-gray-300 placeholder-gray-400 focus:outline-none focus:border-highlight transition duration-150 ease-in-out sm:text-sm sm:leading-5`}
           ref={register({
             required: true,
             minLength: {
@@ -89,19 +89,20 @@ const SignUpForm: React.FC = () => {
             },
           })}
         />
+        <label htmlFor="password" className={`${styles.label} absolute transition-all top-2.5 left-2 px-1 pointer-events-none bg-white text-xs`}>{LockIconElement} Password</label>
         {errors.password && (
           <p className="text-red-500">{errors.password.message}</p>
         )}
       </div>
       <Button text="Register" textSize="lg" full={true} />
       <p className="mt-2 text-sm text-gray-600">
-            Already have an account?{' '}
-            <Link href="/login">
-              <a href="#" className="text-blue-500">
-                Log in here
+        Already have an account?{' '}
+        <Link href="/login">
+          <a href="#" className="text-blue-500">
+            Log in here
               </a>
-            </Link>
-          </p>
+        </Link>
+      </p>
     </form>
   );
 };
