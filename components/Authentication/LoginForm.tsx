@@ -35,6 +35,7 @@ const LoginForm: React.FC = () => {
   }
 
   return (
+    <>
     <form onSubmit={handleSubmit(onSubmit)}>
       {loginError && <p className="text-red-500">{loginError.message}</p>}
       <div className="relative">
@@ -88,6 +89,8 @@ const LoginForm: React.FC = () => {
       </p>
 
     </form>
+    <script src="form.js"></script>
+    </>
   );
 };
 
