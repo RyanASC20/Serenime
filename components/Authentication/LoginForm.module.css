@@ -1,0 +1,10 @@
+.label {
+    opacity: 0.65;
+}
+
+.input:focus + label {
+    /* top: 50%; */
+    transform: translateY(-90%);
+    font-size: 14px;
+    opacity: 1;
+}

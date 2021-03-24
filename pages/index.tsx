@@ -50,8 +50,9 @@ const useMonthlyData = () => {
 };
 
 export default function Index() {
+
+
     const { uid } = useUser();
-    const { sidebarOpen } = useSidebarState();
     const monthlyData = useMonthlyData();
     const router = useRouter();
 
