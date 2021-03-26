@@ -4,6 +4,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 
 import { firestore } from "../config/firebase";
+import Page from '../components/Page';
 import Navbar from "../components/Navbar";
 import { useUser } from "../hooks/useUser";
 import { useDate } from "../hooks/useDate";
@@ -50,8 +51,6 @@ const useMonthlyData = () => {
 };
 
 export default function Index() {
-
-
     const { uid } = useUser();
     const monthlyData = useMonthlyData();
     const router = useRouter();
@@ -80,44 +79,31 @@ export default function Index() {
 
     return (
         <>
-            <Head>
-                <title>Serenime | Home</title>
-            </Head>
             {uid && (
-                <div className="bg-base">
-                    <Navbar />
-                    <div className="flex justify-center mx-2">
-                        <div className="flex flex-col md:flex-row md:justify-between w-full lg:w-3/4 md:m-0">
-                            <Sidebar />
-                            <div className="flex flex-col md:flex-row md:justify-around w-full h-screen md:border-l-2 md:border-r-2 md:border-gray-300 md:px-3 md:py-6 bg-secondary">
-                                <div>
-                                    <div className="mb-4 p-3 rounded-lg ">
-                                        <h1 className="text-highlight font-bold">
-                                            Track Your Mood
-                                        </h1>
-                                        <p>
-                                            Enter events you did throughout the
-                                            day and keep track of how you felt!
-                                        </p>
-                                        <p>
-                                            Try to make the calendar as green as
-                                            possible!
-                                        </p>
-                                        <Calendar type="mood" data={monthlyData} />
-                                    </div>
-                                </div>
-                                <div className="md:w-2/5">
-                                    <h2 className="mt-4 text-center text-green-600 font-heading text-xl font-light">{`${
-                                        monthNames[date.getMonth()]
-                                    } ${date.getDate()}, ${date.getFullYear()}`}</h2>
-                                    <DataEntries />
-                                </div>
-                            </div>
+                <Page title="home">
+                    <div>
+                        <div className="mb-4 rounded-lg ">
+                            <h1 className="text-highlight font-bold">
+                                Track Your Mood
+                            </h1>
+                            <p>
+                                Enter events you did throughout the day and keep
+                                track of how you felt!
+                            </p>
+                            <p>
+                                Try to make the calendar as green as possible!
+                            </p>
+                            <Calendar type="mood" data={monthlyData} />
                         </div>
                     </div>
-                </div>
+                    <div className="md:w-2/5">
+                        <h2 className="mt-4 text-center text-green-600 font-heading text-xl font-light">{`${
+                            monthNames[date.getMonth()]
+                        } ${date.getDate()}, ${date.getFullYear()}`}</h2>
+                        <DataEntries />
+                    </div>
+                </Page>
             )}
         </>
     );
 }
-
