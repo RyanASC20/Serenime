@@ -6,7 +6,7 @@ import styles from './CountdownTimer.module.css';
 
 interface P {
     duration: number;
-    breathingMethod: object;
+    breathingMethod?: object;
 }
 
 const CountdownTimer: React.FC<P> = ({ duration, breathingMethod }) => {
@@ -50,7 +50,7 @@ const CountdownTimer: React.FC<P> = ({ duration, breathingMethod }) => {
             <div className="flex flex-col items-center">
                 <div className={`flex flex-col items-center ${styles.timer}`}>
                     <p className="m-8 text-7xl font-thin">{currentCount / 60 < 10 ? 0 : ''}{Math.floor(currentCount / 60)}:{currentCount % 60 < 10 ? 0 : ''}{currentCount % 60}</p>
-                    <p className="text-3xl font-light capitalize">{Object.keys(breathingMethod)[intervalPosition.current]}</p>
+                    { breathingMethod && <p className="text-3xl font-light capitalize">{Object.keys(breathingMethod)[intervalPosition.current]}</p> }
                     { breathIntervals && <p className="text-2xl font-light">...{currentCount - intervalBreakpoint}</p>}
                 </div>
 

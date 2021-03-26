@@ -14,7 +14,12 @@ interface InputData {
 }
 
 const BreathingForm: React.FC<P> = ({ setSelection }) => {
-    const { handleSubmit, register, reset } = useForm<InputData>();
+    const { handleSubmit, register, reset } = useForm<InputData>({
+        defaultValues: {
+            duration: 1,
+            type: "Energy"
+        }
+    });
 
     const onSubmit = (data: InputData) => {
         setSelection(data);

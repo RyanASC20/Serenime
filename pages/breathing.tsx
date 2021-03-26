@@ -22,7 +22,10 @@ interface methodData {
 
 const Breathing: React.FC = () => {
     const { uid } = useUser();
-    const [selection, setSelection] = useState<SelectionData | null>(null);
+    const [selection, setSelection] = useState<SelectionData | null>({
+        duration: null,
+        type: 'Energy'
+    });
     const [selectedMethod, setSelectedMethod] = useState<methodData | null>(
         null
     );
@@ -32,11 +35,11 @@ const Breathing: React.FC = () => {
         if (!uid) {
             router.push("/login");
         }
+
     }, []);
 
     useEffect(() => {
         if (selection) {
-            console.log(selection.duration);
             setSelectedMethod(breathingExercises[selection.type]);
         }
     }, [selection]);
@@ -52,9 +55,9 @@ const Breathing: React.FC = () => {
                     <div className="flex justify-center mx-2">
                         <div className="flex flex-col md:flex-row md:justify-around w-full lg:w-3/4 md:m-0">
                             <Sidebar />
-                            <div className="flex flex-col-reverse md:mt-0 md:flex-row md:justify-between w-full h-screen md:border-l-2 md:border-r-2 md:border-gray-300 md:px-8 md:py-6 bg-white">
+                            <div className="flex flex-col-reverse md:mt-0 md:flex-row md:justify-between w-full md:h-screen md:border-l-2 md:border-r-2 md:border-gray-300 md:px-8 md:py-6 bg-white">
                                 <div className="md:w-1/2">
-                                    <h1 className="text-highlight text-lg font-bold mb-4">
+                                    <h1 className="text-highlight font-bold">
                                         Breathing Exercises
                                     </h1>
                                     <BreathingForm
@@ -103,33 +106,3 @@ const Breathing: React.FC = () => {
 };
 
 export default Breathing;
-
-{
-    /* <div className="flex flex-col md:flex-row m-5 md:m-0">
-            <Sidebar />
-            <div className="w-full md:m-5">
-                <Navbar text="Breathing Exercises" />
-                <div className="flex flex-col md:items-center">
-                    <div className="md:w-1/3">
-                    {selectedMethod && (
-                        <CountdownTimer
-                            duration={selection.duration * 10}
-                            breathingMethod={selectedMethod.breathIntervals}
-                        />
-                    )}
-                    <BreathingForm setSelection={setSelection} />
-                    {selectedMethod && (
-                        <ul className="mt-5 p-5 bg-secondary rounded-lg">
-                            {selectedMethod &&
-                                selectedMethod.instructions.map(
-                                    (instruction, idx) => {
-                                        return <li key={idx}>{instruction}</li>;
-                                    }
-                                )}
-                        </ul>
-                    )}
-                    </div>
-                </div>
-            </div>
-        </div> */
-}
