@@ -50,7 +50,7 @@ const SignUpForm: React.FC = () => {
           type="text"
           name="name"
           autoComplete="off"
-          className={`${styles.input} appearance-none block w-full p-2 border border-gray-300 placeholder-gray-400 focus:outline-none focus:border-highlight transition duration-150 ease-in-out sm:text-sm sm:leading-5`}
+          className={`${styles.input} appearance-none block w-full p-2.5 rounded-md border border-gray-300 placeholder-gray-400 focus:outline-none focus:border-highlight transition duration-150 ease-in-out sm:text-sm sm:leading-5`}
           ref={register({
             required: {
               value: true,
@@ -65,7 +65,7 @@ const SignUpForm: React.FC = () => {
         <input
           type="email"
           name="email"
-          className={`${styles.input} appearance-none block w-full p-2 border border-gray-300 placeholder-gray-400 focus:outline-none focus:border-highlight transition duration-150 ease-in-out sm:text-sm sm:leading-5`}
+          className={`${styles.input} appearance-none block w-full p-2.5 rounded-md border border-gray-300 placeholder-gray-400 focus:outline-none focus:border-highlight transition duration-150 ease-in-out sm:text-sm sm:leading-5`}
           ref={register({
             required: {
               value: true,
@@ -80,7 +80,7 @@ const SignUpForm: React.FC = () => {
         <input
           type="password"
           name="password"
-          className={`${styles.input} appearance-none block w-full p-2 border border-gray-300 placeholder-gray-400 focus:outline-none focus:border-highlight transition duration-150 ease-in-out sm:text-sm sm:leading-5`}
+          className={`${styles.input} appearance-none block w-full p-2.5 rounded-md border border-gray-300 placeholder-gray-400 focus:outline-none focus:border-highlight transition duration-150 ease-in-out sm:text-sm sm:leading-5`}
           ref={register({
             required: true,
             minLength: {

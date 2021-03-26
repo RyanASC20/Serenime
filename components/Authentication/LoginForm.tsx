@@ -42,7 +42,7 @@ const LoginForm: React.FC = () => {
         <input
           type="email"
           name="email"
-          className={`${styles.input} appearance-none block w-full mb-4 p-2 border border-gray-300 placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-highlight transition duration-150 ease-in-out sm:text-sm sm:leading-5`}
+          className={`${styles.input} appearance-none block w-full mb-4 p-2.5 rounded-md border border-gray-300 placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-highlight transition duration-150 ease-in-out sm:text-sm sm:leading-5`}
           ref={register({
             required: {
               value: true,
@@ -58,7 +58,7 @@ const LoginForm: React.FC = () => {
         <input
           type="password"
           name="password"
-          className={`${styles.input} appearance-none block w-full border mb-4 p-2 border-gray-300 placeholder-gray-400 focus:outline-none focus:border-highlight transition duration-150 ease-in-out sm:text-sm sm:leading-5`}
+          className={`${styles.input} appearance-none block w-full mb-4 p-2.5 rounded-md border border-gray-300 placeholder-gray-400 focus:outline-none focus:border-highlight transition duration-150 ease-in-out sm:text-sm sm:leading-5`}
           ref={register({
             required: true,
             minLength: {
