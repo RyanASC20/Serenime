@@ -2,6 +2,7 @@ import Head from 'next/head';
 
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
+import Footer from './Footer';
 
 interface P {
     title: string;
@@ -14,7 +15,7 @@ const Page: React.FC<P> = ({ children, title, style }) => {
             <Head>
                 <title>Serenime | { title }</title>
             </Head>
-            <div className="bg-base">
+            <div className="bg-base mb-20 md:mb-0">
                 <Navbar />
                 <div className="flex justify-center mx-2">
                     <div className="flex flex-col md:flex-row md:justify-between w-full lg:w-3/4 md:m-0">
@@ -25,6 +26,7 @@ const Page: React.FC<P> = ({ children, title, style }) => {
                     </div>
                 </div>
             </div>
+            {/* <Footer /> */}
         </>
     );
 };
