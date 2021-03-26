@@ -48,7 +48,7 @@ const Sidebar: React.FC = () => {
             </Fade> 
             :
             <>
-            { sidebarOpen && <div className={`transition-width duration-300 md:flex bg-base w-56 h-screen`}>
+            { sidebarOpen && <div className={`transition-width duration-300 md:flex w-56 h-screen`}>
                     <div>
                     { name && <h1 className="text-2xl my-8">How are you, <span className="text-highlight">{ name }</span>?</h1> }
                         <ul className="text-gray-600">

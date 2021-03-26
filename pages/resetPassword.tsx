@@ -20,7 +20,7 @@ const SignUpPage: React.FC = () => {
               Please enter the email you registered with
           </p>
           </div>
-          <div className="mt-8 mx-8 md:mx-0 bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+          <div className="mt-8 mx-8 md:mx-0 bg-secondary py-8 px-4 shadow sm:rounded-lg sm:px-10">
             <ResetPasswordForm />
           </div>
         </div>

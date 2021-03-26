@@ -5,7 +5,7 @@ module.exports = {
         // './pages/*.tsx',
         // './components/**/*.tsx'
     ],
-    darkMode: false, // or 'media' or 'class'
+    darkMode: 'media', // or 'media' or 'class'
     theme: {
         extend: {
             transitionProperty: {
@@ -23,6 +23,11 @@ module.exports = {
             colors: {
                 base: {
                     DEFAULT: "#FAF9FA",
+                    dark: '#2b323d'
+                },
+                secondary: {
+                    DEFAULT: "#FFFFFF",
+                    dark: '#475263'
                 },
                 card: {
                     DEFAULT: "#ededed",
@@ -30,7 +35,7 @@ module.exports = {
                 },
                 highlight: {
                     DEFAULT: "#55D681",
-                    pink: "#F87171"
+                    secondary: "#278DD5"
                 },
                 navbar: {
                     DEFAULT: "#535467"

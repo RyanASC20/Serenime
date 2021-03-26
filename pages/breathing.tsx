@@ -55,7 +55,7 @@ const Breathing: React.FC = () => {
                     <div className="flex justify-center mx-2">
                         <div className="flex flex-col md:flex-row md:justify-around w-full lg:w-3/4 md:m-0">
                             <Sidebar />
-                            <div className="flex flex-col-reverse md:mt-0 md:flex-row md:justify-between w-full md:h-screen md:border-l-2 md:border-r-2 md:border-gray-300 md:px-8 md:py-6 bg-white">
+                            <div className="flex flex-col-reverse md:mt-0 md:flex-row md:justify-between w-full md:h-screen md:border-l-2 md:border-r-2 md:border-gray-300 md:px-8 md:py-6 bg-secondary">
                                 <div className="md:w-1/2">
                                     <h1 className="text-highlight font-bold">
                                         Breathing Exercises
@@ -69,7 +69,7 @@ const Breathing: React.FC = () => {
 
                                     {selectedMethod && (
                                         <Fade bottom duration={300}>
-                                            <ul className="bg-secondary rounded-lg">
+                                            <ul className="rounded-lg">
                                                 {selectedMethod &&
                                                     selectedMethod.instructions.map(
                                                         (instruction, idx) => {
