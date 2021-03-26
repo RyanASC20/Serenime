@@ -104,9 +104,9 @@ const DataEntryForm: React.FC<P> = ({
                 onSubmit={handleSubmit(onSubmit)}
                 className="p-3 mt-4 bg-card rounded-lg w-full"
             >
-                <h2>How are you?</h2>
+                <h2 className="font-light">How are you?</h2>
                 <MoodRadioGroup register={register} />
-                <h2>What have you been up to?</h2>
+                <h2 className="font-thin">What have you been up to?</h2>
                 <textarea
                     name="description"
                     className="transition duration-200 p-2 resize-none w-full bg-base border-b-2 border-gray-300 focus:outline-none focus:border-green-500"
@@ -114,7 +114,7 @@ const DataEntryForm: React.FC<P> = ({
                         required: true,
                     })}
                 ></textarea>
-                <h2>When?</h2>
+                <h2 className="font-light">When?</h2>
                 <TimePeriodRadioGoup register={register} />
                 <div className="flex justify-between w-1/2">
                     <Button text="Submit" hoverColor="green-300" textSize="lg" />
