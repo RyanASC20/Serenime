@@ -1,3 +1,4 @@
+import firebase from 'firebase/app';
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import Link from 'next/link';
@@ -23,6 +24,7 @@ const LoginForm: React.FC = () => {
 
   const login = async ({ email, password }) => {
     try {
+      await auth.setPersistence(firebase.auth.Auth.Persistence.SESSION);
       await auth.signInWithEmailAndPassword(email, password);
       // router.push("/")
     } catch (err) {
