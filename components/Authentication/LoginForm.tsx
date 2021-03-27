@@ -39,7 +39,7 @@ const LoginForm: React.FC = () => {
   return (
     <>
     <form onSubmit={handleSubmit(onSubmit)}>
-      {loginError && <p className="text-red-500">{loginError.message}</p>}
+      {loginError && <p className="text-red-500 mb-3">{loginError.message}</p>}
       <div className="relative">
         <input
           type="email"
