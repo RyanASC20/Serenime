@@ -79,7 +79,7 @@ export default function Index() {
                 <Page title="home">
                     <div className="w-1/2">
                         {/* <div className="border border-black mb-4 rounded-lg "> */}
-                            <div>
+                            <div className="flex items-center">
                                 <h1 className="inline text-highlight font-bold">
                                     Track Your Mood
                                 </h1>

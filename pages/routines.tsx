@@ -14,7 +14,7 @@ const Routines: React.FC = () => {
                     style="flex flex-col w-full h-screen md:border-l-2 md:border-r-2 md:border-gray-300 md:px-3 md:py-6 bg-secondary"
                 >
                     <div>
-                        <div className="mb-4 p-3 rounded-lg ">
+                        <div className="flex items-center mb-4 p-3 rounded-lg ">
                             <h1 className="inline text-highlight font-bold">
                                 Morning and Evening Routines
                             </h1>

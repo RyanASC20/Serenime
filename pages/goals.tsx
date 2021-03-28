@@ -54,7 +54,7 @@ const Goals: React.FC = () => {
             {uid && (
                 <Page title="Goals">
                     <div className="md:w-1/4">
-                        <div className="mb-4 rounded-lg">
+                        <div className="flex items-center mb-4 rounded-lg">
                             <h1 className="inline text-highlight font-bold">
                                 Goal Tracker
                             </h1>
@@ -71,9 +71,9 @@ const Goals: React.FC = () => {
                             </Tooltip>
                         </div>
                         <div>
-                            <h1 className="text-md font-bold text-highlight mr-4 inline ">
+                            <h3 className="text-md font-bold text-highlight mr-4 inline ">
                                 Your Goals
-                            </h1>
+                            </h3>
                             {creationMode ? (
                                 <AddHabitForm
                                     setCreationMode={setCreationMode}
