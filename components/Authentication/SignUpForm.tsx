@@ -44,7 +44,7 @@ const SignUpForm: React.FC = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      {signUpError && <p className="text-red-500">{signUpError}</p>}
+      {signUpError && <p className="mb-3 text-red-500">{signUpError}</p>}
       <div className="relative mb-4">
         <input
           type="text"
