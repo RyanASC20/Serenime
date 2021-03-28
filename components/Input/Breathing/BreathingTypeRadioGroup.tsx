@@ -1,4 +1,5 @@
 import { useState, LegacyRef, Dispatch, SetStateAction } from 'react';
+import Label from '../Label';
 
 interface P {
     register: (instance: HTMLInputElement, options: object) => LegacyRef<HTMLInputElement> | void;
@@ -26,10 +27,11 @@ const BreathingTypeRadioGroup: React.FC<P> = ({ register, setSelection }) => {
                     id={`type-${idx}`}
                     name="type"
                     value={option}
-                    // className="w-0 h-0"
+                    className="w-0 h-0"
                     onClick={() => { setClicked(idx); setSelection({duration: null, type: option}) }}
                 ></input>
-                <label className="ml-2 font-light text-lg" htmlFor={`type-${idx}`}>{option}</label>
+                {/* <label className="ml-2 font-light text-lg" htmlFor={`type-${idx}`}>{option}</label> */}
+                <Label htmlFor={`type-${idx}`} text={option} clicked={ clicked === idx } />
             </div>
         );
     });

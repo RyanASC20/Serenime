@@ -1,5 +1,5 @@
 import { useState, LegacyRef, useEffect } from 'react';
-import Button from '../../Button';
+import Label from '../Label';
 
 interface P {
     register: (instance: HTMLInputElement, options: object) => LegacyRef<HTMLInputElement> | void;
@@ -25,13 +25,10 @@ const BreathingDurationRadioGroup: React.FC<P> = ({ register }) => {
                     id={`duration-${idx}`}
                     name="duration"
                     value={option}
-                    // className="w-0 h-0"
+                    className="w-0 h-0"
                     onClick={() => { setClicked(idx) }}
                 ></input>
-                {/* <label htmlFor={`duration-${idx}`}>
-                    <Button text={`${option}min`} />
-                </label> */}
-                <label className="ml-2 font-light text-lg" htmlFor={`duration-${idx}`}>{option} min</label>
+                <Label htmlFor={`duration-${idx}`} text={`${option} min`} clicked={clicked === idx} />
             </div>
         );
     });

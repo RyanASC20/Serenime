@@ -1,12 +1,12 @@
-import { useForm } from "react-hook-form";
-import { useDocumentData, useDocument } from "react-firebase-hooks/firestore";
+import { useState } from 'react';
+import { useDocumentData } from "react-firebase-hooks/firestore";
 import Zoom from 'react-reveal/Zoom';
 
 import { firestore } from "../../config/firebase";
 import { useUser } from "../../hooks/useUser";
 import { useDate } from "../../hooks/useDate";
 import Calendar from "../Calendar";
-import Button from '../Button';
+import Label from '../Input/Label';
 
 const useHabitData = (selectedCategory: string) => {
     const { uid } = useUser();
@@ -34,11 +34,20 @@ interface FormData {
 }
 
 const HabitContent: React.FC<P> = ({ selectedCategory, setSubmitted }) => {
+
+    const [ clicked, setClicked ] = useState<string | null>(null);
     const data = useHabitData(selectedCategory);
     const { uid } = useUser();
     const { date } = useDate();
 
     const handleClick = (b: boolean) => {
+        if (b) {
+            setClicked('yes') 
+        } else {
+            setClicked('no');
+        }
+
+
         firestore
             .collection("users")
             .doc(uid)
@@ -58,7 +67,6 @@ const HabitContent: React.FC<P> = ({ selectedCategory, setSubmitted }) => {
     return (
         <Zoom duration={300}>
             <div className="md:w-2/3 md:h-5/6">
-                {/* <form onSubmit={handleSubmit(onSubmit)} className="mb-4"> */}
                 <div className="my-3">
                     <div>
                         <input
@@ -71,18 +79,11 @@ const HabitContent: React.FC<P> = ({ selectedCategory, setSubmitted }) => {
                             id={"habit-yes"}
                             name="answer"
                             value={"true"}
-                            onClick={() => handleClick(true)}
-                        // className="w-0 h-0" 
+                            onClick={() => { handleClick(true)}}
+                            className="w-0 h-0" 
                         ></input>
-                        <label
-                            // className={`transition transition-duration-250 p-2 rounded-lg text-lg font-light cursor-pointer border-2 border-card hover:border-secondary `}
-                            className="ml-3 text-lg"
-                            htmlFor={'habit-yes'}
-                        >
-                            {/* <Button type="submit" text="Yes" onClick={() => handleClick(true) }/> */}
-                            Yes
-                        </label>
-                    </div>
+                            <Label htmlFor="habit-yes" text="Yes" clicked={ clicked === 'yes' } />
+                        </div>
                     <div>
                         <input
                             type="radio"
@@ -96,23 +97,13 @@ const HabitContent: React.FC<P> = ({ selectedCategory, setSubmitted }) => {
                             value={"false"}
                             onClick={() => handleClick(false)}
 
-                        // className="w-0 h-0"
+                            className="w-0 h-0"
                         ></input>
-                        <label
-                            // className={`transition transition-duration-250 p-2 rounded-lg text-lg font-light cursor-pointer border-2 border-card hover:border-secondary`}
-                            className="ml-3 text-lg"
-                            htmlFor={'habit-no'}
-                        >
-                            No
-                            {/* <Button type="submit" text="No" onClick={() => { handleClick(false) } } /> */}
-                        </label>
+                        <Label htmlFor="habit-no" text="No" clicked={ clicked === 'no' } />
                     </div>
-                    {/* <Button type="submit" text="Confirm" /> */}
-
                 </div>
-                {/* </form> */}
                 <Calendar type="habit" data={data} />
-            </div>
+                </div>
         </Zoom>
     );
 };
