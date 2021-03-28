@@ -1,18 +1,14 @@
 import { useEffect, useState } from "react";
 import { useCollection } from "react-firebase-hooks/firestore";
-import Head from "next/head";
 import { useRouter } from "next/router";
 
 import { firestore } from "../config/firebase";
-import Page from '../components/Page';
-import Navbar from "../components/Navbar";
+import Page from "../components/Page";
+import Tooltip from "../components/Tooltip";
 import { useUser } from "../hooks/useUser";
 import { useDate } from "../hooks/useDate";
 import DataEntries from "../components/DataEntries";
 import Calendar from "../components/Calendar";
-import Sidebar from "../components/Sidebar";
-
-import { useSidebarState } from "../hooks/useSidebar";
 
 const useMonthlyData = () => {
     const { uid } = useUser();
@@ -81,18 +77,24 @@ export default function Index() {
         <>
             {uid && (
                 <Page title="home">
-                    <div>
-                        <div className="mb-4 rounded-lg ">
-                            <h1 className="text-highlight font-bold">
-                                Track Your Mood
-                            </h1>
-                            <p>
-                                Enter events you did throughout the day and keep
-                                track of how you felt!
-                            </p>
-                            <p>
-                                Try to make the calendar as green as possible!
-                            </p>
+                    <div className="w-1/2">
+                        {/* <div className="border border-black mb-4 rounded-lg "> */}
+                            <div>
+                                <h1 className="inline text-highlight font-bold">
+                                    Track Your Mood
+                                </h1>
+                                <Tooltip>
+                                    <p>
+                                        Enter events you did throughout the day
+                                        and keep track of how you felt!
+                                    </p>
+                                    <p>
+                                        Try to make the calendar as green as
+                                        possible!
+                                    </p>
+                                </Tooltip>
+                            {/* </div> */}
+
                             <Calendar type="mood" data={monthlyData} />
                         </div>
                     </div>

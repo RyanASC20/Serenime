@@ -57,7 +57,7 @@ const HabitContent: React.FC<P> = ({ selectedCategory, setSubmitted }) => {
 
     return (
         <Zoom duration={300}>
-            <div className="md:h-5/6">
+            <div className="md:w-2/3 md:h-5/6">
                 {/* <form onSubmit={handleSubmit(onSubmit)} className="mb-4"> */}
                 <div className="my-3">
                     <div>

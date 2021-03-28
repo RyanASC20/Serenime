@@ -1,16 +1,13 @@
 import { useEffect, useState } from "react";
 import Fade from "react-reveal/Fade";
-import Zoom from "react-reveal/Zoom";
 import { useDocumentData } from "react-firebase-hooks/firestore";
 import FlashMessage from "react-flash-message";
-import Head from "next/head";
 
 import Page from "../components/Page";
+import Tooltip from "../components/Tooltip";
 import HabitContent from "../components/Habits/HabitContent";
 import AddHabitForm from "../components/Input/Habits/AddHabitForm";
 import { useHabitCategoriesRef } from "../hooks/firestoreHooks";
-import Sidebar from "../components/Sidebar";
-import Navbar from "../components/Navbar";
 import Button from "../components/Button";
 import { useUser } from "../hooks/useUser";
 import { useRouter } from "next/router";
@@ -58,17 +55,20 @@ const Goals: React.FC = () => {
                 <Page title="Goals">
                     <div className="md:w-1/4">
                         <div className="mb-4 rounded-lg">
-                            <h1 className="text-highlight font-bold">
-                                Track Your Goals
+                            <h1 className="inline text-highlight font-bold">
+                                Goal Tracker
                             </h1>
-                            <p>
-                                Each day you complete your goal, mark it in the
-                                calendar, and track your progress!
-                            </p>
-                            <p>
-                                If you don't complete it one day, don't worry!
-                            </p>
-                            <p>The greener the calendar, the better!</p>
+                            <Tooltip>
+                                <p>
+                                    Each day you complete your goal, mark it in
+                                    the calendar, and track your progress!
+                                </p>
+                                <p>
+                                    If you don't complete it one day, don't
+                                    worry!
+                                </p>
+                                <p>The greener the calendar, the better!</p>
+                            </Tooltip>
                         </div>
                         <div>
                             <h1 className="text-md font-bold text-highlight mr-4 inline ">

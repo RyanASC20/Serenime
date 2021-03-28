@@ -91,7 +91,6 @@ const LoginForm: React.FC = () => {
       </p>
 
     </form>
-    <script src="form.js"></script>
     </>
   );
 };
