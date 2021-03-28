@@ -77,7 +77,7 @@ export default function Index() {
         <>
             {uid && (
                 <Page title="home">
-                    <div className="w-1/2">
+                    <div className="w-full md:w-1/2">
                         {/* <div className="border border-black mb-4 rounded-lg "> */}
                             <div>
                                 <h1 className="inline text-highlight font-bold">
