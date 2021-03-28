@@ -42,6 +42,9 @@ const Sidebar: React.FC = () => {
                             <li className="mt-5 w-full">
                                 <SignOut />
                             </li>
+                            <li>
+                                <a href="#" className="underline text-gray-500">Feedback?</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -72,8 +75,8 @@ const Sidebar: React.FC = () => {
                                     <a className="text-lg p-3">{RoutineIconElement}Routines</a>
                                 </Link>
                             </li>
-                            <li className="mt-5 w-full">
-                                <SignOut />
+                            <li className="mt-3">
+                                <p className="text-gray-500 text-xs">Feedback? Contact <a href="mailto:serenimeapp@gmail.com" className="underline">serenimeapp@gmail.com</a></p>
                             </li>
                         </ul>
                     </div>

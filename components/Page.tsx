@@ -20,7 +20,7 @@ const Page: React.FC<P> = ({ children, title, style }) => {
                 <div className="flex justify-center mx-2">
                     <div className="flex flex-col md:flex-row md:justify-between w-full lg:w-3/4 md:m-0">
                         <Sidebar />
-                        <div className={`${style ? style : 'flex flex-col md:flex-row md:justify-around w-full h-screen md:border-l-2 md:border-r-2 md:border-gray-300 md:px-3 md:py-6 bg-secondary'} `}>
+                        <div className={`${style ? style : 'flex flex-col md:flex-row md:justify-around w-full min-h-screen md:border-l-2 md:border-r-2 md:border-gray-300 md:px-3 md:py-6 bg-secondary'} `}>
                             { children }
                         </div>
                     </div>

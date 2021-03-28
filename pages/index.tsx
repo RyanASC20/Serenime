@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 
 import { firestore } from "../config/firebase";
 import Page from "../components/Page";
+import Footer from '../components/Footer';
 import Tooltip from "../components/Tooltip";
 import { useUser } from "../hooks/useUser";
 import { useDate } from "../hooks/useDate";
