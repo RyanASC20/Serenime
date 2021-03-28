@@ -1,5 +1,5 @@
 import firebase from 'firebase/app';
-import 'firebase/analytics';
+// import 'firebase/analytics';
 import 'firebase/auth';
 import 'firebase/firestore';
 
@@ -29,7 +29,7 @@ if (process.env.NODE_ENV === 'production') {
     if (!firebase.apps.length) {
         firebase.initializeApp(FIREBASE_CONFIG_PROD);
     }
-    firebase.analytics();
+    // firebase.analytics();
 } else {
     if (!firebase.apps.length) {
         firebase.initializeApp(FIREBASE_CONFIG_DEV);
