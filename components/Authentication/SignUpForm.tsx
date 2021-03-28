@@ -31,6 +31,8 @@ const SignUpForm: React.FC = () => {
         name,
         email,
       });
+
+      router.push('/');
     } catch (err) {
       setSignUpError(err.message);
     }
@@ -38,8 +40,6 @@ const SignUpForm: React.FC = () => {
 
   const onSubmit = (data: SignUpData) => {
     SignUp(data);
-    if (!signUpError) router.push("/");
-    return;
   };
 
   return (
