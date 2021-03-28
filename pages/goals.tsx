@@ -54,7 +54,7 @@ const Goals: React.FC = () => {
             {uid && (
                 <Page title="Goals">
                     <div className="md:w-1/4">
-                        <div className="flex items-center mb-4 rounded-lg">
+                        <div className="mb-4 rounded-lg">
                             <h1 className="inline text-highlight font-bold">
                                 Goal Tracker
                             </h1>
