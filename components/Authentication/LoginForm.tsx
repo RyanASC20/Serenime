@@ -89,7 +89,7 @@ const LoginForm: React.FC = () => {
           </a>
         </Link>
       </p>
-
+      <p className="mt-3 text-gray-500 text-xs">Feedback? Contact <a href="mailto:serenimeapp@gmail.com" className="underline">serenimeapp@gmail.com</a></p>
     </form>
     </>
   );
