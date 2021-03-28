@@ -71,9 +71,9 @@ const Goals: React.FC = () => {
                             </Tooltip>
                         </div>
                         <div>
-                            <h3 className="text-md font-bold text-highlight mr-4 inline ">
+                            <h2 className="text-lg font-bold text-highlight mr-4 inline ">
                                 Your Goals
-                            </h3>
+                            </h2>
                             {creationMode ? (
                                 <AddHabitForm
                                     setCreationMode={setCreationMode}
