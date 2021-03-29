@@ -2,7 +2,6 @@ import firebase from 'firebase/app';
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import Link from 'next/link';
-import { useRouter } from "next/router";
 
 
 import { auth } from "../../config/firebase";
@@ -19,7 +18,6 @@ interface LoginData {
 const LoginForm: React.FC = () => {
   const { register, handleSubmit, errors } = useForm<LoginData>();
   const [loginError, setLoginError] = useState(null);
-  const router = useRouter();
 
 
   const login = async ({ email, password }) => {
@@ -28,7 +26,15 @@ const LoginForm: React.FC = () => {
       await auth.signInWithEmailAndPassword(email, password);
       // router.push("/")
     } catch (err) {
-      setLoginError(err);
+      console.log(err);
+      switch(err.code) {
+        case "auth/user-not-found": 
+          setLoginError("Uh oh! No user was found.");
+          break;
+        case "auth/wrong-password":
+          setLoginError("Uh oh! That password is incorrect.");
+          break;
+      }
     }
   };
 
@@ -39,7 +45,7 @@ const LoginForm: React.FC = () => {
   return (
     <>
     <form onSubmit={handleSubmit(onSubmit)}>
-      {loginError && <p className="text-red-500 mb-3">{loginError.message}</p>}
+      {loginError && <p className="mb-5 text-red-500 text-sm">{loginError}</p>}
       <div className="relative">
         <input
           type="email"
@@ -54,7 +60,7 @@ const LoginForm: React.FC = () => {
           autoComplete="off"
         />
         <label htmlFor="email" className={`${styles.label} absolute transition-all top-2.5 left-2 px-1 pointer-events-none bg-white text-xs`}>{MailIconElement} Email</label>
-        {errors.email && <p className="text-red-500">{errors.email.message}</p>}
+        {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
       </div>
       <div className="relative">
         <input
@@ -72,7 +78,7 @@ const LoginForm: React.FC = () => {
         <label htmlFor="password" className={`${styles.label} absolute transition-all top-2.5 left-2 px-1 pointer-events-none bg-white text-xs`}>{LockIconElement} Password</label>
         
         {errors.password && (
-          <p className="text-red-500">{errors.password.message}</p>
+          <p className="text-red-500 text-sm">{errors.password.message}</p>
         )}
       </div>
       <div className="mb-4 text-sm">
