@@ -9,7 +9,7 @@ const ResetPasswordForm: React.FC = () => {
     const { handleSubmit, register } = useForm();
 
     const [error, setError] = useState(null);
-    const [ sent, setSent ] = useState(true);
+    const [ sent, setSent ] = useState(false);
 
 
     const onSubmit = ({ email }) => {
