@@ -31,8 +31,8 @@ export const UserProvider: React.FC = ({ children }) => {
     }, []);
 
     useEffect(() => {
-        if (user) {
-            router.push('/');
+        if (Object.keys(user).length !== 0) {
+            router.push('/home');
         }
     }, [user])
 
