@@ -8,14 +8,14 @@ import { useDate } from "../../hooks/useDate";
 import Calendar from "../Calendar";
 import Label from '../Input/Label';
 
-const useHabitData = (selectedCategory: string) => {
+const useGoalData = (selectedCategory: string) => {
     const { uid } = useUser();
     const { date } = useDate();
     const [value, loading, error] = useDocumentData(
         firestore
             .collection("users")
             .doc(uid)
-            .collection("habits")
+            .collection("goals")
             .doc("categories")
             .collection(selectedCategory)
             .doc(`${date.getMonth() + 1}-${date.getFullYear()}`)
@@ -33,10 +33,10 @@ interface FormData {
     answer: string;
 }
 
-const HabitContent: React.FC<P> = ({ selectedCategory, setSubmitted }) => {
+const GoalContent: React.FC<P> = ({ selectedCategory, setSubmitted }) => {
 
     const [ clicked, setClicked ] = useState<string | null>(null);
-    const data = useHabitData(selectedCategory);
+    const data = useGoalData(selectedCategory);
     const { uid } = useUser();
     const { date } = useDate();
 
@@ -51,7 +51,7 @@ const HabitContent: React.FC<P> = ({ selectedCategory, setSubmitted }) => {
         firestore
             .collection("users")
             .doc(uid)
-            .collection("habits")
+            .collection("goals")
             .doc("categories")
             .collection(selectedCategory)
             .doc(`${date.getMonth() + 1}-${date.getFullYear()}`)
@@ -76,13 +76,13 @@ const HabitContent: React.FC<P> = ({ selectedCategory, setSubmitted }) => {
                             //         required: true,
                             //     })
                             // }
-                            id={"habit-yes"}
+                            id={"goal-yes"}
                             name="answer"
                             value={"true"}
                             onClick={() => { handleClick(true)}}
                             className="w-0 h-0" 
                         ></input>
-                            <Label htmlFor="habit-yes" text="Yes" clicked={ clicked === 'yes' } />
+                            <Label htmlFor="goal-yes" text="Yes" clicked={ clicked === 'yes' } />
                         </div>
                     <div>
                         <input
@@ -92,20 +92,20 @@ const HabitContent: React.FC<P> = ({ selectedCategory, setSubmitted }) => {
                             //         required: true,
                             //     })
                             // }
-                            id={"habit-no"}
+                            id={"goal-no"}
                             name="answer"
                             value={"false"}
                             onClick={() => handleClick(false)}
 
                             className="w-0 h-0"
                         ></input>
-                        <Label htmlFor="habit-no" text="No" clicked={ clicked === 'no' } />
+                        <Label htmlFor="goal-no" text="No" clicked={ clicked === 'no' } />
                     </div>
                 </div>
-                <Calendar type="habit" data={data} />
+                <Calendar type="goal" data={data} />
                 </div>
         </Zoom>
     );
 };
 
-export default HabitContent;
+export default GoalContent;

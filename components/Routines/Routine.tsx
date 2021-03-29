@@ -2,7 +2,7 @@ import firebase from 'firebase/app';
 import Link from 'next/link';
 import { useDocumentData } from 'react-firebase-hooks/firestore';
 import { useForm } from "react-hook-form";
-import Zoom from 'react-reveal/Zoom';
+import Zoom from '../Goals/node_modules/react-reveal/Zoom';
 
 import { firestore } from '../../config/firebase';
 import { useUser } from '../../hooks/useUser';

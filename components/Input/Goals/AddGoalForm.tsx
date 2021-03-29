@@ -8,7 +8,7 @@ interface P {
     setCreationMode?: any;
 }
 
-const AddHabitForm: React.FC<P> = ({ setCreationMode }) => {
+const AddGoalForm: React.FC<P> = ({ setCreationMode }) => {
     const { handleSubmit, register, reset, errors} = useForm();
     const habitCategoriesRef = useHabitCategoriesRef();
 
@@ -40,4 +40,4 @@ const AddHabitForm: React.FC<P> = ({ setCreationMode }) => {
     );
 }
 
-export default AddHabitForm;
+export default AddGoalForm;

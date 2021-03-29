@@ -51,7 +51,7 @@ const Calendar: React.FC<P> = ({ type, data }) => {
                 }
             }
         }
-    } else if (type === "habit") {
+    } else if (type === "goal") {
         // if (data) {
             for (let i = 0; i <= dim + startMonth.getDay() - 1; i++) {
                 if (i < startMonth.getDay()) {

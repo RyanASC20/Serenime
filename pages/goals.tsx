@@ -7,12 +7,11 @@ import firebase from 'firebase/app';
 
 import Page from "../components/Page";
 import Tooltip from "../components/Tooltip";
-import HabitContent from "../components/Habits/HabitContent";
-import AddHabitForm from "../components/Input/Habits/AddHabitForm";
+import HabitContent from "../components/Goals/HabitContent";
+import AddHabitForm from "../components/Input/Goals/AddGoalForm";
 import { useHabitCategoriesRef } from "../hooks/firestoreHooks";
 import Button from "../components/Button";
 import { useUser } from "../hooks/useUser";
-import { deleteIconElement } from '../public/static/icons';
 
 
 const useHabitCategories = () => {
