@@ -40,16 +40,17 @@ const DataEntries: React.FC = () => {
     });
 
     useEffect(() => {
+        console.log("entries changed")
+        const tmp = {
+            "0": [],
+            "1": [],
+            "2": [],
+            "3": []
+        };
         if (entries) {
             const { descriptions, moods } = entries;
-            const tmp = {
-                "0": [],
-                "1": [],
-                "2": [],
-                "3": []
-            };;
+            
             descriptions.forEach((item, idx) => {
-                console.log(item.timePeriod, item)
                 tmp[item.timePeriod].push(
                     <Entry
                         key={idx}
@@ -62,8 +63,9 @@ const DataEntries: React.FC = () => {
                     />
                 );
             });
-            setEntriesByTime(tmp);
-        }
+        } 
+    setEntriesByTime(tmp);
+
     }, [entries]);
 
 
