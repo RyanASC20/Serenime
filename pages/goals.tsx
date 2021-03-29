@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import Fade from "react-reveal/Fade";
 import { useDocumentData } from "react-firebase-hooks/firestore";
 import FlashMessage from "react-flash-message";
+import { useRouter } from "next/router";
+import firebase from 'firebase/app';
 
 import Page from "../components/Page";
 import Tooltip from "../components/Tooltip";
@@ -10,7 +12,8 @@ import AddHabitForm from "../components/Input/Habits/AddHabitForm";
 import { useHabitCategoriesRef } from "../hooks/firestoreHooks";
 import Button from "../components/Button";
 import { useUser } from "../hooks/useUser";
-import { useRouter } from "next/router";
+import { deleteIconElement } from '../public/static/icons';
+
 
 const useHabitCategories = () => {
     const categoriesRef = useHabitCategoriesRef();
@@ -26,6 +29,7 @@ const Goals: React.FC = () => {
     );
     const [creationMode, setCreationMode] = useState(false);
     const [submitted, setSubmitted] = useState(null);
+    const categoriesRef = useHabitCategoriesRef();
     const categories = useHabitCategories();
     const router = useRouter();
 
@@ -48,6 +52,15 @@ const Goals: React.FC = () => {
             }, 5000);
         }
     }, [submitted]);
+
+    const handleRemove = (category: string): void => {
+        const FieldValue = firebase.firestore.FieldValue;
+        console.log(category, [category])
+        categoriesRef
+            .set({
+                [category]: FieldValue.delete()
+            }, { merge: true});
+    }
 
     return (
         <>
@@ -92,14 +105,14 @@ const Goals: React.FC = () => {
                                         {Object.values(categories).map(
                                             (category, idx) => {
                                                 return (
-                                                    <p
+                                                    <div
                                                         key={idx}
                                                         onClick={() => {
                                                             setSelectedCategory(
                                                                 category
                                                             );
                                                         }}
-                                                        className={`cursor-pointer p-1.5 ${
+                                                        className={`flex justify-between cursor-pointer p-1.5 ${
                                                             selectedCategory ==
                                                             category
                                                                 ? "border-l-4 border-highlight bg-base"
@@ -107,7 +120,8 @@ const Goals: React.FC = () => {
                                                         } hover:bg-base`}
                                                     >
                                                         {category}
-                                                    </p>
+                                                        {/* <span className="transition duration-200 text-gray-400 hover:text-red-500" onClick={() => { handleRemove(category) }}>{ deleteIconElement }</span> */}
+                                                    </div>
                                                 );
                                             }
                                         )}
