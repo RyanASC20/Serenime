@@ -12,3 +12,4 @@ export interface AllEntries {
     descriptions: Description[];
     moods: Mood[];
 }
+

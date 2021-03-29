@@ -10,6 +10,7 @@ import { useUser } from "../hooks/useUser";
 import { useDate } from "../hooks/useDate";
 import DataEntries from "../components/DataEntries";
 import Calendar from "../components/Calendar";
+import { AllEntries } from '../Types/MoodData';
 
 const useMonthlyData = () => {
     const { uid } = useUser();
@@ -47,9 +48,12 @@ const useMonthlyData = () => {
     return monthlyValues;
 };
 
+interface MonthlyEntries {
+    monthlyData: AllEntries[];
+}
 export default function Index() {
     const { uid } = useUser();
-    const monthlyData = useMonthlyData();
+    const monthlyData: AllEntries[] = useMonthlyData();
     const router = useRouter();
 
     useEffect(() => {

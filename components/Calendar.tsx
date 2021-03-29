@@ -11,7 +11,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 interface P {
     type: string;
-    data: AllEntries | GoalData;
+    data: AllEntries[] | GoalData;
 }
 
 const Calendar: React.FC<P> = ({ type, data }) => {
