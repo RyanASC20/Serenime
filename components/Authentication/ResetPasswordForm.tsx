@@ -6,7 +6,7 @@ import { auth } from '../../config/firebase';
 import Button from '../Button';
 
 const ResetPasswordForm: React.FC = () => {
-    const { handleSubmit, register } = useForm();
+    const { handleSubmit, register } = useForm<{ email: string }>();
 
     const [error, setError] = useState(null);
     const [ sent, setSent ] = useState(false);
