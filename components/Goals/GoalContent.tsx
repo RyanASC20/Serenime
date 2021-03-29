@@ -6,7 +6,7 @@ import { firestore } from "../../config/firebase";
 import { useUser } from "../../hooks/useUser";
 import { useDate } from "../../hooks/useDate";
 import Calendar from "../Calendar";
-import Label from '../Input/Label';
+import Label from '../Input/RadioButton/Label';
 import { GoalData } from '../../Types/GoalData';
 
 const useGoalData = (selectedCategory: string): GoalData | undefined => {
@@ -71,11 +71,6 @@ const GoalContent: React.FC<Props> = ({ selectedCategory, setSubmitted }) => {
                     <div>
                         <input
                             type="radio"
-                            // ref={(e) =>
-                            //     register(e, {
-                            //         required: true,
-                            //     })
-                            // }
                             id={"goal-yes"}
                             name="answer"
                             value={"true"}
@@ -87,11 +82,6 @@ const GoalContent: React.FC<Props> = ({ selectedCategory, setSubmitted }) => {
                     <div>
                         <input
                             type="radio"
-                            // ref={(e) =>
-                            //     register(e, {
-                            //         required: true,
-                            //     })
-                            // }
                             id={"goal-no"}
                             name="answer"
                             value={"false"}

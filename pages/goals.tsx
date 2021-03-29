@@ -7,7 +7,7 @@ import firebase from 'firebase/app';
 
 import Page from "../components/Page";
 import Tooltip from "../components/Tooltip";
-import HabitContent from "../components/Goals/GoalContent";
+import GoalContent from '../components/Goals/GoalContent';
 import AddHabitForm from "../components/Input/Goals/AddGoalForm";
 import { useHabitCategoriesRef } from "../hooks/firestoreHooks";
 import Button from "../components/Button";
@@ -150,7 +150,7 @@ const Goals: React.FC = () => {
                                     </FlashMessage>
                                     // </Zoom>
                                 )}
-                                <HabitContent
+                                <GoalContent
                                     selectedCategory={selectedCategory}
                                     setSubmitted={setSubmitted}
                                 />

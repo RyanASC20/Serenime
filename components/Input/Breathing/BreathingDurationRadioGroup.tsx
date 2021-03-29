@@ -1,5 +1,6 @@
 import { useState, LegacyRef, useEffect } from 'react';
-import Label from '../Label';
+import Radio from '../RadioButton';
+
 
 interface P {
     register: (instance: HTMLInputElement, options: object) => LegacyRef<HTMLInputElement> | void;
@@ -17,18 +18,17 @@ const BreathingDurationRadioGroup: React.FC<P> = ({ register }) => {
     const optionsElements = durationOptions.map((option, idx) => {
         return (
             <div key={idx}>
-                <input
-                    type="radio"
-                    ref={e => register(e, {
-                        required: true,
-                    })}
+                <Radio
+                    idx={idx}
+                    register={register}
                     id={`duration-${idx}`}
                     name="duration"
                     value={option}
-                    className="w-0 h-0"
                     onClick={() => { setClicked(idx) }}
-                ></input>
-                <Label htmlFor={`duration-${idx}`} text={`${option} min`} clicked={clicked === idx} />
+                    htmlFor={`duration-${idx}`} 
+                    text={`${option} min`} 
+                    clicked={clicked === idx}
+                />
             </div>
         );
     });
