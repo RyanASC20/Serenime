@@ -16,16 +16,20 @@ const ResetPasswordForm: React.FC = () => {
         auth.sendPasswordResetEmail(email).then(() => {
             // Email sent.
             setSent(true);
-        }).catch((error) => {
-            setError(error.message);
-            console.log(error)
+        }).catch((err) => {
+            if (err.code === 'auth/user-not-found') {
+                setError("Uh oh! No user with that email was found.");
+            }
+            else {
+                setError(err.message);
+            }
         });
     }
 
     return (
         <div>
             { sent && <Zoom duration={200}>
-                <div className="p-3 rounded-md bg-highlight-secondary text-white text-sm">
+                <div className="p-3 mb-5 rounded-md bg-highlight-secondary text-white text-sm">
                     Email successfully sent!
                 </div>
             </Zoom>}
@@ -42,7 +46,7 @@ const ResetPasswordForm: React.FC = () => {
                 <Button text="Send reset email" full={true}/>
             </form>
             { error && 
-                <p className="text-red-500">
+                <p className="text-red-500 text-sm">
                     { error }
                 </p>
             }

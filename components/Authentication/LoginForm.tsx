@@ -33,6 +33,8 @@ const LoginForm: React.FC = () => {
         case "auth/wrong-password":
           setLoginError("Uh oh! That password is incorrect.");
           break;
+        default:
+          setLoginError(err.message);
       }
     }
   };
