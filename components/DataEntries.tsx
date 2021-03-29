@@ -45,20 +45,24 @@ const DataEntries: React.FC = () => {
     const entries = getEntries();
     const currentDayRef = useCurrentDayRef();
     const [creationMode, setCreationMode] = useState(false);
-    const entriesStart = {
+    const [ entriesByTime, setEntriesByTime ] = useState({
         "0": [],
         "1": [],
         "2": [],
         "3": []
-    };
-    const [ entriesByTime, setEntriesByTime ] = useState(entriesStart);
+    });
 
     useEffect(() => {
         if (entries) {
             const { descriptions, moods } = entries;
-            setEntriesByTime(entriesStart);
-            const tmp = {...entriesStart};
+            const tmp = {
+                "0": [],
+                "1": [],
+                "2": [],
+                "3": []
+            };;
             descriptions.forEach((item, idx) => {
+                console.log(item.timePeriod, item)
                 tmp[item.timePeriod].push(
                     <Entry
                         key={idx}

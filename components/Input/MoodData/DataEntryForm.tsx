@@ -27,7 +27,7 @@ const DataEntryForm: React.FC<P> = ({
 }) => {
     const dbRef = useCurrentDayRef();
 
-    const { register, handleSubmit, reset, errors } = useForm<inputData>();
+    const { register, handleSubmit, reset } = useForm<inputData>();
 
     const handleCreateSubmit = (data: inputData) => {
         if (currentData) {
