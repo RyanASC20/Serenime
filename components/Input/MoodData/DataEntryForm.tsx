@@ -6,10 +6,10 @@ import { useCurrentDayRef } from '../../../hooks/firestoreHooks';
 import Button from "../../Button";
 import MoodRadioGroup from "./MoodRadioGroup";
 import TimePeriodRadioGoup from "./TimePeriodRadioGroup";
-import { allEntries } from '../../../Types/MoodData';
+import { AllEntries } from '../../../Types/MoodData';
 
 interface Props {
-    currentData: allEntries;
+    currentData: AllEntries;
     setCreationMode?: React.Dispatch<React.SetStateAction<boolean>>;
     setEditMode?: React.Dispatch<React.SetStateAction<boolean>>;
     entryIndex?: number;
