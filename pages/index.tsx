@@ -1,5 +1,5 @@
 import Card from '../components/Landing/Card';
-import Navbar from '../components/Landing/Navbar';
+import Navbar from '../components/Landing/Navbar'
 import Jumbotron from '../components/Landing/Jumbotron';
 
 const Index: React.FC = () => {
