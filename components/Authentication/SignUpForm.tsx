@@ -39,13 +39,14 @@ const SignUpForm: React.FC = () => {
   };
 
   const onSubmit = (data: SignUpData) => {
+  
     SignUp(data);
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      {signUpError && <p className="mb-5 text-red-500 text-sm">{signUpError}</p>}
-      <div className="relative mb-4">
+      {signUpError && <p className="mb-3 text-red-500">{signUpError}</p>}
+      <div className="relative mb-6">
         <input
           type="text"
           name="name"
@@ -61,7 +62,7 @@ const SignUpForm: React.FC = () => {
         <label htmlFor="name" className={`${styles.label} absolute transition-all top-2.5 left-2 px-1 pointer-events-none bg-white text-xs`}>Name</label>
         {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
       </div>
-      <div className="relative mb-4">
+      <div className="relative mb-6">
         <input
           type="email"
           name="email"
@@ -76,7 +77,7 @@ const SignUpForm: React.FC = () => {
         <label htmlFor="email" className={`${styles.label} absolute transition-all top-2.5 left-2 px-1 pointer-events-none bg-white text-xs`}>{MailIconElement} Email</label>
         {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
       </div>
-      <div className="relative mb-4">
+      <div className="relative mb-6">
         <input
           type="password"
           name="password"
@@ -91,7 +92,7 @@ const SignUpForm: React.FC = () => {
         />
         <label htmlFor="password" className={`${styles.label} absolute transition-all top-2.5 left-2 px-1 pointer-events-none bg-white text-xs`}>{LockIconElement} Password</label>
         {errors.password && (
-          <p className="text-red-500 text-sm">{errors.password.message}</p>
+          <p className="text-red-500 text-2xl">{errors.password.message}</p>
         )}
       </div>
       <Button text="Register" textSize="lg" full={true} />

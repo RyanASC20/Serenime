@@ -26,7 +26,6 @@ const LoginForm: React.FC = () => {
       await auth.signInWithEmailAndPassword(email, password);
       // router.push("/")
     } catch (err) {
-      console.log(err);
       switch(err.code) {
         case "auth/user-not-found": 
           setLoginError("Uh oh! No user was found.");
@@ -46,11 +45,11 @@ const LoginForm: React.FC = () => {
     <>
     <form onSubmit={handleSubmit(onSubmit)}>
       {loginError && <p className="mb-5 text-red-500 text-sm">{loginError}</p>}
-      <div className="relative">
+      <div className="relative mb-6">
         <input
           type="email"
           name="email"
-          className={`${styles.input} appearance-none block w-full mb-4 p-2.5 rounded-md border border-gray-300 placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-highlight transition duration-150 ease-in-out sm:text-sm sm:leading-5`}
+          className={`${styles.input} appearance-none block w-full p-2.5 rounded-md border border-gray-300 placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-highlight transition duration-150 ease-in-out sm:text-sm sm:leading-5`}
           ref={register({
             required: {
               value: true,
@@ -62,11 +61,11 @@ const LoginForm: React.FC = () => {
         <label htmlFor="email" className={`${styles.label} absolute transition-all top-2.5 left-2 px-1 pointer-events-none bg-white text-xs`}>{MailIconElement} Email</label>
         {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
       </div>
-      <div className="relative">
+      <div className="relative mb-6">
         <input
           type="password"
           name="password"
-          className={`${styles.input} appearance-none block w-full mb-4 p-2.5 rounded-md border border-gray-300 placeholder-gray-400 focus:outline-none focus:border-highlight transition duration-150 ease-in-out sm:text-sm sm:leading-5`}
+          className={`${styles.input} appearance-none block w-full p-2.5 rounded-md border border-gray-300 placeholder-gray-400 focus:outline-none focus:border-highlight transition duration-150 ease-in-out sm:text-sm sm:leading-5`}
           ref={register({
             required: true,
             minLength: {

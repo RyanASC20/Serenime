@@ -1,17 +1,21 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import Zoom from 'react-reveal/Zoom';
 
 import { auth } from '../../config/firebase';
 import Button from '../Button';
 
 const ResetPasswordForm: React.FC = () => {
     const { handleSubmit, register } = useForm();
+
     const [error, setError] = useState(null);
+    const [ sent, setSent ] = useState(true);
 
 
     const onSubmit = ({ email }) => {
         auth.sendPasswordResetEmail(email).then(() => {
             // Email sent.
+            setSent(true);
         }).catch((error) => {
             setError(error.message);
             console.log(error)
@@ -20,6 +24,11 @@ const ResetPasswordForm: React.FC = () => {
 
     return (
         <div>
+            { sent && <Zoom duration={200}>
+                <div className="p-3 rounded-md bg-highlight-secondary text-white text-sm">
+                    Email successfully sent!
+                </div>
+            </Zoom>}
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input
                     type="email"
