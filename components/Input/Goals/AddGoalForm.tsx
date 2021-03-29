@@ -1,21 +1,26 @@
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import Zoom from 'react-reveal/Zoom';
 
 import { useHabitCategoriesRef} from '../../../hooks/firestoreHooks';
 import Button from '../../Button';
 
-interface P {
-    setCreationMode?: any;
+interface Props {
+    setCreationMode?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const AddGoalForm: React.FC<P> = ({ setCreationMode }) => {
-    const { handleSubmit, register, reset, errors} = useForm();
+interface GoalInput {
+    goalInput: string;
+}
+
+const AddGoalForm: React.FC<Props> = ({ setCreationMode }) => {
+    const { handleSubmit, register, reset } = useForm<GoalInput>();
     const habitCategoriesRef = useHabitCategoriesRef();
 
-    const onSubmit = async(data) => {
+    const onSubmit = async(data: GoalInput) => {
         reset();
         habitCategoriesRef.set({
-            [ data.habitsInput ]: data.habitsInput
+            [ data.goalInput ]: data.goalInput
         }, { merge: true });
     }
     
@@ -23,7 +28,7 @@ const AddGoalForm: React.FC<P> = ({ setCreationMode }) => {
         <Zoom duration={300}>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input
-                    name="habitsInput"
+                    name="goalInput"
                     className="mb-2 inline-block transition duration-200 p-1.5 resize-none bg-gray-100 border-b-2 border-gray-300 focus:outline-none focus:border-highlight"
                     ref={register({
                         required: true,

@@ -1,3 +1,4 @@
+import React from 'react';
 import { useForm } from "react-hook-form";
 import Zoom from 'react-reveal/Zoom';
 
@@ -5,21 +6,22 @@ import { useCurrentDayRef } from '../../../hooks/firestoreHooks';
 import Button from "../../Button";
 import MoodRadioGroup from "./MoodRadioGroup";
 import TimePeriodRadioGoup from "./TimePeriodRadioGroup";
+import { allEntries } from '../../../Types/MoodData';
 
-interface P {
-    currentData: any;
-    setCreationMode?: (b: boolean) => void;
-    setEditMode?: (b: boolean) => void;
+interface Props {
+    currentData: allEntries;
+    setCreationMode?: React.Dispatch<React.SetStateAction<boolean>>;
+    setEditMode?: React.Dispatch<React.SetStateAction<boolean>>;
     entryIndex?: number;
 }
 
-interface inputData {
+interface InputData {
     description: string;
     mood: number;
     timePeriod: string;
 }
 
-const DataEntryForm: React.FC<P> = ({
+const DataEntryForm: React.FC<Props> = ({
     currentData,
     setCreationMode,
     setEditMode,
@@ -27,9 +29,9 @@ const DataEntryForm: React.FC<P> = ({
 }) => {
     const dbRef = useCurrentDayRef();
 
-    const { register, handleSubmit, reset } = useForm<inputData>();
+    const { register, handleSubmit, reset } = useForm<InputData>();
 
-    const handleCreateSubmit = (data: inputData) => {
+    const handleCreateSubmit = (data: InputData) => {
         if (currentData) {
             dbRef.set({
                 descriptions: [
@@ -59,8 +61,7 @@ const DataEntryForm: React.FC<P> = ({
         setCreationMode(false);
     };
 
-    const handleEditSubmit = (data: inputData) => {
-        console.log(currentData);
+    const handleEditSubmit = (data: InputData) => {
         dbRef.set({
             descriptions: [
                 ...currentData.descriptions.slice(0, entryIndex),
@@ -79,7 +80,7 @@ const DataEntryForm: React.FC<P> = ({
         setEditMode(false);
     };
 
-    const onSubmit = (data: inputData) => {
+    const onSubmit = (data: InputData) => {
         if (setCreationMode) {
             handleCreateSubmit(data);
         }

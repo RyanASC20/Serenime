@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useDocumentData } from "react-firebase-hooks/firestore";
+import React, { useState } from 'react';
+import { useDocument } from "react-firebase-hooks/firestore";
 import Zoom from 'react-reveal/Zoom';
 
 import { firestore } from "../../config/firebase";
@@ -7,11 +7,12 @@ import { useUser } from "../../hooks/useUser";
 import { useDate } from "../../hooks/useDate";
 import Calendar from "../Calendar";
 import Label from '../Input/Label';
+import { GoalData } from '../../Types/GoalData';
 
-const useGoalData = (selectedCategory: string) => {
+const useGoalData = (selectedCategory: string): GoalData | undefined => {
     const { uid } = useUser();
     const { date } = useDate();
-    const [value, loading, error] = useDocumentData(
+    const [value, loading, error] = useDocument(
         firestore
             .collection("users")
             .doc(uid)
@@ -20,20 +21,19 @@ const useGoalData = (selectedCategory: string) => {
             .collection(selectedCategory)
             .doc(`${date.getMonth() + 1}-${date.getFullYear()}`)
     );
-    // console.log(value.data());
-    return value;
+    if (value) {
+        const data = value.data()
+        return data as GoalData;
+    }
+    return undefined;
 };
 
-interface P {
+interface Props {
     selectedCategory: string;
-    setSubmitted: (b: boolean) => void;
+    setSubmitted: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-interface FormData {
-    answer: string;
-}
-
-const GoalContent: React.FC<P> = ({ selectedCategory, setSubmitted }) => {
+const GoalContent: React.FC<Props> = ({ selectedCategory, setSubmitted }) => {
 
     const [ clicked, setClicked ] = useState<string | null>(null);
     const data = useGoalData(selectedCategory);

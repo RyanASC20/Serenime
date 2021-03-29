@@ -6,23 +6,10 @@ import Entry from './Entry';
 import Button from './Button';
 import DataEntryForm from './Input/MoodData/DataEntryForm';
 import { timeIconElements, timeIconBg } from '../public/static/icons';
+import { AllEntries } from '../Types/MoodData';
 
-interface Description {
-    description: string;
-    timePeriod: string;
-}
 
-interface Mood {
-    mood: string;
-    timePeriod: string;
-}
-
-interface allEntries {
-    descriptions: Description[];
-    moods: Mood[];
-}
-
-type fetchedData = allEntries | undefined;
+type fetchedData = AllEntries | undefined;
 
 const getEntries = (): fetchedData => {
     const currentDayRef = useCurrentDayRef();
@@ -102,7 +89,7 @@ const DataEntries: React.FC = () => {
                 />
             )}
 
-            { Object.keys(entriesByTime).map((key: string, idx: number) => {
+            { Object.keys(entriesByTime).map((key: string) => {
                 return (
                     <>
                         {entriesByTime[key].length > 0 && <div

@@ -3,13 +3,16 @@ import DatePicker from "react-datepicker";
 
 import { useDate } from "../hooks/useDate";
 import { emoteColors } from "../public/static/icons";
+import { GoalData } from '../Types/GoalData';
+import { AllEntries } from '../Types/MoodData';
+
 
 import "react-datepicker/dist/react-datepicker.css";
 
 
 interface P {
     type: string;
-    data: any;
+    data: AllEntries | GoalData;
 }
 
 const Calendar: React.FC<P> = ({ type, data }) => {

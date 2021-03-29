@@ -2,7 +2,7 @@ import firebase from 'firebase/app';
 import Link from 'next/link';
 import { useDocumentData } from 'react-firebase-hooks/firestore';
 import { useForm } from "react-hook-form";
-import Zoom from '../Goals/node_modules/react-reveal/Zoom';
+import Zoom from 'react-reveal/Zoom';
 
 import { firestore } from '../../config/firebase';
 import { useUser } from '../../hooks/useUser';
@@ -54,11 +54,11 @@ const useRoutineData = (timePeriod) => {
     }
 }
 
-interface P {
+interface Props {
     timePeriod: string;
 }
 
-const Routine: React.FC<P> = ({ timePeriod }) => {
+const Routine: React.FC<Props> = ({ timePeriod }) => {
     const { uid } = useUser();
     const { handleSubmit, register, reset } = useForm();
     const {data, sortedKeys} = useRoutineData(timePeriod);
