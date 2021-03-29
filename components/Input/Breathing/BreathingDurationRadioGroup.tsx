@@ -19,7 +19,6 @@ const BreathingDurationRadioGroup: React.FC<P> = ({ register }) => {
         return (
             <div key={idx}>
                 <Radio
-                    idx={idx}
                     register={register}
                     id={`duration-${idx}`}
                     name="duration"

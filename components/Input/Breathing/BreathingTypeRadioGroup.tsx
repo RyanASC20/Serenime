@@ -20,7 +20,6 @@ const BreathingTypeRadioGroup: React.FC<P> = ({ register, setSelection }) => {
         return (
             <div key={idx}>
                 <Radio
-                    idx={idx}
                     register={register}
                     id={`type-${idx}`}
                     name="type"

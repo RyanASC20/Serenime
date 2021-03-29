@@ -6,7 +6,7 @@ import { firestore } from "../../config/firebase";
 import { useUser } from "../../hooks/useUser";
 import { useDate } from "../../hooks/useDate";
 import Calendar from "../Calendar";
-import Label from '../Input/RadioButton/Label';
+import Radio from '../Input/RadioButton';
 import { GoalData } from '../../Types/GoalData';
 
 const useGoalData = (selectedCategory: string): GoalData | undefined => {
@@ -69,27 +69,26 @@ const GoalContent: React.FC<Props> = ({ selectedCategory, setSubmitted }) => {
             <div className="md:w-2/3 md:h-5/6">
                 <div className="my-3">
                     <div>
-                        <input
-                            type="radio"
+                        <Radio
                             id={"goal-yes"}
                             name="answer"
                             value={"true"}
                             onClick={() => { handleClick(true)}}
-                            className="w-0 h-0" 
-                        ></input>
-                            <Label htmlFor="goal-yes" text="Yes" clicked={ clicked === 'yes' } />
+                            htmlFor="goal-yes" 
+                            text="Yes" 
+                            clicked={ clicked === 'yes' }
+                        />
                         </div>
                     <div>
-                        <input
-                            type="radio"
+                        <Radio
                             id={"goal-no"}
                             name="answer"
                             value={"false"}
                             onClick={() => handleClick(false)}
-
-                            className="w-0 h-0"
-                        ></input>
-                        <Label htmlFor="goal-no" text="No" clicked={ clicked === 'no' } />
+                            htmlFor="goal-no" 
+                            text="No" 
+                            clicked={ clicked === 'no' } 
+                        />
                     </div>
                 </div>
                 <Calendar type="goal" data={data} />
