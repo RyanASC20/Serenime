@@ -1,10 +1,5 @@
-import { useState, createContext, useContext } from 'react';
-import { start } from 'repl';
+import React, { useState, createContext, useContext } from 'react';
 
-// interface DateContextData {
-//     date: Date;
-//     setDate: Dispatch<SetStateAction<Date>>
-// }
 
 const DateContext = createContext(null);
 
@@ -17,12 +12,18 @@ export const daysInMonth = (date) => {
     return daysPerMonth[date.getMonth()];
 }
 
+interface DateContext {
+    date: Date,
+    setDate: React.Dispatch<React.SetStateAction<Date>>;
+    dim: number;
+}
 
 export const DateProvider = ({ children }) => {
     const [date, setDate] = useState<Date>(new Date());
     const dim = daysInMonth(date);
+    const contextValues: DateContext = { date, setDate, dim }
 
-    return <DateContext.Provider value={ { date, setDate, dim } }>{ children }</DateContext.Provider>
+    return <DateContext.Provider value={ contextValues }>{ children }</DateContext.Provider>
 }
 
 
