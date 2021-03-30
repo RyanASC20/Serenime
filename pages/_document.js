@@ -5,7 +5,6 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           <meta name="description" content="A tool to help you combat stress. Serenime offers a stress and mood tracker, goal tracker, guided breathing exercises, and a daily planner!"></meta>
           
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-XKWC5VHC4D"></script>

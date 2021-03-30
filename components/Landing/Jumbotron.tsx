@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import styles from "./Jumbotron.module.css";
 
 const Jumbotron: React.FC = () => {
-    const options = ['Mood Tracker.', 'Goal Tracker.', 'Guided Breathing.', 'Planner.'];
+    const options = ['Breathe.', 'Plan your day.', 'Record your goals.', 'Visualize your mood.'];
     const [jumbotronPos, setJumbotronPos] = useState(0);
 
     useEffect(() => {
@@ -16,8 +16,9 @@ const Jumbotron: React.FC = () => {
     }, [])
 
     return (
-        <section className="absolute">
-            <h1 className={`${styles.jumbotron} text-5xl md:text-9xl text-white`}>{options[jumbotronPos]}</h1>
+        <section className="transform -skew-y-12 md:-skew-y-6 relative -top-24 flex justify-center w-full h-full bg-gradient-to-br from-highlight to-highlight-secondary text-white">
+            <h1 className={`transform skew-y-12 md:skew-y-6 absolute top-36 md:top-48 text-6xl md:text-9xl`}>Serenime</h1>
+            <h1 className={`${styles.jumbotron} transform skew-y-12 md:skew-y-6 absolute top-64 md:top-96 text-3xl md:text-5xl`}>{options[jumbotronPos]}</h1>
         </section>
     )
 }
