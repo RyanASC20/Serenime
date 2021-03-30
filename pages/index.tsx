@@ -1,6 +1,7 @@
 import Card from '../components/Landing/Card';
 import Navbar from '../components/Landing/Navbar'
 import Jumbotron from '../components/Landing/Jumbotron';
+import Footer from '../components/Footer';
 
 const Index: React.FC = () => {
 
@@ -14,7 +15,7 @@ const Index: React.FC = () => {
                 />
                 <Jumbotron />
             </section>
-            <section className="flex flex-col items-center mt-10">
+            <section className="flex flex-col items-center my-10">
                 <Card>
                     <div className="md:w-1/2">
                         <h1 className="my-6 text-4xl text-highlight-secondary">Mood Tracker</h1>
@@ -48,8 +49,7 @@ const Index: React.FC = () => {
                     <img src={require("../public/static/imgs/routines.jpg")} className="max-w-sm"></img>
                 </Card>
             </section>
-
-
+            <Footer />
         </div>
     )
 }
