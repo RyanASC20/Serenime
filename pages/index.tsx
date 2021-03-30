@@ -62,22 +62,3 @@ const Index: React.FC = () => {
 }
 
 export default Index;
-
-
-{/* <Fade duration={200}>
-                    <section className="flex flex-col md:flex-row justify-around">
-                        <Card title="Mood Tracker">
-                            <img src={require('../public/static/imgs/moodtracker.png')} alt="Mood Tracker" className="h-72"/>
-                        </Card>
-                        <Card title="Breathing">
-                            <img src={require('../public/static/imgs/breathing.png')} alt="Breathing" className="h-72"/>
-                        </Card>
-                        <Card title="Goal Tracker">
-                            <img src={require('../public/static/imgs/goals.png')} alt="Goal Tracker" className="h-72"/>
-                        </Card>
-                        <Card title="Planner">
-                            <img src={require('../public/static/imgs/routines.png')} alt="Planner" className="h-72"/>
-                        </Card>
-                        
-                    </section>
-                </Fade> */}
