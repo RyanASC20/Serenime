@@ -10,7 +10,7 @@ const Index: React.FC = () => {
     return (
         <>
             <Head>
-                <title>Serenime</title>
+                <title>Serenime | Stress Tracker, Breathing Exercises, Goal Tracker, Planner</title>
             </Head>
             <div>
                 <section className="relative h-screen flex flex-col justify-center items-center">
