@@ -67,7 +67,7 @@ const timeIconBg = [
 
 
 export const emoteElements: JSX.Element[] = emotes.map((ic, idx) => {
-    return <Icon className={ `fill-current inline text-${emoteColors[idx]} ` } key={ idx } path={ ic } size={ 1.3 }></Icon>
+    return <Icon className={ `fill-current inline text-${emoteColors[idx]} ` } key={ idx } path={ ic } size={ 1.2 }></Icon>
 });
 
 export const timeIconElements: JSX.Element[] = timeIcons.map((ic, idx) => {

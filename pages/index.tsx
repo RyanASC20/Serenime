@@ -21,7 +21,7 @@ const Index: React.FC = () => {
                     /> */}
                     <Jumbotron />
                 </section>
-                <section className="flex flex-col items-center mb-10 relative -top-48 md:-top-96">
+                <section className="flex flex-col items-center mb-10 relative -top-52 md:-top-96">
                     <Card>
                         <div className="md:w-1/2">
                             <h1 className="my-6 text-4xl text-center md:text-left font-sans text-highlight-secondary">Mood Tracker</h1>

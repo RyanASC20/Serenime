@@ -12,8 +12,8 @@ module.exports = {
                 'width': 'width'
             },
             fontFamily: {
-                sans: ["Montserrat", "sans-serif"],
-                sans2: ["Lato", "sans-serif"],
+                sans: ['Helvetica', 'Arial', 'sans-serif'],
+                'sans-secondary': ["Lato", "sans-serif"],
                 heading: ["Raleway", "sans-serif"],
             },
             transitionDuration: {

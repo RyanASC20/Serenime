@@ -26,7 +26,7 @@ const Entry: React.FC<P> = ({ currentData, description, idx, mood, handleRemove 
                 >
                     <div>
                         {emoteElements[mood]}
-                        <p>{description}</p>
+                        <p className="text-sm">{description}</p>
                     </div>
                     <div className="flex content-center text-gray-400">
                         <button

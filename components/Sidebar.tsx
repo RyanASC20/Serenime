@@ -51,28 +51,28 @@ const Sidebar: React.FC = () => {
             </Fade> 
             :
             <>
-            { sidebarOpen && <div className={`transition-width duration-300 md:flex w-56 h-screen`}>
+            { sidebarOpen && <div className={`transition-width duration-300 md:flex w-48 h-screen`}>
                     <div>
-                    { name && <h1 className="text-2xl my-8">How are you, <span className="text-highlight">{ name }</span>?</h1> }
+                    { name && <h1 className="text-xl my-8">How are you, <span className="text-highlight">{ name }</span>?</h1> }
                         <ul className="text-gray-600">
                             <li className="py-1.5 w-full transition duration-250 border-l-4 hover:border-highlight hover:bg-gray-300">
                                 <Link href="/home">
-                                    <a className="text-lg p-3">{ HomeIconElement }Home</a>
+                                    <a className="text-md p-3">{ HomeIconElement }Home</a>
                                 </Link>
                             </li>
                             <li className="py-1.5 w-full transition duration-250 border-l-4 hover:border-highlight hover:bg-gray-300">
                                 <Link href="/breathing">
-                                    <a className="text-lg p-3">{ WindIconElement }Breathing</a>
+                                    <a className="text-md p-3">{ WindIconElement }Breathing</a>
                                 </Link>
                             </li>
                             <li className="py-1.5 w-full transition duration-250 border-l-4 hover:border-highlight hover:bg-gray-300">
                                 <Link href="/goals">
-                                    <a className="text-lg p-3">{StarIconElement}Goals</a>
+                                    <a className="text-md p-3">{StarIconElement}Goals</a>
                                 </Link>
                             </li>
                             <li className="py-1.5 w-full transition duration-250 border-l-4 hover:border-highlight hover:bg-gray-300">
                                 <Link href="/routines">
-                                    <a className="text-lg p-3">{RoutineIconElement}Routines</a>
+                                    <a className="text-md p-3">{RoutineIconElement}Routines</a>
                                 </Link>
                             </li>
                             <li className="mt-3">

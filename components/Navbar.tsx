@@ -22,7 +22,7 @@ const Navbar: React.FC<P> = ({ text }) => {
   return (
 
     <div className="flex justify-center p-2 shadow-md bg-highlight-secondary mb-2">
-      <div className="flex items-center justify-between w-5/6 lg:w-3/4">
+      <div className="flex items-center justify-between w-full lg:w-5/6">
         <Link href="/home">
             <h1 className="text-white tracking-wider text-2xl cursor-pointer">Serenime</h1>
         </Link>
