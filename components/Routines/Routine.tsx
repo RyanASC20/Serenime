@@ -109,7 +109,7 @@ const Routine: React.FC<Props> = ({ timePeriod }) => {
                 {creationMode &&
                     <Zoom duration={200}>
                         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-full mb-3 p-5 rounded-md w bg-card">
-                            <h2 className="w-full p-2 rounded-md font-semibold text-md text-highlight-secondary">Add item:</h2>
+                            <p className="w-full p-2 rounded-md font-semibold text-md text-highlight-secondary">Add item:</p>
                             <input
                                 name="newTodo"
                                 ref={register({
@@ -120,7 +120,7 @@ const Routine: React.FC<Props> = ({ timePeriod }) => {
                                 placeholder="Add item: "
                             >
                             </input>
-                            <h2 className="w-full p-2 mt-10 rounded-md font-semibold text-md text-highlight-secondary">Enter a deadline: </h2>
+                            <p className="w-full p-2 mt-10 rounded-md font-semibold text-md text-highlight-secondary">Enter a deadline: </p>
                             <input
                                 type="time"
                                 name="time"

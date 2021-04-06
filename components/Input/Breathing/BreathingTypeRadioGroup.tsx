@@ -35,7 +35,7 @@ const BreathingTypeRadioGroup: React.FC<P> = ({ register, setSelection }) => {
 
     return (
         <>
-            <h2 className="font-semibold text-md text-highlight-secondary">Type: </h2>
+            <p className="font-semibold text-md text-highlight-secondary">Type:</p>
             <div className="m-3">
                 {optionsElements}
             </div>

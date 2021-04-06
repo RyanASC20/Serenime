@@ -106,11 +106,11 @@ const DataEntryForm: React.FC<Props> = ({
                 className="p-3 mt-4 bg-card rounded-lg w-full"
             >
                 <div className="mt-6">
-                    <h2 className="w-full p-2 my-2 rounded-md font-semibold text-md text-highlight-secondary">How are you?</h2>
+                    <p className="w-full p-2 my-2 rounded-md font-semibold text-md text-highlight-secondary">How are you?</p>
                     <MoodRadioGroup register={register} />
                 </div> 
                 <div className="mt-6">
-                    <h2 className="w-full p-2 my-2 rounded-md font-semibold text-md text-highlight-secondary">What have you been up to?</h2>
+                    <p className="w-full p-2 my-2 rounded-md font-semibold text-md text-highlight-secondary">What have you been up to?</p>
                     <textarea
                         name="description"
                         className="transition duration-200 p-2 resize-none w-full rounded-md border border-gray-300 font-sans font-sm focus:outline-none focus:border-green-500"
@@ -120,7 +120,7 @@ const DataEntryForm: React.FC<Props> = ({
                     ></textarea>
                 </div>
                 <div className="mt-6">
-                    <h2 className="w-full p-2 my-2 rounded-md font-semibold text-md text-highlight-secondary">When?</h2>
+                    <p className="w-full p-2 my-2 rounded-md font-semibold text-md text-highlight-secondary">When?</p>
                     <TimePeriodRadioGoup register={register} />
                 </div>
                 <div className="flex justify-between w-1/2">

@@ -34,7 +34,7 @@ const BreathingDurationRadioGroup: React.FC<P> = ({ register }) => {
 
     return (
         <>
-            <h2 className="font-semibold text-md text-highlight-secondary">Duration: </h2>
+            <p className="font-semibold text-md text-highlight-secondary">Duration:</p>
             <div className="m-3 w-5/6">
                 {optionsElements}
             </div>
