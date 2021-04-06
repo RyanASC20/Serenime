@@ -32,7 +32,7 @@ const DataEntries: React.FC = () => {
     const entries = getEntries();
     const currentDayRef = useCurrentDayRef();
     const [creationMode, setCreationMode] = useState(false);
-    const [ entriesByTime, setEntriesByTime ] = useState({
+    const [entriesByTime, setEntriesByTime] = useState({
         "0": [],
         "1": [],
         "2": [],
@@ -49,7 +49,7 @@ const DataEntries: React.FC = () => {
         };
         if (entries) {
             const { descriptions, moods } = entries;
-            
+
             descriptions.forEach((item, idx) => {
                 tmp[item.timePeriod].push(
                     <Entry
@@ -63,8 +63,8 @@ const DataEntries: React.FC = () => {
                     />
                 );
             });
-        } 
-    setEntriesByTime(tmp);
+        }
+        setEntriesByTime(tmp);
 
     }, [entries]);
 
@@ -98,19 +98,21 @@ const DataEntries: React.FC = () => {
                             className={`mt-6 mb-3 p-2 rounded-full shadow-double-sm bg-${timeIconBg[parseInt(key)]}`}
                         >
                             {timeIconElements[parseInt(key)]}
-                        </div> }
-                        { entriesByTime[key].map(entry => entry) }
+                        </div>}
+                        { entriesByTime[key].map(entry => entry)}
                     </>
                 )
             })}
 
-            { !creationMode && <Button
-                text="New Entry"
-                textSize="lg"
-                onClick={() => {
-                    setCreationMode(true);
-                }}
-            />}
+            <div className="my-6">
+                {!creationMode && <Button
+                    text="New Entry"
+                    textSize="lg"
+                    onClick={() => {
+                        setCreationMode(true);
+                    }}
+                />}
+            </div>
         </div>
     )
 }

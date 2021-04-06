@@ -59,12 +59,13 @@ const Breathing: React.FC = () => {
                     </div>
                     <div className="md:w-1/2">
                         <BreathingForm setSelection={setSelection} />
-                        <h1 className="mt-5 text-lg text-highlight font-bold">
-                            Directions:{" "}
-                        </h1>
 
                         {selectedMethod && (
+                            <div className="mt-5 p-3 rounded-md bg-card">
                             <Fade bottom duration={300}>
+                                <h1 className="text-lg text-highlight font-bold">
+                                    Directions:{" "}
+                                </h1>
                                 <ul className="rounded-lg">
                                     {selectedMethod &&
                                         selectedMethod.instructions.map(
@@ -78,6 +79,7 @@ const Breathing: React.FC = () => {
                                         )}
                                 </ul>
                             </Fade>
+                            </div>
                         )}
                     </div>
                 </Page>

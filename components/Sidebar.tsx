@@ -56,7 +56,7 @@ const Sidebar: React.FC = () => {
                     { name && <h1 className="text-2xl my-8">How are you, <span className="text-highlight">{ name }</span>?</h1> }
                         <ul className="text-gray-600">
                             <li className="py-1.5 w-full transition duration-250 border-l-4 hover:border-highlight hover:bg-gray-300">
-                                <Link href="/">
+                                <Link href="/home">
                                     <a className="text-lg p-3">{ HomeIconElement }Home</a>
                                 </Link>
                             </li>

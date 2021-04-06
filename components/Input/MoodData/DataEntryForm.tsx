@@ -105,25 +105,31 @@ const DataEntryForm: React.FC<Props> = ({
                 onSubmit={handleSubmit(onSubmit)}
                 className="p-3 mt-4 bg-card rounded-lg w-full"
             >
-                <h2 className="font-light">How are you?</h2>
-                <MoodRadioGroup register={register} />
-                <h2 className="font-thin">What have you been up to?</h2>
-                <textarea
-                    name="description"
-                    className="transition duration-200 p-2 resize-none w-full bg-base border-b-2 border-gray-300 focus:outline-none focus:border-green-500"
-                    ref={register({
-                        required: true,
-                    })}
-                ></textarea>
-                <h2 className="font-light">When?</h2>
-                <TimePeriodRadioGoup register={register} />
+                <div className="mt-6">
+                    <h2 className="w-full p-2 my-2 rounded-md font-semibold text-md text-highlight-secondary">How are you?</h2>
+                    <MoodRadioGroup register={register} />
+                </div> 
+                <div className="mt-6">
+                    <h2 className="w-full p-2 my-2 rounded-md font-semibold text-md text-highlight-secondary">What have you been up to?</h2>
+                    <textarea
+                        name="description"
+                        className="transition duration-200 p-2 resize-none w-full rounded-md border border-gray-300 font-sans font-sm focus:outline-none focus:border-green-500"
+                        ref={register({
+                            required: true,
+                        })}
+                    ></textarea>
+                </div>
+                <div className="mt-6">
+                    <h2 className="w-full p-2 my-2 rounded-md font-semibold text-md text-highlight-secondary">When?</h2>
+                    <TimePeriodRadioGoup register={register} />
+                </div>
                 <div className="flex justify-between w-1/2">
-                    <Button text="Submit" hoverColor="green-300" textSize="lg" />
+                    <Button text="Add" hoverColor="green-300" textSize="md" />
                     <Button
                         text="Cancel"
                         type="button"
                         hoverColor="red-600"
-                        textSize="lg"
+                        textSize="md"
                         onClick={handleCancel}
                     />
                 </div>

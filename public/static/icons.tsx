@@ -24,7 +24,7 @@ import {
 import { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } from 'constants';
 
 export const emotes = [
-    mdiEmoticonCryOutline,
+    // mdiEmoticonCryOutline,
     mdiEmoticonFrownOutline,
     mdiEmoticonSadOutline,
     mdiEmoticonNeutralOutline,
@@ -41,7 +41,7 @@ export const timeIcons = [
 ]
 
 const emoteColors = [
-    'emote-0',
+    // 'emote-0',
     'emote-1',
     'emote-2',
     'emote-3',
@@ -67,7 +67,7 @@ const timeIconBg = [
 
 
 export const emoteElements: JSX.Element[] = emotes.map((ic, idx) => {
-    return <Icon className={ `fill-current inline text-${emoteColors[idx]} ` } key={ idx } path={ ic } size={ 1 }></Icon>
+    return <Icon className={ `fill-current inline text-${emoteColors[idx]} ` } key={ idx } path={ ic } size={ 1.3 }></Icon>
 });
 
 export const timeIconElements: JSX.Element[] = timeIcons.map((ic, idx) => {

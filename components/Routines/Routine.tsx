@@ -102,28 +102,32 @@ const Routine: React.FC<Props> = ({ timePeriod }) => {
     return (
         <Zoom duration={300}>
             <div className="bg-card p-5 rounded-md w-full h-auto">
-                <form onSubmit={handleSubmit(onSubmit)} className="flex justify-around w-full mb-3">
+                <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-full mb-3">
+                    <h2 className="w-full p-2 mt-6 rounded-md font-semibold text-md text-highlight-secondary">Add item:</h2>
                     <input
                         name="newTodo"
                         ref={register({
                             required: true
                         })}
-                        className="transition duration-300 p-1 border-b-2 border-gray focus:border-highlight focus:outline-none"
+                        className="transition duration-300 p-1 my-2 bg-card border-b border-gray-400 focus:border-highlight focus:outline-none"
                         autoComplete="off"
                         placeholder="Add item: "
                     >
                     </input>
+                    <h2 className="w-full p-2 mt-10 rounded-md font-semibold text-md text-highlight-secondary">Enter a deadline: </h2>
                     <input
                         type="time"
                         name="time"
                         ref={register({
                             required: true
                         })}
-                        className="transition duration-300 p-1 border-b-2 border-gray focus:border-highlight focus:outline-none"
+                        className="transition duration-300 p-1 my-2 bg-card border-b border-gray-400 focus:border-highlight focus:outline-none"
                         autoComplete="off"
                     >
                     </input>
-                    <Button text="Add" />
+                    <div className="mt-4 w-full">
+                        <Button text="Add" />
+                    </div>
                 </form>
                 {sortedKeys && (
                     sortedKeys.map((key, idx) => {
@@ -138,7 +142,7 @@ const Routine: React.FC<Props> = ({ timePeriod }) => {
                                     </Link>
                                     : <>
                                         <p
-                                            className={`transition duration-200 cursor-pointer p-3 rounded-lg ${data[key].state ? 'line-through bg-indigo-300' : timeLeftColor(data[key].time) }`}
+                                            className={`transition duration-200 cursor-pointer p-3 rounded-lg ${data[key].state ? 'line-through text-gray-400' : timeLeftColor(data[key].time) }`}
                                             onClick={() => { handleChange(key, !data[key].state, data[key].time ) }}
                                         >
                                             {key} (By {cleanTime(data[key].time)})

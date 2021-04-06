@@ -104,9 +104,11 @@ export default function Index() {
                         </div>
                     </div>
                     <div className="md:w-2/5">
-                        <h2 className="mt-4 text-center text-green-600 font-heading text-xl font-light">{`${
-                            monthNames[date.getMonth()]
-                        } ${date.getDate()}, ${date.getFullYear()}`}</h2>
+                        <div className="p-2 bg-highlight rounded-md">
+                            <h2 className="text-center font-heading text-xl text-white">{`${
+                                monthNames[date.getMonth()]
+                            } ${date.getDate()}, ${date.getFullYear()}`}</h2>
+                        </div>
                         <DataEntries />
                     </div>
                 </Page>

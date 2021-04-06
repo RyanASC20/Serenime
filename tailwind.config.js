@@ -31,8 +31,7 @@ module.exports = {
                     dark: '#475263'
                 },
                 card: {
-                    DEFAULT: "#ededed",
-                    secondary: "#86E3CE"
+                    DEFAULT: "#def1ff",
                 },
                 highlight: {
                     DEFAULT: "#55D681",
