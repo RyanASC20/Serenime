@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Zoom from 'react-reveal/Zoom';
 
-import Button from '../Button';
+import Button from '../Buttons/Button';
 import styles from './CountdownTimer.module.css';
 
 interface P {
@@ -47,9 +47,9 @@ const CountdownTimer: React.FC<P> = ({ duration, breathingMethod }) => {
 
     return (
         <Zoom duration={200}>
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col justify-center items-center mt-6 py-10 bg-white rounded-xl shadow-md md:h-96">
                 <div className={`flex flex-col items-center ${styles.timer}`}>
-                    <p className="m-8 text-7xl font-thin">{currentCount / 60 < 10 ? 0 : ''}{Math.floor(currentCount / 60)}:{currentCount % 60 < 10 ? 0 : ''}{currentCount % 60}</p>
+                    <p className="mb-5 text-7xl font-thin">{currentCount / 60 < 10 ? 0 : ''}{Math.floor(currentCount / 60)}:{currentCount % 60 < 10 ? 0 : ''}{currentCount % 60}</p>
                     { breathingMethod && <p className="text-3xl font-light capitalize">{Object.keys(breathingMethod)[intervalPosition.current]}</p> }
                     { breathIntervals && <p className="text-2xl font-light">...{currentCount - intervalBreakpoint}</p>}
                 </div>

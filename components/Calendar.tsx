@@ -27,16 +27,16 @@
                         const calendarPos = i - startMonth.getDay() + 1;
                         const c =
                             !data[calendarPos]
-                                ? "card"
+                                ? "white"
                                 : emoteColors[Math.floor(data[calendarPos])];
                         t.push(
                             <div
                                 key={i}
-                                className={`transition duration-300 py-1.5 lg:py-3 rounded-md border-2 border-2 ${
+                                className={`transition duration-300 py-1.5 md:py-3 rounded-md border-2 border-2 ${
                                     calendarPos == date.getDate()
                                         ? "border-blue-600"
                                         : `border-${c}`
-                                } text-sm text-gray-500 ${`bg-${c}`} cursor-pointer hover:border-blue-600 hover:opacity-50`}
+                                } text-xs font-number ${`bg-${c}`} cursor-pointer hover:border-blue-600 hover:opacity-50`}
                                 onClick={() => {
                                     setDate(
                                         new Date(
@@ -60,15 +60,15 @@
                         t.push(<div key={i}></div>);
                     } else {
                         const calendarPos = i - startMonth.getDay() + 1;
-                        const c = data && data[calendarPos] == true ? "highlight" : "card";
+                        const c = data && data[calendarPos] == true ? "highlight" : "white";
                         t.push(
                             <div
                                 key={i}
-                                className={`transition duration-300 py-1.5 lg:py-3 rounded-md border-2 border-2 ${
+                                className={`transition duration-300 py-1.5 md:py-3 rounded-md border-2 border-2 ${
                                     calendarPos == date.getDate()
                                         ? "border-blue-600"
                                         : `border-${c}`
-                                } text-sm text-gray-500 ${`bg-${c}`} cursor-pointer hover:border-blue-600 hover:opacity-50`}
+                                } text-xs ${`bg-${c}`} cursor-pointer hover:border-blue-600 hover:opacity-50`}
                                 onClick={() => {
                                     setDate(
                                         new Date(
@@ -88,9 +88,9 @@
         }
 
         return (
-                <div className="p-4 mt-5 md:w-full bg-card rounded-md">
+                <div className="px-8 py-4 mt-5 md:w-full md:h-96 bg-white rounded-xl shadow-md">
                     <DatePicker
-                        className="my-5 ml-3 bg-card font-sans-secondary text-lg font-bold text-gray-700"
+                        className="mt-3 mb-5 ml-3 bg-white font-sans-secondary text-lg font-bold text-gray-700"
                         selected={date}
                         onChange={(date) => {
                             setDate(date);
@@ -98,13 +98,13 @@
                     />
                     
                     <div className="grid grid-cols-7 gap-2 text-center">
-                        <div className="text-sm font-bold text-gray-500">SAT</div>
-                        <div className="text-sm font-bold text-gray-500">MON</div>
-                        <div className="text-sm font-bold text-gray-500">TUE</div>
-                        <div className="text-sm font-bold text-gray-500">WED</div>
-                        <div className="text-sm font-bold text-gray-500">THU</div>
-                        <div className="text-sm font-bold text-gray-500">FRI</div>
-                        <div className="text-sm font-bold text-gray-500">SAT</div>
+                        <div className="text-sm text-gray-400">Sun</div>
+                        <div className="text-sm text-gray-400">Mon</div>
+                        <div className="text-sm text-gray-400">Tue</div>
+                        <div className="text-sm text-gray-400">Wed</div>
+                        <div className="text-sm text-gray-400">Thu</div>
+                        <div className="text-sm text-gray-400">Fri</div>
+                        <div className="text-sm text-gray-400">Sat</div>
                         {t}
                     </div>
                 </div>

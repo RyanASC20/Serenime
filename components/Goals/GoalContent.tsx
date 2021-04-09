@@ -66,7 +66,7 @@ const GoalContent: React.FC<Props> = ({ selectedCategory, setSubmitted }) => {
 
     return (
         <Zoom duration={300}>
-            <div className="md:w-2/3 md:h-5/6">
+            <div className="md:w-5/6 md:h-5/6">
                 <div className="my-3">
                     <div>
                         <Radio

@@ -6,7 +6,8 @@ import Zoom from 'react-reveal/Zoom';
 
 import { firestore } from '../../config/firebase';
 import { useUser } from '../../hooks/useUser';
-import Button from '../Button';
+import Button from '../Buttons/Button';
+import CancelButton from '../Buttons/CancelButton';
 import { deleteIconElement } from '../../public/static/icons';
 import { useEffect, useState } from 'react';
 
@@ -108,14 +109,14 @@ const Routine: React.FC<Props> = ({ timePeriod }) => {
                 {!creationMode && <Button text="Add item" onClick={() => { setCreationMode(true) }} /> }
                 {creationMode &&
                     <Zoom duration={200}>
-                        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-full mb-3 p-5 rounded-md w bg-card">
+                        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-full mb-3 p-5 rounded-xl shadow-md bg-white">
                             <p className="w-full p-2 rounded-md font-semibold text-md text-highlight-secondary">Add item:</p>
                             <input
                                 name="newTodo"
                                 ref={register({
                                     required: true
                                 })}
-                                className="transition duration-300 p-1 my-2 bg-card border-b border-gray-400 focus:border-highlight focus:outline-none"
+                                className="transition duration-300 p-1 my-2 bg-white border-b border-gray-400 focus:border-highlight focus:outline-none"
                                 autoComplete="off"
                                 placeholder="Add item: "
                             >
@@ -127,13 +128,13 @@ const Routine: React.FC<Props> = ({ timePeriod }) => {
                                 ref={register({
                                     required: true
                                 })}
-                                className="transition duration-300 p-1 my-2 bg-card border-b border-gray-400 focus:border-highlight focus:outline-none"
+                                className="transition duration-300 p-1 my-2 bg-white border-b border-gray-400 focus:border-highlight focus:outline-none"
                                 autoComplete="off"
                             >
                             </input>
                             <div className="flex justify-around mt-4 w-full">
                                 <Button text="Add" type="submit"/>
-                                <Button text="Cancel" hoverColor="red-500" onClick={ () => { setCreationMode(false) }}/>
+                                <CancelButton text="Cancel" onClick={ () => { setCreationMode(false) }}/>
                             </div>
                         </form>
                     </Zoom>}
@@ -141,7 +142,7 @@ const Routine: React.FC<Props> = ({ timePeriod }) => {
                     sortedKeys.map((key, idx) => {
                         return (
                             <div
-                                className="flex justify-between items-center p-3 w-full border-b border-gray-400"
+                                className="flex justify-between items-center w-full my-3 p-3 rounded-xl shadow-sm bg-white"
                                 key={idx}
                             >
                                 { key == "Breathing" ?
@@ -150,7 +151,7 @@ const Routine: React.FC<Props> = ({ timePeriod }) => {
                                     </Link>
                                     : <>
                                         <p
-                                            className={`transition duration-200 cursor-pointer p-3 rounded-lg text-lg font-semibold ${data[key].state ? 'font-light line-through text-gray-300' : timeLeftColor(data[key].time)}`}
+                                            className={`transition duration-200 cursor-pointer p-3 rounded-lg text-lg ${data[key].state ? 'font-light line-through text-gray-300' : timeLeftColor(data[key].time)}`}
                                             onClick={() => { handleChange(key, !data[key].state, data[key].time) }}
                                         >
                                             {key} (By {cleanTime(data[key].time)})

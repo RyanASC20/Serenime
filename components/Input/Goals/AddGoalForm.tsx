@@ -3,7 +3,8 @@ import { useForm } from 'react-hook-form';
 import Zoom from 'react-reveal/Zoom';
 
 import { useHabitCategoriesRef} from '../../../hooks/firestoreHooks';
-import Button from '../../Button';
+import Button from '../../Buttons/Button';
+import CancelButton from '../../Buttons/CancelButton';
 
 interface Props {
     setCreationMode?: React.Dispatch<React.SetStateAction<boolean>>;
@@ -26,19 +27,19 @@ const AddGoalForm: React.FC<Props> = ({ setCreationMode }) => {
     
     return (
         <Zoom duration={300}>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)} className="my-4 p-3 rounded-xl bg-white">
                 <input
                     name="goalInput"
-                    className="mb-2 inline-block transition duration-200 p-1.5 resize-none bg-gray-100 border-b-2 border-gray-300 focus:outline-none focus:border-highlight"
+                    className="mb-2 inline-block transition duration-200 p-1.5 resize-none w-full border-b border-gray-300 focus:outline-none focus:border-highlight"
                     ref={register({
                         required: true,
                     })}
                     autoComplete="off"
                     placeholder="Add new goal: "
                 ></input>
-                <div className="flex justify-between w-3/4 mb-3">
-                    <Button text="Add" textSize="md"></Button>
-                    <Button text="Cancel" textSize="md" onClick={() => { setCreationMode(false) } } hoverColor="red-500"></Button>
+                <div className="flex justify-around mb-3">
+                    <Button text="Add" textSize="xs"></Button>
+                    <CancelButton text="Cancel" textSize="xs" onClick={() => { setCreationMode(false) } } />
                 </div>
             </form>
        </Zoom>

@@ -21,11 +21,11 @@ const MoodRadioGroup: React.FC<P> = ({ register }) => {
                     className="w-0 h-0"
                     onClick={() => { setClicked(idx) }}
                 ></input>
-                <label className={`transition duration-400 border-2 rounded-full shadow-double-xs cursor-pointer hover:border-highlight ${clicked === idx ? 'p-1 border-highlight' : 'border-card ' }` } htmlFor={ `mood-${idx}` }>{ ic }</label>
+                <label className={`transition duration-400 border-2 rounded-full shadow-double-xs cursor-pointer hover:border-highlight ${clicked === idx ? 'p-1 border-highlight' : 'border-white ' }` } htmlFor={ `mood-${idx}` }>{ ic }</label>
             </div>
         );
     });
-    return <ul className="flex justify-around">{iconElementsSelectable}</ul>;
+    return <ul className="flex justify-between">{iconElementsSelectable}</ul>;
 };
 
 export default MoodRadioGroup;

@@ -22,7 +22,7 @@ const Entry: React.FC<P> = ({ currentData, description, idx, mood, handleRemove 
         return (
             <Zoom duration={500}>
                 <div
-                    className="mb-6 p-3 flex justify-between bg-card rounded-md w-full"
+                    className="mb-6 p-3 flex justify-between w-full bg-white rounded-xl shadow-sm"
                 >
                     <div>
                         {emoteElements[mood]}

@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import Button from '../Button';
+import Button from '../Buttons/Button';
 import { auth } from "../../config/firebase";
 
 const SignOutButton: React.FC = () => {
@@ -15,7 +15,7 @@ const SignOutButton: React.FC = () => {
   };
 
   return (
-    <Button onClick={handleSignOut} text="Sign Out" textSize="md" />
+    <Button onClick={handleSignOut} text="Sign Out" textSize="sm" />
   );
 };
 

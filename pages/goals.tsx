@@ -8,9 +8,9 @@ import firebase from 'firebase/app';
 import Page from "../components/Page";
 import Tooltip from "../components/Tooltip";
 import GoalContent from '../components/Goals/GoalContent';
-import AddHabitForm from "../components/Input/Goals/AddGoalForm";
+import AddGoalForm from "../components/Input/Goals/AddGoalForm";
 import { useHabitCategoriesRef } from "../hooks/firestoreHooks";
-import Button from "../components/Button";
+import Button from "../components/Buttons/Button";
 import { useUser } from "../hooks/useUser";
 
 
@@ -58,17 +58,17 @@ const Goals: React.FC = () => {
         categoriesRef
             .set({
                 [category]: FieldValue.delete()
-            }, { merge: true});
+            }, { merge: true });
     }
 
     return (
         <>
             {uid && (
                 <Page title="Goals">
-                    <div className="md:w-1/4">
+                    <div className="flex flex-col md:ml-5 md:w-2/3">
                         <div className="mb-4 rounded-lg">
-                            <h1 className="inline text-highlight font-bold">
-                                Goal Tracker
+                            <h1 className="text-2xl inline tracking-wide text-gray-700">
+                                Track Your Goals
                             </h1>
                             <Tooltip>
                                 <p>
@@ -82,54 +82,6 @@ const Goals: React.FC = () => {
                                 <p>The greener the calendar, the better!</p>
                             </Tooltip>
                         </div>
-                        <div>
-                            <h2 className="text-lg font-bold text-highlight mr-4 inline ">
-                                Your Goals
-                            </h2>
-                            {creationMode ? (
-                                <AddHabitForm
-                                    setCreationMode={setCreationMode}
-                                />
-                            ) : (
-                                <Button
-                                    text="+"
-                                    textSize="lg"
-                                    onClick={() => setCreationMode(true)}
-                                />
-                            )}
-
-                            {categories && (
-                                <Fade bottom cascade duration={500}>
-                                    <div>
-                                        {Object.values(categories).map(
-                                            (category, idx) => {
-                                                return (
-                                                    <div
-                                                        key={idx}
-                                                        onClick={() => {
-                                                            setSelectedCategory(
-                                                                category
-                                                            );
-                                                        }}
-                                                        className={`flex justify-between cursor-pointer p-1.5 ${
-                                                            selectedCategory ==
-                                                            category
-                                                                ? "border-l-4 border-highlight bg-base"
-                                                                : ""
-                                                        } hover:bg-base`}
-                                                    >
-                                                        {category}
-                                                        {/* <span className="transition duration-200 text-gray-400 hover:text-red-500" onClick={() => { handleRemove(category) }}>{ deleteIconElement }</span> */}
-                                                    </div>
-                                                );
-                                            }
-                                        )}
-                                    </div>
-                                </Fade>
-                            )}
-                        </div>
-                    </div>
-                    <div className="flex flex-col md:ml-5 md:w-2/3">
                         {selectedCategory && (
                             <>
                                 <h1 className="text-xl text-highlight">
@@ -157,6 +109,55 @@ const Goals: React.FC = () => {
                             </>
                         )}
                     </div>
+                    <div className="mt-5 md:mt-0 md:w-1/2">
+                        <div>
+                            <div className="flex justify-between items-center">
+                                <h2 className="text-xl inline tracking-wide text-gray-700">
+                                    Your Goals
+                            </h2>
+                            {!creationMode && <Button
+                                text="+ Add Goal"
+                                bgcolor="highlight-secondary"
+                                textSize="sm"
+                                onClick={() => setCreationMode(true)}
+                            />}
+                            </div>
+                            {creationMode &&
+                                <AddGoalForm
+                                    setCreationMode={setCreationMode}
+                                />
+                            }
+                            {categories && (
+                                <Fade bottom cascade duration={500}>
+                                    <div className="mt-4 p-5 bg-white rounded-lg ">
+                                        {Object.values(categories).map(
+                                            (category, idx) => {
+                                                return (
+                                                    <div
+                                                        key={idx}
+                                                        onClick={() => {
+                                                            setSelectedCategory(
+                                                                category
+                                                            );
+                                                        }}
+                                                        className={`flex justify-between cursor-pointer p-1.5 ${selectedCategory ==
+                                                            category
+                                                            ? "border-l-4 border-highlight bg-base"
+                                                            : ""
+                                                            } hover:bg-base`}
+                                                    >
+                                                        {category}
+                                                        {/* <span className="transition duration-200 text-gray-400 hover:text-red-500" onClick={() => { handleRemove(category) }}>{ deleteIconElement }</span> */}
+                                                    </div>
+                                                );
+                                            }
+                                        )}
+                                    </div>
+                                </Fade>
+                            )}
+                        </div>
+                    </div>
+
                 </Page>
             )}
         </>

@@ -3,7 +3,8 @@ import { useForm } from "react-hook-form";
 import Zoom from 'react-reveal/Zoom';
 
 import { useCurrentDayRef } from '../../../hooks/firestoreHooks';
-import Button from "../../Button";
+import Button from "../../Buttons/Button";
+import CancelButton from "../../Buttons/CancelButton";
 import MoodRadioGroup from "./MoodRadioGroup";
 import TimePeriodRadioGoup from "./TimePeriodRadioGroup";
 import { AllEntries } from '../../../Types/MoodData';
@@ -100,14 +101,14 @@ const DataEntryForm: React.FC<Props> = ({
     };
 
     return (
-        <Zoom duration={500}>
+        <Zoom duration={200}>
             <form
                 onSubmit={handleSubmit(onSubmit)}
-                className="p-3 mt-4 bg-card rounded-lg w-full font-heading"
+                className="p-3 bg-white rounded-lg w-full font-heading"
             >
-                <p className="w-full p-2 my-2 rounded-md font-semibold text-md text-highlight-secondary">How are you?</p>
+                <p className="w-full mt-2 mb-4 rounded-md text-md text-highlight-secondary">How are you?</p>
                 <MoodRadioGroup register={register} />
-                <p className="w-full p-2 my-2 rounded-md font-semibold text-md text-highlight-secondary">What have you been up to?</p>
+                <p className="w-full mt-2 mb-4 rounded-md text-md text-highlight-secondary">What have you been up to?</p>
                 <textarea
                     name="description"
                     className="transition duration-200 p-2 resize-none w-full rounded-md border border-gray-300 font-sans text-sm focus:outline-none focus:border-green-500"
@@ -115,15 +116,13 @@ const DataEntryForm: React.FC<Props> = ({
                         required: true,
                     })}
                 ></textarea>
-                <p className="w-full p-2 my-2 rounded-md font-semibold text-md text-highlight-secondary">When?</p>
+                <p className="w-full mt-2 rounded-md text-md text-highlight-secondary">When?</p>
                 <TimePeriodRadioGoup register={register} />
-                <div className="flex justify-between w-1/2">
-                    <Button text="Add" hoverColor="green-300" textSize="md" />
-                    <Button
+                <div className="flex justify-between w-1/2 mt-8">
+                    <Button text="Add" textSize="xs" />
+                    <CancelButton
                         text="Cancel"
-                        type="button"
-                        hoverColor="red-600"
-                        textSize="md"
+                        textSize="xs"
                         onClick={handleCancel}
                     />
                 </div>

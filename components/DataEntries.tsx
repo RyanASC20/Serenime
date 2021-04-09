@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useDocument } from 'react-firebase-hooks/firestore';
 import { useCurrentDayRef } from '../hooks/firestoreHooks';
 import Entry from './Entry';
-import Button from './Button';
+import Button from './Buttons/Button';
 import DataEntryForm from './Input/MoodData/DataEntryForm';
 import { timeIconElements, timeIconBg } from '../public/static/icons';
 import { AllEntries } from '../Types/MoodData';
@@ -84,6 +84,21 @@ const DataEntries: React.FC = () => {
 
     return (
         <div className="flex flex-col items-center w-full">
+
+            <div className="flex justify-between items-center w-full mb-3 mt-5 md:mt-0">
+                <h2 className="text-xl inline tracking-wide text-gray-700">
+                    Today's Entries:
+                </h2>
+                {!creationMode && <Button
+                    text="+ New Entry"
+                    bgcolor="highlight-secondary"
+                    textSize="sm"
+                    onClick={() => {
+                        setCreationMode(true);
+                    }}
+                />}
+            </div>
+
             {creationMode && (
                 <DataEntryForm
                     setCreationMode={setCreationMode}
@@ -95,7 +110,7 @@ const DataEntries: React.FC = () => {
                 return (
                     <>
                         {entriesByTime[key].length > 0 && <div
-                            className={`mt-6 mb-3 p-2 rounded-full shadow-double-sm bg-${timeIconBg[parseInt(key)]}`}
+                            className={`my-3 p-2 rounded-full shadow-double-sm bg-${timeIconBg[parseInt(key)]}`}
                         >
                             {timeIconElements[parseInt(key)]}
                         </div>}
@@ -103,16 +118,6 @@ const DataEntries: React.FC = () => {
                     </>
                 )
             })}
-
-            <div className="my-6">
-                {!creationMode && <Button
-                    text="New Entry"
-                    textSize="lg"
-                    onClick={() => {
-                        setCreationMode(true);
-                    }}
-                />}
-            </div>
         </div>
     )
 }

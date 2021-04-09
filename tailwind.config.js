@@ -12,9 +12,9 @@ module.exports = {
                 'width': 'width'
             },
             fontFamily: {
-                sans: ['Helvetica', 'Arial', 'sans-serif'],
-                'sans-secondary': ["Lato", "sans-serif"],
-                heading: ["Raleway", "sans-serif"],
+                sans: ['Roboto', 'sans-serif'],
+                number: ["Rubik", "sans-serif"],
+                heading: ["Roboto", "sans-serif"],
             },
             transitionDuration: {
                 '4000': '4000ms',
@@ -23,7 +23,8 @@ module.exports = {
             },
             colors: {
                 base: {
-                    DEFAULT: "#FAF9FA",
+                    // DEFAULT: "#FAF9FA",
+                    DEFAULT: "#F5F6FA",
                     dark: '#2b323d'
                 },
                 secondary: {

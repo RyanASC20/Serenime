@@ -9,7 +9,7 @@ const TimePeriodRadioGoup: React.FC<P> = ({ register }) => {
     const [clicked, setClicked] = useState<number | null>(null);
 
     return (
-        <div className="flex justify-around my-4">
+        <div className="flex justify-between my-4">
             {
                 timeIconElements.map((icon: JSX.Element, idx: number) => {
                     return (
@@ -17,14 +17,14 @@ const TimePeriodRadioGoup: React.FC<P> = ({ register }) => {
                             <input 
                                 type="radio"
                                 name="timePeriod"
-                                value="0"
+                                value={idx}
                                 id={`time-period-${idx}`}
                                 ref={(e) => register(e, {
                                     required: true
                                 })}
                                 className="w-0 h-0"
                             ></input>
-                            <label htmlFor={`time-period-${idx}`} onClick={ () => { setClicked(idx) } } className={`transition duration-400 p-2 rounded-full shadow-double-sm cursor-pointer hover:shadow-inner ${clicked === idx ? `bg-${timeIconBg[0]}` : 'bg-gray-400' }` }>{ icon }</label>
+                            <label htmlFor={`time-period-${idx}`} onClick={ () => { setClicked(idx) } } className={`transition duration-400 p-2 rounded-full shadow-double-sm cursor-pointer hover:shadow-inner ${clicked === idx ? `bg-${timeIconBg[idx]}` : 'bg-gray-400' }` }>{ icon }</label>
                         </div>
                     )
                 })

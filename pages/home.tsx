@@ -10,6 +10,7 @@ import { useUser } from "../hooks/useUser";
 import { useDate } from "../hooks/useDate";
 import DataEntries from "../components/DataEntries";
 import Calendar from "../components/Calendar";
+import MoodGraph from '../components/MoodGraph';
 import { AllEntries } from '../Types/MoodData';
 
 const useMonthlyData = () => {
@@ -62,45 +63,37 @@ export default function Index() {
         }
     }, []);
 
-    const { date } = useDate();
-    const monthNames = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
-    ];
-
     return (
         <>
             {uid && (
                 <Page title="Home">
                     <div className="w-full md:w-1/2">
                         {/* <div className="border border-black mb-4 rounded-lg "> */}
-                            <div>
-                                <h1 className="inline text-highlight font-bold">
-                                    Track Your Mood
+                        <div>
+                            <h1 className="text-2xl inline tracking-wide text-gray-700">
+                                Track Your Mood
                                 </h1>
-                                <Tooltip>
-                                    <p>
-                                        Enter events you did throughout the day
-                                        and keep track of how you felt!
+                            <Tooltip>
+                                <p>
+                                    Enter events you did throughout the day
+                                    and keep track of how you felt!
                                     </p>
-                                    <p>
-                                        Try to make the calendar as green as
-                                        possible!
+                                <p>
+                                    Try to make the calendar as green as
+                                    possible!
                                     </p>
-                                </Tooltip>
+                            </Tooltip>
                             {/* </div> */}
 
                             <Calendar type="mood" data={monthlyData} />
+                            <MoodGraph data={
+                                Object.values(monthlyData).map(e => { 
+                                    if (e === null) {
+                                        return 0; 
+                                    } 
+                                    return e;  
+                                }) as number[]
+                            } />
                         </div>
                     </div>
                     <div className="md:w-2/5">

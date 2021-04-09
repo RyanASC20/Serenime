@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { Dispatch, SetStateAction } from "react";
-import Button from "../../Button";
+import Button from "../../Buttons/Button";
 import BreathingDurationRadioGroup from "./BreathingDurationRadioGroup";
 import BreathingTypeRadioGroup from "./BreathingTypeRadioGroup";
 
@@ -28,7 +28,7 @@ const BreathingForm: React.FC<P> = ({ setSelection }) => {
     return (
         <form
             onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col p-4 bg-card rounded-lg"
+            className="flex flex-col p-4 bg-white rounded-lg"
         >
             <div>
                 <BreathingDurationRadioGroup register={register} />
@@ -37,7 +37,7 @@ const BreathingForm: React.FC<P> = ({ setSelection }) => {
                     setSelection={setSelection}
                 />
             </div>
-            <Button text="Set Timer" textSize="lg" />
+            <Button text="Set Timer" textSize="sm" bgcolor="highlight-secondary" />
         </form>
     );
 };

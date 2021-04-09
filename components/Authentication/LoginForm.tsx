@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 
 import { auth } from "../../config/firebase";
-import Button from '../Button';
+import Button from '../Buttons/Button';
 import { MailIconElement, LockIconElement } from '../../public/static/icons';
 import styles from './LoginForm.module.css';
 

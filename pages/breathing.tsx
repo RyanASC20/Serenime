@@ -47,7 +47,7 @@ const Breathing: React.FC = () => {
             {uid && (
                 <Page title="Breathing">
                     <div className="mb-4 md:w-1/2">
-                        <h1 className="text-highlight font-bold md:ml-8">
+                        <h1 className="text-2xl inline tracking-wide text-gray-700">
                             Breathing Exercises
                         </h1>
                         {selectedMethod && (
@@ -57,28 +57,28 @@ const Breathing: React.FC = () => {
                             />
                         )}
                     </div>
-                    <div className="md:w-1/2">
+                    <div className="md:w-2/5">
                         <BreathingForm setSelection={setSelection} />
 
                         {selectedMethod && (
-                            <div className="mt-5 p-3 rounded-md bg-card">
-                            <Fade bottom duration={300}>
-                                <h1 className="text-lg text-highlight font-bold">
-                                    Directions:{" "}
-                                </h1>
-                                <ul className="text-sm font-sans">
-                                    {selectedMethod &&
-                                        selectedMethod.instructions.map(
-                                            (instruction, idx) => {
-                                                return (
-                                                    <li key={idx}>
-                                                        {instruction}
-                                                    </li>
-                                                );
-                                            }
-                                        )}
-                                </ul>
-                            </Fade>
+                            <div className="mt-5 p-3 rounded-md bg-white">
+                                <Fade bottom duration={300}>
+                                    <h1 className="text-lg text-highlight-secondary tracking-wide">
+                                        Directions:
+                                    </h1>
+                                    <ul className="text-sm">
+                                        {selectedMethod &&
+                                            selectedMethod.instructions.map(
+                                                (instruction, idx) => {
+                                                    return (
+                                                        <li key={idx}>
+                                                            {instruction}
+                                                        </li>
+                                                    );
+                                                }
+                                            )}
+                                    </ul>
+                                </Fade>
                             </div>
                         )}
                     </div>
