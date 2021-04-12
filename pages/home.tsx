@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 
 import { firestore } from "../config/firebase";
 import Page from "../components/layouts/Page";
+import PageHeading from "../components/elements/PageHeading";
 import Footer from '../components/elements/Footer';
 import Tooltip from "../components/elements/Tooltip";
 import { useUser } from "../context/useUser";
@@ -67,9 +68,7 @@ export default function Index() {
                     <div className="w-full md:w-1/2">
                         {/* <div className="border border-black mb-4 rounded-lg "> */}
                         <div>
-                            <h1 className="text-2xl inline tracking-wide text-gray-700">
-                                Track Your Mood
-                                </h1>
+                            <PageHeading title="Track Your Mood" />
                             <Tooltip>
                                 <p>
                                     Enter events you did throughout the day

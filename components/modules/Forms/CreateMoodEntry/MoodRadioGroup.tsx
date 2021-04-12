@@ -1,5 +1,5 @@
 import { useState, LegacyRef } from 'react';
-import { emoteElements } from "../../../../public/static/icons";
+import { emoteElements } from "../../../../icons";
 
 interface P {
     register: (instance: HTMLInputElement, options: object) => LegacyRef<HTMLInputElement> | void;

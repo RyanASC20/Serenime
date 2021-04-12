@@ -4,7 +4,7 @@ import Zoom from 'react-reveal/Zoom';
 
 
 import DataEntryForm from '../modules/forms/createMoodEntry/DataEntryForm';
-import { emoteElements, deleteIconElement, penIconElement } from "../../public/static/icons";
+import { emoteElements, deleteIconElement, penIconElement } from "../../icons";
 
 interface P {
     currentData: any;

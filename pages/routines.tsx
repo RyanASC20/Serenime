@@ -2,6 +2,7 @@ import Page from "../components/layouts/Page";
 import Tooltip from "../components/elements/Tooltip";
 import Routine from "../components/modules/routines/Routine";
 import { useUser } from "../context/useUser";
+import PageHeading from "../components/elements/PageHeading";
 
 const Routines: React.FC = () => {
     const { uid } = useUser();
@@ -15,9 +16,7 @@ const Routines: React.FC = () => {
                 >
                     <div>
                         <div className="flex items-center mb-4 p-3 rounded-lg ">
-                            <h1 className="inline text-2xl tracking-wide">
-                                Routines
-                            </h1>
+                            <PageHeading title="Routines" />
                             <Tooltip>
                                 <p>
                                     Here's a checklist of things you can do when

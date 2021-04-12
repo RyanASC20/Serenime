@@ -2,7 +2,7 @@ import Link from "next/link";
 import SignOutButton from "../../auth/SignOut";
 import { useUser } from "../../../context/useUser";
 import { useSidebarState } from "../../../context/useSidebar";
-import { HamburgerIconElement } from '../../../public/static/icons';
+import { HamburgerIconElement } from '../../../icons';
 
 interface P {
   text?: string;

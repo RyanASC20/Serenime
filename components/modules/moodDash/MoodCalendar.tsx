@@ -4,7 +4,7 @@ import { AllEntries } from '../../../Types/MoodData';
 import { useDate } from '../../../context/useDate';
 import Calendar from '../../elements/Calendar';
 import CalendarDay from '../../elements/CalendarDay';
-import { emoteColors } from "../../../public/static/icons";
+import { emoteColors } from "../../../icons";
 import { GoalData } from '../../../Types/GoalData';
 
 

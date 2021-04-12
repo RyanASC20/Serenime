@@ -8,7 +8,7 @@ import { firestore } from '../../../config/firebase';
 import { useUser } from '../../../context/useUser';
 import Button from '../../elements/buttons/Button';
 import CancelButton from '../../elements/buttons/CancelButton';
-import { deleteIconElement } from '../../../public/static/icons';
+import { deleteIconElement } from '../../../icons';
 import { useEffect, useState } from 'react';
 
 

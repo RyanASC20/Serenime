@@ -5,7 +5,7 @@ import { useCurrentDayRef } from '../../../utils/firestoreHooks';
 import Entry from '../../elements/MoodEntry';
 import Button from '../../elements/buttons/Button';
 import DataEntryForm from '../forms/createMoodEntry/DataEntryForm';
-import { timeIconElements, timeIconBg } from '../../../public/static/icons';
+import { timeIconElements, timeIconBg } from '../../../icons';
 import { AllEntries } from '../../../Types/MoodData';
 
 

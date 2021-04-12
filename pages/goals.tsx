@@ -5,8 +5,9 @@ import { useRouter } from "next/router";
 import firebase from 'firebase/app';
 
 import Page from "../components/layouts/Page";
+import PageHeading from '../components/elements/PageHeading';
 import Tooltip from "../components/elements/Tooltip";
-import { RecordGoal, GoalsList} from '../components/modules/goals';
+import { RecordGoal, GoalsList } from '../components/modules/goals';
 import AddGoalForm from "../components/modules/forms/addGoal/AddGoalForm";
 import { useHabitCategoriesRef } from "../utils/firestoreHooks";
 import Button from "../components/elements/buttons/Button";
@@ -66,9 +67,7 @@ const Goals: React.FC = () => {
                 <Page title="Goals">
                     <div className="flex flex-col md:ml-5 md:w-2/3">
                         <div className="mb-4 rounded-lg">
-                            <h1 className="text-2xl inline tracking-wide text-gray-700">
-                                Track Your Goals
-                            </h1>
+                            <PageHeading title="Track Your Goals" />
                             <Tooltip>
                                 <p>
                                     Each day you complete your goal, mark it in
@@ -112,12 +111,12 @@ const Goals: React.FC = () => {
                                 <h2 className="text-xl inline tracking-wide text-gray-700">
                                     Your Goals
                             </h2>
-                            {!creationMode && <Button
-                                text="+ Add Goal"
-                                bgcolor="highlight-secondary"
-                                textSize="sm"
-                                onClick={() => setCreationMode(true)}
-                            />}
+                                {!creationMode && <Button
+                                    text="+ Add Goal"
+                                    bgcolor="highlight-secondary"
+                                    textSize="sm"
+                                    onClick={() => setCreationMode(true)}
+                                />}
                             </div>
                             {creationMode &&
                                 <AddGoalForm
@@ -125,7 +124,7 @@ const Goals: React.FC = () => {
                                 />
                             }
                             {categories && (
-                                <GoalsList categories={ Object.values(categories) } selectedCategory={ selectedCategory } setSelectedCategory={ setSelectedCategory } />
+                                <GoalsList categories={Object.values(categories)} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
                             )}
                         </div>
                     </div>

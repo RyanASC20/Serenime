@@ -3,6 +3,7 @@ import Fade from "react-reveal/Fade";
 import Head from "next/head";
 
 import Page from "../components/layouts/Page";
+import PageHeading from "../components/elements/PageHeading";
 import BreathingForm from "../components/modules/forms/breathingSelection/BreathingForm";
 import CountdownTimer from "../components/modules/countdownTimer";
 import breathingExercises from "../public/static/breathingExercises.json";
@@ -47,9 +48,7 @@ const Breathing: React.FC = () => {
             {uid && (
                 <Page title="Breathing">
                     <div className="mb-4 md:w-1/2">
-                        <h1 className="text-2xl inline tracking-wide text-gray-700">
-                            Breathing Exercises
-                        </h1>
+                        <PageHeading title="Breathing Exercises" />
                         {selectedMethod && (
                             <CountdownTimer
                                 duration={selection.duration * 60}

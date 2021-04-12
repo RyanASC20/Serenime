@@ -5,7 +5,7 @@ import Fade from 'react-reveal/Fade';
 import { useSidebarState } from "../../context/useSidebar";
 import { useUser } from "../../context/useUser";
 import SignOut from '../auth/SignOut';
-import {HomeIconElement, WindIconElement, RoutineIconElement, StarIconElement} from '../../public/static/icons';
+import {HomeIconElement, WindIconElement, RoutineIconElement, StarIconElement} from '../../icons';
 
 
 const Sidebar: React.FC = () => {

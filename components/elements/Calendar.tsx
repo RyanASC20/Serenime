@@ -1,17 +1,9 @@
 import DatePicker from "react-datepicker";
 
 import { useDate } from "../../context/useDate";
-import { emoteColors } from "../../public/static/icons";
-import { GoalData } from '../../Types/GoalData';
-import CalendarDay from './CalendarDay';
 
 import "react-datepicker/dist/react-datepicker.css";
 
-
-interface P {
-    type: string;
-    data: number[] | GoalData;
-}
 
 const Calendar: React.FC = ({ children }) => {
     const { date, setDate } = useDate();

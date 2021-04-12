@@ -1,5 +1,5 @@
 import { useState, LegacyRef, useEffect } from "react";
-import { timeIconElements, timeIconBg } from '../../../../public/static/icons';
+import { timeIconElements, timeIconBg } from '../../../../icons';
 
 interface P {
     register: (instance: HTMLInputElement, options: object) => LegacyRef<HTMLInputElement> | void;
