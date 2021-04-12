@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
 import SignUpForm from "../components/auth/SignUpForm";
-import Navbar from '../components/elements/navbars/Navbar';
+import Navbar from '../components/elements/Navbars/Navbar';
 
 const SignUpPage: React.FC = () => {
   return (

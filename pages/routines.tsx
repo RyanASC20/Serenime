@@ -1,6 +1,6 @@
-import Page from "../components/layouts/Page";
+import Page from "../components/Layouts/Page";
 import Tooltip from "../components/elements/Tooltip";
-import Routine from "../components/modules/routines/Routine";
+import Routine from "../components/modules/Routines/Routine";
 import { useUser } from "../context/useUser";
 import PageHeading from "../components/elements/PageHeading";
 

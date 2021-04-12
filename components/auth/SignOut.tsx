@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import Button from '../elements/buttons/Button';
+import Button from '../elements/Buttons/Button';
 import { auth } from "../../config/firebase";
 
 const SignOutButton: React.FC = () => {

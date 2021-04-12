@@ -15,6 +15,7 @@ const TimePeriodRadioGoup: React.FC<P> = ({ register }) => {
                     return (
                         <div>
                             <input 
+                                key={ idx }
                                 type="radio"
                                 name="timePeriod"
                                 value={idx}

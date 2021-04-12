@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import Fade from "react-reveal/Fade";
 import Head from "next/head";
 
-import Page from "../components/layouts/Page";
+import Page from "../components/Layouts/Page";
 import PageHeading from "../components/elements/PageHeading";
-import BreathingForm from "../components/modules/forms/breathingSelection/BreathingForm";
-import CountdownTimer from "../components/modules/countdownTimer";
+import BreathingForm from "../components/modules/Forms/BreathingSelection/BreathingForm";
+import CountdownTimer from "../components/modules/CountdownTimer";
 import breathingExercises from "../public/static/breathingExercises.json";
 import { useUser } from "../context/useUser";
 import { useRouter } from "next/router";

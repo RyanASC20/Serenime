@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Zoom from 'react-reveal/Zoom';
 
-import Button from '../../elements/buttons/Button';
+import Button from '../../elements/Buttons/Button';
 import styles from './CountdownTimer.module.css';
 
 interface P {

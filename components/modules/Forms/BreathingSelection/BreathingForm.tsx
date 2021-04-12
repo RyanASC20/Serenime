@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { Dispatch, SetStateAction } from "react";
-import Button from "../../../elements/buttons/Button";
+import Button from "../../../elements/Buttons/Button";
 import BreathingDurationRadioGroup from "./BreathingDurationRadioGroup";
 import BreathingTypeRadioGroup from "./BreathingTypeRadioGroup";
 

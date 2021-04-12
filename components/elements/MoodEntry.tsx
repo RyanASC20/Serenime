@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import Fade from '../modules/goals/node_modules/react-reveal/Fade';
+import Fade from 'react-reveal/Fade';
 import Zoom from 'react-reveal/Zoom';
 
 
-import DataEntryForm from '../modules/forms/createMoodEntry/DataEntryForm';
+import DataEntryForm from '../modules/Forms/CreateMoodEntry/DataEntryForm';
 import { emoteElements, deleteIconElement, penIconElement } from "../../icons";
 
 interface P {

@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import { useRouter } from "next/router";
 import { auth, firestore } from "../../config/firebase";
-import Button from "../elements/buttons/Button";
+import Button from "../elements/Buttons/Button";
 import { MailIconElement, LockIconElement } from '../../icons';
 import styles from './LoginForm.module.css';
 

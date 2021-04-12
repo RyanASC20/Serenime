@@ -1,5 +1,5 @@
 import { useState, LegacyRef, useEffect } from 'react';
-import Radio from '../../../elements/radioButton/Radio';
+import Radio from '../../../elements/RadioButton/Radio';
 
 
 interface P {

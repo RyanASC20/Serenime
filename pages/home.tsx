@@ -3,15 +3,15 @@ import { useCollection } from "react-firebase-hooks/firestore";
 import { useRouter } from "next/router";
 
 import { firestore } from "../config/firebase";
-import Page from "../components/layouts/Page";
+import Page from "../components/Layouts/Page";
 import PageHeading from "../components/elements/PageHeading";
-import Footer from '../components/elements/Footer';
+// import Footer from '../components/elements/Footer';
 import Tooltip from "../components/elements/Tooltip";
 import { useUser } from "../context/useUser";
 import { useDate } from "../context/useDate";
-import DailyEntries from "../components/modules/moodDash/DailyEntries";
-import MoodGraph from '../components/modules/moodDash/MoodGraph';
-import { MoodCalendar } from "../components/modules/calendar";
+import DailyEntries from "../components/modules/MoodDash/DailyEntries";
+import MoodGraph from '../components/modules/MoodDash/MoodGraph';
+import { MoodCalendar } from "../components/modules/Calendar";
 
 const useMonthlyData = () => {
     const { uid } = useUser();

@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import Zoom from 'react-reveal/Zoom';
 
 import { auth } from '../../config/firebase';
-import Button from '../elements/buttons/Button';
+import Button from '../elements/Buttons/Button';
 
 const ResetPasswordForm: React.FC = () => {
     const { handleSubmit, register } = useForm<{ email: string }>();

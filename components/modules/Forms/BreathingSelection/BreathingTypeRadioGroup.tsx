@@ -1,5 +1,5 @@
 import { useState, LegacyRef, Dispatch, SetStateAction } from 'react';
-import Radio from '../../../elements/radioButton/Radio';
+import Radio from '../../../elements/RadioButton/Radio';
 
 interface P {
     register: (instance: HTMLInputElement, options: object) => LegacyRef<HTMLInputElement> | void;
