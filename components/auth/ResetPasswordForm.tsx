@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import Zoom from '../modules/Forms/CreateMoodEntry/node_modules/react-reveal/Zoom';
+import Zoom from 'react-reveal/Zoom';
 
 import { auth } from '../../config/firebase';
 import Button from '../elements/Buttons/Button';
