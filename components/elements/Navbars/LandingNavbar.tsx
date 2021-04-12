@@ -10,10 +10,10 @@ const Navbar: React.FC = () => {
             </div>
             <div className="flex items-center">
                 <Link href="/login">
-                    <a className="transition duration-200 mr-2 md:mr-10 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-highlight text-white hover:opacity-50" href="#">Login</a>
+                    <a className="transition duration-200 mr-2 md:mr-10 px-3 py-1.5 md:px-4 md:py-2 rounded-md bg-highlight text-white hover:opacity-50" href="#">Login</a>
                 </Link>
                 <Link href="/signup">
-                    <a className="transition duration-200 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-highlight text-white hover:opacity-50" href="#">Sign Up</a>
+                    <a className="transition duration-200 px-3 py-1.5 md:px-4 md:py-2 rounded-md bg-highlight text-white hover:opacity-50" href="#">Sign Up</a>
                 </Link>
             </div>
         </div>
