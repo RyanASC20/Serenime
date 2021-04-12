@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import firebase from 'firebase/app';
 
 import Page from "../components/layouts/Page";
-import PageHeading from '../components/elements/PageHeading';
+import PageHeading from "../components/elements/PageHeading";
 import Tooltip from "../components/elements/Tooltip";
 import { RecordGoal, GoalsList } from '../components/modules/goals';
 import AddGoalForm from "../components/modules/forms/addGoal/AddGoalForm";
