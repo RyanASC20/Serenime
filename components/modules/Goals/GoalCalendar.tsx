@@ -1,5 +1,5 @@
 import { useDate } from '../../../context/useDate';
-import Calendar from './Calendar';
+import Calendar from '../../elements/Calendar';
 import CalendarDay from '../../elements/CalendarDay';
 import { GoalData } from '../../../Types/GoalData';
 

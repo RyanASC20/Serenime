@@ -1,8 +1,8 @@
 import Head from 'next/head';
 
-import Navbar from "../modules/Navbar/Navbar";
-import Sidebar from "../modules/Sidebar";
-import Footer from '../modules/Footer';
+import Navbar from "../elements/navbars/Navbar";
+import Sidebar from "../elements/Sidebar";
+import Footer from '../elements/Footer';
 
 interface P {
     title: string;

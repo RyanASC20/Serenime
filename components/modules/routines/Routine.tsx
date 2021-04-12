@@ -4,11 +4,11 @@ import { useDocumentData } from 'react-firebase-hooks/firestore';
 import { useForm } from "react-hook-form";
 import Zoom from 'react-reveal/Zoom';
 
-import { firestore } from '../../config/firebase';
-import { useUser } from '../../context/useUser';
-import Button from '../elements/Buttons/Button';
-import CancelButton from '../elements/Buttons/CancelButton';
-import { deleteIconElement } from '../../public/static/icons';
+import { firestore } from '../../../config/firebase';
+import { useUser } from '../../../context/useUser';
+import Button from '../../elements/buttons/Button';
+import CancelButton from '../../elements/buttons/CancelButton';
+import { deleteIconElement } from '../../../public/static/icons';
 import { useEffect, useState } from 'react';
 
 

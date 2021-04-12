@@ -4,12 +4,12 @@ import FlashMessage from "react-flash-message";
 import { useRouter } from "next/router";
 import firebase from 'firebase/app';
 
-import Page from "../components/Layouts/Page";
+import Page from "../components/layouts/Page";
 import Tooltip from "../components/elements/Tooltip";
-import { RecordGoal, GoalsList} from '../components/modules/Goals';
-import AddGoalForm from "../components/modules/Forms/AddGoal/AddGoalForm";
+import { RecordGoal, GoalsList} from '../components/modules/goals';
+import AddGoalForm from "../components/modules/forms/addGoal/AddGoalForm";
 import { useHabitCategoriesRef } from "../utils/firestoreHooks";
-import Button from "../components/elements/Buttons/Button";
+import Button from "../components/elements/buttons/Button";
 import { useUser } from "../context/useUser";
 
 

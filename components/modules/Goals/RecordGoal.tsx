@@ -5,8 +5,8 @@ import Zoom from 'react-reveal/Zoom';
 import { firestore } from "../../../config/firebase";
 import { useUser } from "../../../context/useUser";
 import { useDate } from "../../../context/useDate";
-import { GoalCalendar } from "../Calendar";
-import Radio from '../../elements/RadioButton/Radio';
+import { GoalCalendar } from "../calendar";
+import Radio from '../../elements/radioButton/Radio';
 import { GoalData } from '../../../Types/GoalData';
 
 const useGoalData = (selectedCategory: string): GoalData | undefined => {

@@ -1,5 +1,5 @@
-import Calendar from './Calendar';
-import MoodCalendar from './MoodCalendar';
-import GoalCalendar from './GoalCalendar';
+import Calendar from '../../elements/Calendar';
+import MoodCalendar from '../moodDash/MoodCalendar';
+import GoalCalendar from '../goals/GoalCalendar';
 
 export { Calendar, MoodCalendar, GoalCalendar };

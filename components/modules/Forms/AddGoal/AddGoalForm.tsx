@@ -3,8 +3,8 @@ import { useForm } from 'react-hook-form';
 import Zoom from 'react-reveal/Zoom';
 
 import { useHabitCategoriesRef} from '../../../../utils/firestoreHooks';
-import Button from '../../../elements/Buttons/Button';
-import CancelButton from '../../../elements/Buttons/CancelButton';
+import Button from '../../../elements/buttons/Button';
+import CancelButton from '../../../elements/buttons/CancelButton';
 
 interface Props {
     setCreationMode?: React.Dispatch<React.SetStateAction<boolean>>;

@@ -1,6 +1,6 @@
-import Page from "../components/Layouts/Page";
+import Page from "../components/layouts/Page";
 import Tooltip from "../components/elements/Tooltip";
-import Routine from "../components/modules/Routine";
+import Routine from "../components/modules/routines/Routine";
 import { useUser } from "../context/useUser";
 
 const Routines: React.FC = () => {

@@ -1,9 +1,9 @@
 import Head from 'next/head';
 
-import Card from '../components/elements/LandingCard/Card';
-import { LandingNavbar } from '../components/modules/Navbar';
-import Jumbotron from '../components/elements/Jumbotron/Jumbotron';
-import Footer from '../components/modules/Footer';
+import Card from '../components/elements/landingCard/Card';
+import { LandingNavbar } from '../components/elements/navbars';
+import Jumbotron from '../components/elements/jumbotron/Jumbotron';
+import Footer from '../components/elements/Footer';
 
 const Index: React.FC = () => {
 
