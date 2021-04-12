@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import Navbar from "../elements/Navbars/Navbar";
+import {Navbar} from "../elements/Navbars";
 import Sidebar from "../elements/Sidebar";
 import Footer from '../elements/Footer';
 
