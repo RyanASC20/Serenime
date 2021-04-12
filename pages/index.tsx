@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
 import Card from '../components/elements/LandingCard/Card';
-import { LandingNavbar } from '../components/elements/Navbars';
+import { LandingNavbar } from '../components/elements/test';
 import Jumbotron from '../components/elements/Jumbotron/Jumbotron';
 import Footer from '../components/elements/Footer';
 

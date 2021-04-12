@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import Navbar from '../components/elements/Navbars/Navbar';
+import Navbar from '../components/elements/test/Navbar';
 import ResetPasswordForm from "../components/auth/ResetPasswordForm";
 
 const SignUpPage: React.FC = () => {
