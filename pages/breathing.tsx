@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Fade from "../components/modules/goals/node_modules/react-reveal/Fade";
+import Fade from "react-reveal/Fade";
 import Head from "next/head";
 
 import Page from "../components/layouts/Page";
