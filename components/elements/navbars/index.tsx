@@ -1,4 +1,4 @@
-import Navbar from "./navbar";
-import LandingNavbar from './landingNavbar';
+import Navbar from "./Navbar";
+import LandingNavbar from './LandingNavbar';
 
 export { Navbar, LandingNavbar }
