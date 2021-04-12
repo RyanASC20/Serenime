@@ -3,15 +3,14 @@ import { useCollection } from "react-firebase-hooks/firestore";
 import { useRouter } from "next/router";
 
 import { firestore } from "../config/firebase";
-import Page from "../components/Page";
-import Footer from '../components/Footer';
-import Tooltip from "../components/Tooltip";
-import { useUser } from "../hooks/useUser";
-import { useDate } from "../hooks/useDate";
-import DataEntries from "../components/DataEntries";
-import Calendar from "../components/Calendar";
-import MoodGraph from '../components/MoodGraph';
-import { AllEntries } from '../Types/MoodData';
+import Page from "../components/Layouts/Page";
+import Footer from '../components/modules/Footer';
+import Tooltip from "../components/elements/Tooltip";
+import { useUser } from "../context/useUser";
+import { useDate } from "../context/useDate";
+import DailyEntries from "../components/modules/DailyEntries";
+import MoodGraph from '../components/modules/MoodGraph';
+import { MoodCalendar } from "../components/modules/Calendar";
 
 const useMonthlyData = () => {
     const { uid } = useUser();
@@ -49,12 +48,10 @@ const useMonthlyData = () => {
     return monthlyValues;
 };
 
-interface MonthlyEntries {
-    monthlyData: AllEntries[];
-}
+
 export default function Index() {
     const { uid } = useUser();
-    const monthlyData: AllEntries[] = useMonthlyData();
+    const monthlyData: number[] = useMonthlyData();
     const router = useRouter();
 
     useEffect(() => {
@@ -85,7 +82,7 @@ export default function Index() {
                             </Tooltip>
                             {/* </div> */}
 
-                            <Calendar type="mood" data={monthlyData} />
+                            <MoodCalendar moodData={monthlyData} />
                             <MoodGraph data={
                                 Object.values(monthlyData).map(e => { 
                                     if (e === null) {
@@ -97,7 +94,7 @@ export default function Index() {
                         </div>
                     </div>
                     <div className="md:w-2/5">
-                        <DataEntries />
+                        <DailyEntries />
                     </div>
                 </Page>
             )}

@@ -1,8 +1,8 @@
 import "../styles/globals.css";
 import "tailwindcss/tailwind.css";
-import { UserProvider } from "../hooks/useUser";
-import { DateProvider } from "../hooks/useDate";
-import { SidebarProvider } from "../hooks/useSidebar";
+import { UserProvider } from "../context/useUser";
+import { DateProvider } from "../context/useDate";
+import { SidebarProvider } from "../context/useSidebar";
 
 function MyApp({ Component, pageProps }) {
     return (

@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import Fade from "react-reveal/Fade";
 import Head from "next/head";
 
-import Page from "../components/Page";
-import BreathingForm from "../components/Input/Breathing/BreathingForm";
-import CountdownTimer from "../components/CountdownTimer/CountdownTimer";
+import Page from "../components/Layouts/Page";
+import BreathingForm from "../components/modules/Forms/BreathingSelection/BreathingForm";
+import CountdownTimer from "../components/modules/CountdownTimer";
 import breathingExercises from "../public/static/breathingExercises.json";
-import { useUser } from "../hooks/useUser";
+import { useUser } from "../context/useUser";
 import { useRouter } from "next/router";
 
 interface SelectionData {

@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react";
-import Fade from "react-reveal/Fade";
 import { useDocumentData } from "react-firebase-hooks/firestore";
 import FlashMessage from "react-flash-message";
 import { useRouter } from "next/router";
 import firebase from 'firebase/app';
 
-import Page from "../components/Page";
-import Tooltip from "../components/Tooltip";
-import GoalContent from '../components/Goals/GoalContent';
-import AddGoalForm from "../components/Input/Goals/AddGoalForm";
-import { useHabitCategoriesRef } from "../hooks/firestoreHooks";
-import Button from "../components/Buttons/Button";
-import { useUser } from "../hooks/useUser";
+import Page from "../components/Layouts/Page";
+import Tooltip from "../components/elements/Tooltip";
+import { RecordGoal, GoalsList} from '../components/modules/Goals';
+import AddGoalForm from "../components/modules/Forms/AddGoal/AddGoalForm";
+import { useHabitCategoriesRef } from "../utils/firestoreHooks";
+import Button from "../components/elements/Buttons/Button";
+import { useUser } from "../context/useUser";
 
 
 const useHabitCategories = () => {
@@ -27,7 +26,7 @@ const Goals: React.FC = () => {
         null
     );
     const [creationMode, setCreationMode] = useState(false);
-    const [submitted, setSubmitted] = useState(null);
+    const [submitted, setSubmitted] = useState<boolean | null>(null);
     const categoriesRef = useHabitCategoriesRef();
     const categories = useHabitCategories();
     const router = useRouter();
@@ -92,7 +91,6 @@ const Goals: React.FC = () => {
                                     today?
                                 </h1>
                                 {submitted !== null && (
-                                    // <Zoom right duration={300}>
                                     <FlashMessage duration={5000}>
                                         <p className="p-3 my-5 rounded-lg text-white bg-highlight">
                                             {submitted
@@ -100,9 +98,8 @@ const Goals: React.FC = () => {
                                                 : "Don't worry about it! Try again tomorrow."}
                                         </p>
                                     </FlashMessage>
-                                    // </Zoom>
                                 )}
-                                <GoalContent
+                                <RecordGoal
                                     selectedCategory={selectedCategory}
                                     setSubmitted={setSubmitted}
                                 />
@@ -128,36 +125,10 @@ const Goals: React.FC = () => {
                                 />
                             }
                             {categories && (
-                                <Fade bottom cascade duration={500}>
-                                    <div className="mt-4 p-5 bg-white rounded-lg ">
-                                        {Object.values(categories).map(
-                                            (category, idx) => {
-                                                return (
-                                                    <div
-                                                        key={idx}
-                                                        onClick={() => {
-                                                            setSelectedCategory(
-                                                                category
-                                                            );
-                                                        }}
-                                                        className={`flex justify-between cursor-pointer p-1.5 ${selectedCategory ==
-                                                            category
-                                                            ? "border-l-4 border-highlight bg-base"
-                                                            : ""
-                                                            } hover:bg-base`}
-                                                    >
-                                                        {category}
-                                                        {/* <span className="transition duration-200 text-gray-400 hover:text-red-500" onClick={() => { handleRemove(category) }}>{ deleteIconElement }</span> */}
-                                                    </div>
-                                                );
-                                            }
-                                        )}
-                                    </div>
-                                </Fade>
+                                <GoalsList categories={ Object.values(categories) } selectedCategory={ selectedCategory } setSelectedCategory={ setSelectedCategory } />
                             )}
                         </div>
                     </div>
-
                 </Page>
             )}
         </>

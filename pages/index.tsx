@@ -1,9 +1,9 @@
 import Head from 'next/head';
 
-import Card from '../components/Landing/Card';
-import Navbar from '../components/Landing/Navbar'
-import Jumbotron from '../components/Landing/Jumbotron';
-import Footer from '../components/Footer';
+import Card from '../components/elements/LandingCard/Card';
+import { LandingNavbar } from '../components/modules/Navbar';
+import Jumbotron from '../components/elements/Jumbotron/Jumbotron';
+import Footer from '../components/modules/Footer';
 
 const Index: React.FC = () => {
 
@@ -14,7 +14,7 @@ const Index: React.FC = () => {
             </Head>
             <div className="relative w-full h-screen">
                 <section className="flex flex-col items-center md:relative h-3/4 md:h-full">
-                    <Navbar />
+                    <LandingNavbar />
                     {/* <img
                         className="w-screen h-screen"
                         src={require('../public/static/imgs/landing-bg.jpg')}

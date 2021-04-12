@@ -1,7 +1,7 @@
-import Page from "../components/Page";
-import Tooltip from "../components/Tooltip";
-import Routine from "../components/Routines/Routine";
-import { useUser } from "../hooks/useUser";
+import Page from "../components/Layouts/Page";
+import Tooltip from "../components/elements/Tooltip";
+import Routine from "../components/modules/Routine";
+import { useUser } from "../context/useUser";
 
 const Routines: React.FC = () => {
     const { uid } = useUser();
