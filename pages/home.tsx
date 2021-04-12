@@ -9,8 +9,8 @@ import PageHeading from "../components/elements/PageHeading";
 import Tooltip from "../components/elements/Tooltip";
 import { useUser } from "../context/useUser";
 import { useDate } from "../context/useDate";
-import DailyEntries from "../components/modules/MoodDash/DailyEntries";
-import MoodGraph from '../components/modules/MoodDash/MoodGraph';
+import DailyEntries from "../components/modules/MoodTracker/DailyEntries";
+import MoodGraph from '../components/modules/MoodTracker/MoodGraph';
 import { MoodCalendar } from "../components/modules/Calendar";
 
 const useMonthlyData = () => {
