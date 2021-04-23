@@ -12,12 +12,17 @@ const Index: React.FC = () => {
             <Head>
                 <title>Serenime | Stress Tracker, Breathing Exercises, Goal Tracker, Planner</title>
             </Head>
-            <div className="relative w-full h-screen">
-                <section className="flex flex-col items-center h-3/4 md:h-full">
+            <div>
+                <section className="flex flex-col items-center">
                     <LandingNavbar />
-                    <Jumbotron />
+                    <div className="flex flex-col md:flex-row w-full md:w-3/4 mt-5 md:mt-10">
+                        <div className="flex justify-center items-center w-1/2">
+                            <Jumbotron />
+                        </div>
+                        <img className="shadow-md w-3/5" src={require("../public/static/imgs/landing-home.jpg")}></img>
+                    </div>
                 </section>
-                <section className="flex flex-col items-center mb-10 relative -top-52 md:-top-96">
+                <section className="flex flex-col items-center mb-10">
                     <Card>
                         <div className="md:w-1/2">
                             <h1 className="my-6 text-4xl text-center md:text-left font-sans text-highlight-secondary">Mood Tracker</h1>
