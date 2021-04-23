@@ -59,7 +59,7 @@ const SignUpForm: React.FC = () => {
             },
           })}
         />
-        <label htmlFor="name" className={`${styles.label} absolute transition-all top-2.5 left-2 px-1 pointer-events-none bg-white text-xs`}>Name</label>
+        <label htmlFor="name" className={`${styles.label} absolute transition-all top-2.5 left-2 px-1 pointer-events-none bg-white text-xs`}>Username</label>
         {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
       </div>
       <div className="relative mb-6">

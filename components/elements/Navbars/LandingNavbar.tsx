@@ -6,7 +6,7 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between sticky top-0 px-2 md:px-20 py-3 w-full bg-white z-50 ">
             <div className="flex items-center">
                 <img src={require("../../../public/static/imgs/favicon-32x32.png")} alt="logo" className="inline"></img>
-                {/* <h1 className="inline text-2xl font-semibold font-sans text-white">Serenime</h1> */}
+                <h1 className="ml-3 inline text-2xl">Serenime</h1>
             </div>
             <div className="flex items-center">
                 <Link href="/login">

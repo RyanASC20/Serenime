@@ -13,12 +13,8 @@ const Index: React.FC = () => {
                 <title>Serenime | Stress Tracker, Breathing Exercises, Goal Tracker, Planner</title>
             </Head>
             <div className="relative w-full h-screen">
-                <section className="flex flex-col items-center md:relative h-3/4 md:h-full">
+                <section className="flex flex-col items-center h-3/4 md:h-full">
                     <LandingNavbar />
-                    {/* <img
-                        className="w-screen h-screen"
-                        src={require('../public/static/imgs/landing-bg.jpg')}
-                    /> */}
                     <Jumbotron />
                 </section>
                 <section className="flex flex-col items-center mb-10 relative -top-52 md:-top-96">
