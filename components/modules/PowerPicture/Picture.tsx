@@ -25,17 +25,17 @@ const Picture: React.FC<PictureProps> = ({ src, observations, imgId }) => {
     return (
         <>
             <div className="relative">
-                <div className="absolute transition duration-200 flex justify-center items-center h-full m-1 md:w-96 z-49 opacity-0 font-lg text-white cursor-pointer hover:bg-black hover:opacity-50" onClick={() => { setClicked(!clicked) }}>More info</div>
-                <img src={src} className="max-h-50 md:w-96 m-1"></img>
+                <div className="absolute transition duration-200 flex justify-center items-center w-full h-full m-1 md:w-96 z-49 opacity-0 font-lg text-white cursor-pointer hover:bg-black hover:opacity-50" onClick={() => { setClicked(!clicked) }}>More info</div>
+                <img src={src} className="max-h-50 w-96 m-1"></img>
             </div>
             { clicked &&
-                <Modal close={() => { setClicked(false) }}>
+                <Modal completelyClose={() => { setClicked(false) }} closingMessage="Done">
                     <div className="flex flex-col md:flex-row md:justify-between">
-                        <img src={src} className="max-h-50 md:w-96 rounded-md"></img>
-                        <div className="w-full ml-5">
-                            <div className="overflow-auto max-h-52">
+                        <img src={src} className="max-h-50 w-96 rounded-md"></img>
+                        <div className="w-full md:ml-5">
+                            <div className="overflow-auto max-h-52 my-2 md:my-0">
                                 {observations.map((observation, idx) => {
-                                    return <div key={idx} className={`flex justify-between my-2 p-2 ${idx % 2 == 0 && "bg-gray-200"}`}>{observation}<span onClick={() => { deleteObservation(idx) }}>{ deleteIconElement }</span></div>
+                                    return <div key={idx} className={`flex justify-between my-2 p-2 rounded-md ${idx % 2 == 0 && "bg-gray-200"}`}>{observation}<span onClick={() => { deleteObservation(idx) }}>{ deleteIconElement }</span></div>
                                 })}
                             </div>
                             <AddObservationForm imgId={imgId} currentData={observations} />
