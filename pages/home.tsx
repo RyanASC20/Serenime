@@ -69,15 +69,11 @@ export default function Index() {
                         {/* <div className="border border-black mb-4 rounded-lg "> */}
                         <div>
                             <PageHeading title="Track Your Mood" />
-                            <Tooltip>
-                                <p>
+                            <Tooltip title="Mood Tracker">
                                     Enter events you did throughout the day
                                     and keep track of how you felt!
-                                    </p>
-                                <p>
                                     Try to make the calendar as green as
                                     possible!
-                                    </p>
                             </Tooltip>
                             {/* </div> */}
 

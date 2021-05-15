@@ -2,7 +2,11 @@ import { useState } from "react";
 
 import Modal from "./Modal";
 
-const Tooltip: React.FC = ({ children }) => {
+interface TooltipProps {
+    title: string;
+}
+
+const Tooltip: React.FC<TooltipProps> = ({ children, title }) => {
     const [active, setActive] = useState(false);
 
     return (
@@ -13,7 +17,7 @@ const Tooltip: React.FC = ({ children }) => {
                     {children}
                 </div> */}
             </p>
-            { active && <Modal close={() => { setActive(false) }}>
+            { active && <Modal completelyClose={() => { setActive(false) }} title={title} >
                 {children}
             </Modal>}
 

@@ -68,16 +68,12 @@ const Goals: React.FC = () => {
                     <div className="flex flex-col md:ml-5 md:w-2/3">
                         <div className="mb-4 rounded-lg">
                             <PageHeading title="Track Your Goals" />
-                            <Tooltip>
-                                <p>
-                                    Each day you complete your goal, mark it in
-                                    the calendar, and track your progress!
-                                </p>
-                                <p>
-                                    If you don't complete it one day, don't
-                                    worry!
-                                </p>
-                                <p>The greener the calendar, the better!</p>
+                            <Tooltip title="Goals">
+                                Each day you complete your goal, mark it in
+                                the calendar, and track your progress!
+                                If you don't complete it one day, don't
+                                worry!
+                                The greener the calendar, the better!
                             </Tooltip>
                         </div>
                         {selectedCategory && (

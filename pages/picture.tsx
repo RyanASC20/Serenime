@@ -8,10 +8,10 @@ const Picture: React.FC = () => {
         <PicturePage title="Picture">
             <div>
                 <PageHeading title="Picture" />
-                <Tooltip>
-                    <p>Choose a picture that represents your goals!</p>
-                    <p>Then, try to make as many observations about it as possible? What about it speaks to you?</p>
-                    <p>Get the image URL by going searching for images, right clicking, and selecting <span className="font-bold">"Copy image link"</span></p>
+                <Tooltip title="Power Pictures">
+                    Choose a picture that represents your goals!
+                    Then, try to make as many observations about it as possible? What about it speaks to you?
+                    Get the image URL by going searching for images, right clicking, and selecting <span className="font-bold">"Copy image link"</span>
                 </Tooltip>
                 <PowerPicture />
             </div>

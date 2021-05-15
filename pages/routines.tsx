@@ -17,19 +17,15 @@ const Routines: React.FC = () => {
                     <div>
                         <div className="flex items-center mb-4 p-3 rounded-lg ">
                             <PageHeading title="Routines" />
-                            <Tooltip>
-                                <p>
+                            <Tooltip title="Routines">
                                     Here's a checklist of things you can do when
                                     you wake up or go before you sleep. As the
                                     deadline approaches, the item will turn from
                                     green (90 min), to orange (60 min), to
                                     yellow (30 min), and to red(less than 30
                                     min)
-                                </p>
-                                <p>
                                     Click on each item to toggle if you have
                                     completed them or not.
-                                </p>
                             </Tooltip>
                         </div>
                     </div>
