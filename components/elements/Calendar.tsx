@@ -9,10 +9,6 @@ import { useEffect } from "react";
 const Calendar: React.FC = ({ children }) => {
     const { date, setDate } = useDate();
 
-    useEffect(() => {
-        console.log(date);
-    })
-
     const changeMonth = (difference: number): void => {
         const currentMonth: number = date.getMonth();
         const currentYear: number = date.getFullYear();
@@ -34,7 +30,7 @@ const Calendar: React.FC = ({ children }) => {
     return (
         <div className="px-8 py-4 mt-5 md:w-full bg-white rounded-xl shadow-md">
             <div className="flex justify-between mt-3 mb-5">
-                <span className="cursor-pointer" onClick={() => { changeMonth(-1) }}>&lt;</span>
+                <button className="cursor-pointer outline-none" onClick={() => { changeMonth(-1) }}>&lt;</button>
                 <DatePicker
                     className="text-center bg-white font-sans-secondary text-lg font-bold text-gray-700"
                     selected={date}
@@ -42,7 +38,7 @@ const Calendar: React.FC = ({ children }) => {
                         setDate(date);
                     }}
                 />
-                <span className="cursor-pointer" onClick={() => { changeMonth(1) }}>&gt;</span>
+                <button className="cursor-pointer outline-none" onClick={() => { changeMonth(1) }}>&gt;</button>
             </div>
 
             <div className="grid grid-cols-7 gap-2 text-center">
