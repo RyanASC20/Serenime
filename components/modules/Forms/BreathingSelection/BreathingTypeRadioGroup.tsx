@@ -11,7 +11,7 @@ const BreathingTypeRadioGroup: React.FC<P> = ({ register, setSelection }) => {
 
     const options = [
         "Energy",
-        "Sleep",
+        "Calm (4-7-8)",
         "Resonant Breathing",
         "Box Breathing"
     ];
