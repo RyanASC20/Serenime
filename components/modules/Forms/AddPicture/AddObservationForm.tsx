@@ -27,7 +27,7 @@ const AddObersvationForm: React.FC<AddObersvationFormProps> = ({ imgId, currentD
                 name="newObservation"
                 placeholder="Enter an observation"
                 autoComplete="off"
-                className="w-5/6 p-2 shadow-sm rounded-md outline-none border-b focus:border-highlight"
+                className="w-5/6 p-2 shadow-sm rounded-xl outline-none border-b focus:border-highlight"
                 ref={register({required: true})}
             ></input>
             <Button text="+ Add" />
