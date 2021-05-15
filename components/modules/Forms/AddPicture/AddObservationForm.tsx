@@ -21,7 +21,7 @@ const AddObersvationForm: React.FC<AddObersvationFormProps> = ({ imgId, currentD
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form className="flex justify-between mt-4" onSubmit={handleSubmit(onSubmit)}>
             <input
                 type="text"
                 name="newObservation"
