@@ -35,3 +35,29 @@ export const useHabitCategoriesRef = () => {
             .collection('habits')
             .doc('categories')
 }
+
+export const usePictureCollectionRef = () => {
+    const { uid } = useUser();
+    return firestore
+            .collection("users")
+            .doc(uid)
+            .collection("pictures")
+}
+
+export const useGalleryRef = () => {
+    const { uid } = useUser();
+    return firestore
+            .collection("users")
+            .doc(uid)
+            .collection("pictures")
+            .doc("gallery");
+}
+
+export const usePictureRef = (id: string) => {
+    const { uid } = useUser();
+    return firestore
+            .collection("users")
+            .doc(uid)
+            .collection("pictures")
+            .doc(id);
+}

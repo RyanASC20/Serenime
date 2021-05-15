@@ -17,6 +17,7 @@
     "chartjs": "^0.3.24",
     "firebase": "^8.2.5",
     "firebase-admin": "^9.5.0",
+    "framer-motion": "^4.1.16",
     "next": "10.0.6",
     "next-images": "^1.7.0",
     "postcss": "^8.2.4",
