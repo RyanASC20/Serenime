@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import Zoom from 'react-reveal/Zoom';
 
@@ -13,6 +13,7 @@ interface Props {
     currentData: AllEntries;
     setCreationMode?: React.Dispatch<React.SetStateAction<boolean>>;
     setEditMode?: React.Dispatch<React.SetStateAction<boolean>>;
+    defaultVal?: string;
     entryIndex?: number;
 }
 
@@ -22,12 +23,7 @@ interface InputData {
     timePeriod: string;
 }
 
-const DataEntryForm: React.FC<Props> = ({
-    currentData,
-    setCreationMode,
-    setEditMode,
-    entryIndex,
-}) => {
+const DataEntryForm: React.FC<Props> = ({currentData,setCreationMode,setEditMode,entryIndex,defaultVal}) => {
     const dbRef = useCurrentDayRef();
 
     const { register, handleSubmit, reset } = useForm<InputData>();
@@ -100,6 +96,10 @@ const DataEntryForm: React.FC<Props> = ({
         }
     };
 
+    useEffect(() => {
+        console.log(currentData);
+    })
+
     return (
         <Zoom duration={200}>
             <form
@@ -112,6 +112,7 @@ const DataEntryForm: React.FC<Props> = ({
                 <textarea
                     name="description"
                     className="transition duration-200 p-2 resize-none w-full rounded-md border border-gray-300 font-sans text-sm focus:outline-none focus:border-green-500"
+                    defaultValue={ defaultVal }
                     ref={register({
                         required: true,
                     })}

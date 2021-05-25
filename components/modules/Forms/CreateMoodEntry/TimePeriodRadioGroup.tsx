@@ -13,9 +13,8 @@ const TimePeriodRadioGoup: React.FC<P> = ({ register }) => {
             {
                 timeIconElements.map((icon: JSX.Element, idx: number) => {
                     return (
-                        <div>
+                        <div key={ idx }>
                             <input 
-                                key={ idx }
                                 type="radio"
                                 name="timePeriod"
                                 value={idx}
