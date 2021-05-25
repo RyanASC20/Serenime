@@ -96,10 +96,6 @@ const DataEntryForm: React.FC<Props> = ({currentData,setCreationMode,setEditMode
         }
     };
 
-    useEffect(() => {
-        console.log(currentData);
-    })
-
     return (
         <Zoom duration={200}>
             <form

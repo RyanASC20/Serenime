@@ -23,7 +23,7 @@ const MoodCalendar: React.FC<MoodCalendarProps> = ({ moodData }) => {
         } else {
             const calendarPos = i - startMonth.getDay() + 1;
             const c =
-                !moodData[calendarPos]
+                moodData[calendarPos] == null
                     ? "white"
                     : emoteColors[Math.floor(moodData[calendarPos])];
             t.push(
