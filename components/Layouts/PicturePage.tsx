@@ -12,7 +12,7 @@ const PicturePage: React.FC<PicturePageProps> = ({ children, title}) => {
             <Head>
                 <title>Serenime | {title}</title>
             </Head>
-            <div className="bg-base h-min-screen mb-20 md:mb-0">
+            <div className="mb-20 md:mb-0">
                 <Navbar />
                 <div className="flex justify-center mx-2">
                     <div className="flex flex-col md:flex-row md:justify-between w-full lg:w-5/6 md:m-0">
