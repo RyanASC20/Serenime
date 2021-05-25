@@ -13,12 +13,14 @@ interface SignUpData {
   name: string;
   email: string;
   password: string;
+  passwordConfirmation: string;
 }
 
 const SignUpForm: React.FC = () => {
   const { register, handleSubmit, errors } = useForm<SignUpData>();
   const [signUpError, setSignUpError] = useState(null);
   const router = useRouter();
+  const [ password, setPassword ] = useState('');
 
   const SignUp = async ({ name, email, password }) => {
     try {
@@ -82,8 +84,9 @@ const SignUpForm: React.FC = () => {
           type="password"
           name="password"
           className={`${styles.input} appearance-none block w-full p-2.5 rounded-md border border-gray-300 placeholder-gray-400 focus:outline-none focus:border-highlight transition duration-150 ease-in-out sm:text-sm sm:leading-5`}
+          onChange={e => { setPassword(e.target.value) } }
           ref={register({
-            required: true,
+            required: "Password is required.",
             minLength: {
               value: 6,
               message: "Password must be at least 6 characters long",
@@ -92,7 +95,22 @@ const SignUpForm: React.FC = () => {
         />
         <label htmlFor="password" className={`${styles.label} absolute transition-all top-2.5 left-2 px-1 pointer-events-none bg-white text-xs`}>{LockIconElement} Password</label>
         {errors.password && (
-          <p className="text-red-500 text-2xl">{errors.password.message}</p>
+          <p className="text-red-500 text-sm">{errors.password.message}</p>
+        )}
+      </div>
+      <div className="relative mb-6">
+        <input
+          type="password"
+          name="passwordConfirmation"
+          className={`${styles.input} appearance-none block w-full p-2.5 rounded-md border border-gray-300 placeholder-gray-400 focus:outline-none focus:border-highlight transition duration-150 ease-in-out sm:text-sm sm:leading-5`}
+          ref={register({
+            required: "Please submit a password.",
+            validate: value => value === password || "The passwords do not match."
+          })}
+        />
+        <label htmlFor="password" className={`${styles.label} absolute transition-all top-2.5 left-2 px-1 pointer-events-none bg-white text-xs`}>{LockIconElement} Confirm Password</label>
+        {errors.passwordConfirmation && (
+          <p className="text-red-500 text-sm">{errors.passwordConfirmation.message}</p>
         )}
       </div>
       <Button text="Register" textSize="lg" full={true} />
