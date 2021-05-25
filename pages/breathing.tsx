@@ -65,7 +65,7 @@ const Breathing: React.FC = () => {
                                     <h1 className="text-lg text-highlight-secondary tracking-wide">
                                         Directions:
                                     </h1>
-                                    <ul className="text-sm">
+                                    <ul className="text-sm text-gray-800 leading-relaxed tracking-wide">
                                         {selectedMethod &&
                                             selectedMethod.instructions.map(
                                                 (instruction, idx) => {

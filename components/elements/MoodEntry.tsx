@@ -6,7 +6,7 @@ import Zoom from 'react-reveal/Zoom';
 import DataEntryForm from '../modules/Forms/CreateMoodEntry/DataEntryForm';
 import { emoteElements, deleteIconElement, penIconElement } from "../../icons";
 
-interface P {
+interface MoodEntryProps {
     currentData: any;
     description: string;
     idx: number;
@@ -15,7 +15,7 @@ interface P {
     setCreationMode: (b: boolean) => void;
 }
 
-const Entry: React.FC<P> = ({ currentData, description, idx, mood, handleRemove }) => {
+const Entry: React.FC<MoodEntryProps> = ({ currentData, description, idx, mood, handleRemove }) => {
     const [editMode, setEditMode] = useState<boolean>(false);
 
     if (!editMode) {
@@ -26,7 +26,7 @@ const Entry: React.FC<P> = ({ currentData, description, idx, mood, handleRemove 
                 >
                     <div>
                         {emoteElements[mood]}
-                        <p className="text-sm">{description}</p>
+                        <p className="text-sm leading-relaxed tracking-wide text-gray-700">{description}</p>
                     </div>
                     <div className="flex content-center text-gray-400">
                         <button
@@ -55,7 +55,7 @@ const Entry: React.FC<P> = ({ currentData, description, idx, mood, handleRemove 
     return (
         <Zoom duration={500}>
             <div className="w-full mb-5">
-                <DataEntryForm setEditMode={setEditMode} entryIndex={idx} currentData={currentData} />
+                <DataEntryForm setEditMode={setEditMode} entryIndex={idx} currentData={currentData} defaultVal={ description }/>
             </div>
         </Zoom>
     )
