@@ -9,7 +9,7 @@
 
 @layer base {
     html {
-      @apply font-sans
+      @apply font-sans bg-base;
     }
     h1 {
       @apply text-2xl font-heading;
