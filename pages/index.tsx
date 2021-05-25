@@ -15,11 +15,11 @@ const Index: React.FC = () => {
             <div>
                 <section className="flex flex-col items-center">
                     <LandingNavbar />
-                    <div className="flex flex-col md:flex-row w-full md:w-3/4 mt-5 md:mt-10">
-                        <div className="flex justify-center items-center w-1/2">
+                    <div className="flex flex-col items-center md:mt-10">
+                        <div className="my-10">
                             <Jumbotron />
                         </div>
-                        <img className="shadow-md w-3/5" src={require("../public/static/imgs/landing-home.jpg")}></img>
+                        <img className="shadow-lg rounded-lg w-11/12 md:w-3/5" src={require("../public/static/imgs/landing-home.jpg")}></img>
                     </div>
                 </section>
                 <section className="flex flex-col items-center mb-10">
