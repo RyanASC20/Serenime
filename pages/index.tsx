@@ -23,7 +23,7 @@ const Index: React.FC = () => {
                     </div>
                 </section>
                 <section className="flex flex-col items-center my-28">
-                    <Card description="Simply enter how you feel and viisualize how you've been." title="Track Your Mood">
+                    <Card description="Simply enter how you feel and visualize how you've been." title="Track Your Mood">
                         <img src={require("../public/static/imgs/moodtracker.jpg")} className="max-w-xs md:max-w-xl"></img>
                     </Card>
                     <Card reverse={true} title="Breathe" description="Take some time out of your day to just relax with our guided breathing exercises.">
